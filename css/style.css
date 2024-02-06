@@ -1,0 +1,19 @@
+body{
+    margin: 0px;
+}
+
+.tekst1{
+    position: absolute;
+    top: 20%;
+    left: 35%;
+    font-size: 50px;
+    color: black;
+    font-family: 'Lobster', cursive;
+}
+
+.tekst2{
+    position: absolute;
+    top: 30%;
+    left: 2%;
+    color: black;
+}
