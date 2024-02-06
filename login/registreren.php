@@ -29,6 +29,22 @@ if ($resultaat) {
     wachtwoord, rol) values (null,?,?,?,?,?,?,?,?,)";
     $stmt=$verbinding->prepare($sql);
     try{
-        
+       $stmt->execute(array(
+        $voornaam,
+        $achternaam,
+        $straat,
+        $postcode,
+        $woonplaats,
+        $email,
+        $wachtwoordhash,
+        0)
+       );
+       $melding="Nieuw account aangemaakt.";
+    } catch(PDOException $e) {
+        $melding="Kon geen account maken.";
+        $e->getMessage();
     }
+    echo "<div id='melding'> .$melding."></div>
 }
+}
+?>
