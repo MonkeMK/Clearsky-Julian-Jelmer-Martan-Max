@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/1.1.1/chartjs-plugin-zoom.min.js"></script>
+    <link href="style/style.css" rel="stylesheet">
+    <title>Chart 2</title>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="../index.html">Home</a>
+    <a id="login" href="admin.php">login</a>
+    <div class="dropup">
+        <button class="dropbtn">All charts</button>
+        <div class="dropup-content">
+            <a href="chart1.html">line graph</a>
+            <a href="chart2.html">bar graph</a>
+            <a href="source1.html">Sensor 1</a>
+            <a href="source2.html">Sensor 2</a>
+            <a href="source3.html">Sensor 3</a>
+        </div>
+    </div>
+</div>
+
+<canvas id="myChart"></canvas>
+
+<button class="theme-switch" onclick="switchBackground();">Switch Theme</button>
+
+<script>
+
+    $.ajax({
+        url: "get_data.php",
+        dataType: "json",
+        success: function (data) {
+
+            const labels = data.map(entry => entry.ID);
+            const date = data.map(entry => entry.Date);
+            const sensor1Data = data.map(entry => entry.Sensor1);
+            const sensor2Data = data.map(entry => entry.Sensor2);
+            const sensor3Data = data.map(entry => entry.Sensor3);
+
+            const ctx = document.getElementById('myChart').getContext('2d');
+
+            ctx.canvas.parentNode.style.height = '600px';
+            ctx.canvas.parentNode.style.width = '1920px';
+
+            const plugin = {
+                id: 'customCanvasBackgroundColor',
+                beforeDraw: (chart, args, options) => {
+                    const {ctx} = chart;
+                    ctx.save();
+                    ctx.globalCompositeOperation = 'destination-over';
+                    ctx.fillStyle = options.color || '#525252';
+                    ctx.fillRect(0, 0, chart.width, chart.height);
+                    ctx.restore();
+                }
+            };
+
+            const chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: date,
+                    datasets: [{
+                        label: 'Nuclear',
+                        data: sensor1Data,
+                        borderColor: 'red',
+                        backgroundColor: 'rgb(255,0,0)',
+                    }, {
+                        label: 'Zon',
+                        data: sensor2Data,
+                        borderColor: 'blue',
+                        backgroundColor: 'rgb(0,0,255)',
+                    }, {
+                        label: 'Wind',
+                        data: sensor3Data,
+                        borderColor: 'green',
+                        backgroundColor: 'rgb(0,255,0)',
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: {
+                                color: '#ffffff'
+                            }
+                        },
+                        zoom: {
+                            zoom: {
+                                wheel: {
+                                    enabled: true,
+                                },
+                                pinch: {
+                                    enabled: true
+                                },
+                                mode: 'xy',
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: {
+                                color: 'white'
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                color: 'white'
+                            }
+                        }
+                    }
+                },
+                plugins: [plugin],
+            });
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log('AJAX error: ' + textStatus + ' - ' + errorThrown);
+        }
+    });
+
+</script>
+<script src="../script.js"></script>
+
+</body>
+</html>

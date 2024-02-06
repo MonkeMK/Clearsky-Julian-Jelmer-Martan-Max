@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="src/style/style.css" rel="stylesheet">
+    <title>Chart</title>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a id="login" href="src/admin.php">login</a>
+    <div class="dropup">
+        <button class="dropbtn">All charts</button>
+        <div class="dropup-content">
+            <a href="src/chart1.html">line graph</a>
+            <a href="src/chart2.html">bar graph</a>
+            <a href="src/source1.html">Sensor 1</a>
+            <a href="src/source2.html">Sensor 2</a>
+            <a href="src/source3.html">Sensor 3</a>
+        </div>
+    </div>
+</div>
+
+<img class="indexImage" src="src/style/coalplant.avif" width="1050px" height="820px">
+
+<!--    <H1 class="indexTextTitle">About FrontTech</H1>-->
+
+<!--    <p class="indexText"><br><br>FrontTech is een energiebedrijf dat zich richt op het leveren van duurzame-->
+<!--    energieoplossingen aan particuliere en zakelijke klanten. Met een focus     op innovatie en klanttevredenheid streeft-->
+<!--    FrontTech naar het bevorderen van een schonere en groenere toekomst voor iedereen.(powered by HP®)</p>-->
+
+
+<div class="indexGround">
+    <div class="indexText">
+        <h1>About FrontTech</h1>
+        <p>FrontTech is een energiebedrijf dat zich richt op het leveren van duurzame energieoplossingen aan particuliere en zakelijke klanten. Met een focus op innovatie en klanttevredenheid streeft FrontTech naar het bevorderen van een schonere en groenere toekomst voor iedereen. (powered by HP®)</p>
+    </div>
+</div>
+
+<img id="sun" src="https://em-content.zobj.net/source/noto-emoji-animations/344/sun-with-face_1f31e.gif" alt="Sunrise" width="256px" height="256px">
+
+<script>
+    window.onload = function() {
+        setTimeout(function() {
+            var sun = document.getElementById('sun');
+            sun.classList.add('sunrise');
+        }, 1000);
+        setTimeout(function() {
+            var sun = document.getElementById('sun');
+            sun.classList.add('sunrise2');
+        }, 3400);
+    }
+
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+
+<button class="theme-switch" onclick="switchBackground();">Switch Theme</button>
+
+<footer>
+    <p>&copy; Frontech 2023. All rights reserved. <a href="https://www.chartjs.org/">ChartJS</a></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
