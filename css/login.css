@@ -1,0 +1,24 @@
+body{
+    margin: 0px;
+}
+
+.d-flex{
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    background-color: #f5f5f5;
+    left:35%;
+}
+
+.d-flex1{
+    position: relative;
+    left:50%
+}
+
+.pt-12{
+    position: absolute;
+    left:40%;
+    bottom: 10%;
+
+}
