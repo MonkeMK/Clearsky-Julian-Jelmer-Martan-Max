@@ -2,9 +2,8 @@
 <html lang="en">
 
 <?php
-    include_once("../Clearsky-Julian-Jelmer-Martan-Max/allphp/database.php");
-    include_once('../Clearsky-Julian-Jelmer-Martan-Max/classes/cart.php');
-    $cart = new cart();
+    include_once("../Clearsky-Julian-Jelmer-Martan-Max/allphp/header.php");
+    include_once('../Clearsky-Julian-Jelmer-Martan-Max/allphp/database.php');
 ?>
 <head>
     <meta charset="UTF-8">
