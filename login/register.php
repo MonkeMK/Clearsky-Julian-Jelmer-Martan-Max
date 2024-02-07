@@ -8,7 +8,7 @@
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/register.css">
     <title>Register</title>
     <?php 
         include_once("../allphp/php.php"); 
@@ -16,6 +16,19 @@
         $conn = connection();
     ?>
 </head>
+
+<style>
+    body{
+        background-image: url("../assets/background.png");
+        background-color: white;
+        height: 900px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    
+</style>
 
 <body style="overflow: hidden;">
     <?php
@@ -28,7 +41,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6 text-black">
-                    <div class="d-flex1 align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+                    <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
                         <form style=" position:absolute; width: 23rem; top: 9%;" method="POST">
 
@@ -77,15 +90,16 @@
                             </div>
 
                             <div class="pt-1 mb-4">
-                                <button class="btn btn-info btn-lg btn-block" type="submit">Register</button>
+                                <button style="left:60%;" class="btn btn-info btn-lg btn-block" type="submit">Register</button>
                             </div>
+
+                            <a href="login.php">
+                                <div class="pt-12 mb-4">
+                                    <button style="position:absolute; left: 5%; bottom:-3.5%;" class="btn btn-info btn-lg btn-block" type="submit">Back to login</button>
+                                </div>
+                            </a>
                         </form>
                     </div>
-                    <a href="login.php">
-                        <div class="pt-12 mb-4">
-                            <button style="position:absolute; bottom:5%;" class="btn btn-info btn-lg btn-block" type="submit">Back to login</button>
-                        </div>
-                    </a>
                 </div>
             </div>
         </div>

@@ -48,3 +48,48 @@ if ($resultaat) {
 }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registratie Clearsky</title>
+
+    <link rel="stylesheet" href="css/webshop.css">
+    <script>src="https://www.google.com/recaptcha/api.js" async defer</script>
+</head>
+<body>
+
+    <!-- registratie -->
+    <div class="content">
+    <form name="registreren" class="form" method="POST">
+    <p id="pagina_titel"> registreren</p>
+    <input type="text" required name="voornaam"
+    placeholder="voornaam"/>
+    <input type="text" required name="achternaam"
+    placeholder="achternaam"/>
+    <input type="text" required name="straat"
+    placeholder="straat"/>
+    <input type="text" required name="postcode"
+    placeholder="postcode"/>
+    <input type="text" required name="woonplaats"
+    placeholder="woonplaats"/>
+    <input type="text" required name="e-mail"
+    placeholder="e-mail"/>
+    <input type="text" required name="wachtwoord"
+    placeholder="wachtwoord"/>
+    
+     <!-- recaptcha test engine -->
+        <div class="g-recaptcha"
+         data-sitekey="6LelxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhl"></div>
+         <br/>
+            <div class="icon_container">
+             <input type="submit" class="icon" id="submit"
+                        name="submit" value="&rarr;"/>
+         </div>
+    </form>
+    </div>
+    
+</body>
+</html>

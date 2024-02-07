@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
         integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/login.css">
-    <title>Pizza</title>
+    <title>Login</title>
     <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
     <?php
     include_once("../allphp/php.php");
@@ -17,31 +17,17 @@
     $conn = connection();
     ?>
 </head>
-
 <style>
-    .password-input {
-  border-radius: 0.375rem;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-right: none;
-}
-
-.password-toggle-btn {
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-left: none;
-  border-radius: 0.375rem;
-  margin-left: -1px;
-}
-
-.form-label {
-  margin-top: -0.5rem;
-  margin-left: 0.25rem;
-  padding: 0 0.5rem;
-  background-color: white;
-  color: gray;
-}
-
-
-
+    body{
+        background-image: url("../assets/background.png");
+        background-color: white;
+        height: 900px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    
 </style>
 
 <body>
@@ -117,7 +103,7 @@
                 passwordToggle.classList.add("far", "fa-eye");
             }
         }
-    </script>
+    </scrip>
 </body>
 
 </html>

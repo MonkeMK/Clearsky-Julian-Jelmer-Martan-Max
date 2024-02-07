@@ -1,10 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <?php
     include_once("../Clearsky-Julian-Jelmer-Martan-Max/allphp/database.php");
     include_once('../Clearsky-Julian-Jelmer-Martan-Max/classes/cart.php');
     $cart = new cart();
 ?>
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,8 +54,6 @@
                             <?php } ?>
                         </li>
                     </ul>
-
-                    </ul>
                     <button class="btn btn-primary btn-sm ms-auto" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Cart</button>
                 </div>
@@ -69,18 +68,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-        <?php 
-        if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === 1) { ?>
-            <a class="nav-link dropdown-toggle link-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Account
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="../userpage/user.php">My Account</a></li>
-                <li><a class="dropdown-item" href="../login/logout.php">Logout</a></li>
-            </ul>
-        <?php } else { ?>
-            <a class="nav-link link-light" href="login.php">Login</a>
-        <?php } ?>
+        
     </header>
 </body>
     <div class="container">

@@ -77,7 +77,7 @@ function register()
         if ($stmt->execute()) {
             // Registration successful, set session variables and redirect to the dashboard
             $_SESSION['email'] = $email;
-            header("Location: index.php");
+            header("Location: login.php");
             exit();
         } else {
             // Registration failed, update the error message
