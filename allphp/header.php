@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<?php
-include_once('classes/cart.php');
-include_once("database.php");
-$cart = new cart();
-?>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel=stylesheet href="../css/overons.css">
-    <title>Home</title>
+    <link rel=stylesheet href="../css/style.css">
+    <title>Clearsky</title>
+
+    <?php
+        include_once('allphp/database.php');
+        include_once('classes/cart.php');
+        $cart = new cart();
+    ?>
 </head>
 
 <body>
@@ -21,7 +20,7 @@ $cart = new cart();
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light" data-bs-theme="dark">
         <div class="container-fluid">
-            <a href="index.php"><img src="assets/Logo.png" class="navbar-brand" width="100" height="100"></a>
+            <a href="index.php"><img src="../assets/Logo.png" class="navbar-brand" width="100" height="100"></a>
             <ul class="navbar-nav d-flex justify-content-around align-items- w-100">
                 <li class="nav-item">
                     <a class="nav-link" href="../Productpage/product.html">Producten</a>

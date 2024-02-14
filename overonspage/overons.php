@@ -2,8 +2,8 @@
 <html lang="en">
 
 <?php
-    include('Ala webdesign\Clearsky-Julian-Jelmer-Martan-Max\allphp\database.php');
-    include('Ala webdesign\Clearsky-Julian-Jelmer-Martan-Max\allphp\header.php');
+    include_once('../allphp/header.php');
+    include_once('../allphp/database.php');
     
 ?>
 <head>

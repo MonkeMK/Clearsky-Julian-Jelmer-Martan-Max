@@ -2,8 +2,8 @@
 <html lang="en">
 
 <?php
-    include_once("../Clearsky-Julian-Jelmer-Martan-Max/allphp/header.php");
-    include_once('../Clearsky-Julian-Jelmer-Martan-Max/allphp/database.php');
+    include_once("allphp/header.php");
+    include_once('allphp/database.php');
 ?>
 <head>
     <meta charset="UTF-8">
@@ -14,10 +14,6 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
-
-        
-    </header>
-</body>
     <div class="container">
         <div class="row">
             <div class="col-12">
