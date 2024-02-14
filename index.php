@@ -14,59 +14,7 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="index.html">
-                    <img src="../Clearsky-Julian-Jelmer-Martan-Max/assets/Logo.png" alt="logo" width="100" height="100">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../Productpage/product.html">Producten</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../afspraak system/afspraak.html">Maak hier een afspraak</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/services.html">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="../contactpage/contact.html">Contact</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <?php 
-                                if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === 1) { ?>
-                                <a class="nav-link dropdown-toggle link-light" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Account
-                                </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="user.php">My Account</a></li>
-                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-                            </ul>
-                            <?php } else { ?>
-                                <a class="nav-link link-light" href="login.php">Login</a>
-                            <?php } ?>
-                        </li>
-                    </ul>
-                    <button class="btn btn-primary btn-sm ms-auto" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Cart</button>
-                </div>
-                </nav>
 
-                </div>
-            </div>
-        </nav>
-     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasRightLabel">Cart</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
         
     </header>
 </body>
