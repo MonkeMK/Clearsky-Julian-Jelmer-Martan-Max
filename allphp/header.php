@@ -20,7 +20,7 @@
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light" data-bs-theme="dark">
         <div class="container-fluid">
-            <a href="index.php"><img src="../assets/Logo.png" class="navbar-brand" width="100" height="100"></a>
+            <a href="index.php"><img src="assets/Logo.png"width="100" height="100"></a>
             <ul class="navbar-nav d-flex justify-content-around align-items- w-100">
                 <li class="nav-item">
                     <a class="nav-link" href="../Productpage/product.html">Producten</a>
