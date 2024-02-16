@@ -29,7 +29,7 @@
                     <a class="nav-link" href="product.php">Producten</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="afspraak.html">Maak hier een afspraak</a>
+                    <a class="nav-link" href="afspraak.php">Maak hier een afspraak</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="dashboard.html">Dashboard</a>
