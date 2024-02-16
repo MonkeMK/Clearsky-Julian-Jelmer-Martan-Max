@@ -1,6 +1,5 @@
 <?php
-include_once("database.php");
-
+include 'database.php';
 // Establish the database connection
 $conn = connection();
 $error = ""; // Declare the $error variable

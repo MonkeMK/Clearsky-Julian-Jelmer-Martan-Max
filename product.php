@@ -13,7 +13,7 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Additional CSS for overlay */
+    /* Additional CSS for overlay */
         .overlay {
             position: fixed;
             top: 0;
@@ -26,13 +26,26 @@
         }
 
         .overlay-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #f5f5f5;
+        padding: 10px; /* Adjust the padding to make the overlay smaller */
+        border-radius: 5px;
+        text-align: center; /* Center align content */
+        width: 50%; /* Set the width of the overlay */
+        }
+
+
+        .overlay-content img {
+        max-width: 40%; /* Limit image width */
+        max-height: 40%; /* Limit image height */
+        height: auto;
+        width: auto;
+        margin-bottom: 20px; /* Add some space below the image */
+        background-color: transparent;
+        border: none; /* Remove border */
         }
     </style>
 </head>
@@ -61,15 +74,13 @@
                     <?php echo $r['description']; ?>
                 </p>
                 <p class="card-text"><small class="text-muted">
-                    <?php echo $r['price']; ?>
+                € <?php echo $r['price']; ?>
                 </small></p>
                 <a href="product.php?id=<?php echo $r['id']; ?>" class="btn btn-primary">Add to cart</a>
             </div>
             <div class="overlay">
-                <!-- Overlay content here -->
                 <div class="overlay-content">
-                    <!-- You can add additional content here if needed -->
-                    <p>This is the overlay content.</p>
+                    <!-- Content will be dynamically populated here -->
                 </div>
             </div>
         </div>
@@ -90,13 +101,29 @@
 <script src="script.js"></script>
 
 <script>
-    // JavaScript to show the overlay on click
     document.addEventListener("DOMContentLoaded", function () {
         const overlayContainers = document.querySelectorAll('.overlay-container');
 
         overlayContainers.forEach(container => {
             container.addEventListener('click', function () {
                 const overlay = this.querySelector('.overlay');
+                const name = this.querySelector('.card-title').textContent;
+                const description = this.querySelector('.card-text').textContent;
+                const price = this.querySelector('.text-muted').textContent;
+                const imageSrc = this.querySelector('.card-img-top').src;
+
+                const overlayContent = overlay.querySelector('.overlay-content');
+                overlayContent.innerHTML = `
+                    <div>
+                        <img src="${imageSrc}" alt="Product Image">
+                        <h5>${name}</h5>
+                        <p>${description}</p>
+                        <p>${price}</p>
+                        <a href="product.php?id=<?php echo $r['id']; ?>" class="btn btn-primary">Add to cart</a>
+                        <a href="product.php" class="btn btn-secondary">Back</a>
+                    </div>
+                `;
+
                 overlay.style.display = 'block';
             });
         });
