@@ -1,5 +1,6 @@
 <?php
-include 'database.php';
+include_once("database.php");
+
 // Establish the database connection
 $conn = connection();
 $error = ""; // Declare the $error variable
@@ -28,7 +29,7 @@ function login()
         $stmt->execute();
 
         // Fetch the result
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);;
+        $result = $stmt->fetch();
 
         if ($result) {
             // User exists and can log in, set session variables and redirect to the dashboard
