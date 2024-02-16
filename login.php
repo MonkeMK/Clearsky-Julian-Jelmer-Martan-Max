@@ -10,6 +10,7 @@
         integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
     <link rel="stylesheet" href="../Clearsky-Julian-Jelmer-Martan-Max/css/login.css">
     <title>Login</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
     <?php
     include_once("php.php");

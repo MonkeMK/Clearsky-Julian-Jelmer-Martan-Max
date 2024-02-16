@@ -8,12 +8,14 @@
     <link rel=stylesheet href="../css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-+0V4cXq+QRoi6iKzK2KRP3zZlNQrj5819m1GfOJwXwXcA+toUOD2KhTjhp5jcqv5" crossorigin="anonymous"></script>
     <title>Clearsky</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 
     <?php
         include_once('database.php');
         include_once('classes/cart.php');
         $cart = new cart();
     ?>
+    
 </head>
 
 <body>
