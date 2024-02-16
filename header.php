@@ -6,10 +6,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel=stylesheet href="../css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-+0V4cXq+QRoi6iKzK2KRP3zZlNQrj5819m1GfOJwXwXcA+toUOD2KhTjhp5jcqv5" crossorigin="anonymous"></script>
     <title>Clearsky</title>
 
     <?php
-        include_once('allphp/database.php');
+        include_once('database.php');
         include_once('classes/cart.php');
         $cart = new cart();
     ?>
@@ -23,16 +24,16 @@
             <a href="index.php"><img src="assets/Logo.png"width="100" height="100"></a>
             <ul class="navbar-nav d-flex justify-content-around align-items- w-100">
                 <li class="nav-item">
-                    <a class="nav-link" href="../Productpage/product.html">Producten</a>
+                    <a class="nav-link" href="product.php">Producten</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../afspraak system/afspraak.html">Maak hier een afspraak</a>
+                    <a class="nav-link" href="afspraak.html">Maak hier een afspraak</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="dashboard/dashboard.html">Dashboard</a>
+                    <a class="nav-link" href="dashboard.html">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="overonspage/overons.php">Over ons</a>
+                    <a class="nav-link" href="overons.php">Over ons</a>
                 </li>
                 <li class="nav-item dropdown">
                     <?php 
@@ -45,7 +46,7 @@
                             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                         </ul>
                     <?php } else { ?>
-                        <a class="nav-link link-light" href="login.php">Login</a>
+                        <a class="nav-link" href="login.php">Login</a>
                     <?php } ?>
                 </li>
             </ul>

@@ -35,7 +35,7 @@ function login()
             // User exists and can log in, set session variables and redirect to the dashboard
             $_SESSION['user_id'] = $result["id"];
             $_SESSION["logged_in"] = 1;
-            header("Location: ../index.php");
+            header("Location: index.php");
             exit();
         } else {
             // Invalid credentials or user cannot log in, update the error message

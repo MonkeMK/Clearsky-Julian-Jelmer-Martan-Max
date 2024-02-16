@@ -8,12 +8,12 @@
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/forgetpassword.css">
+    <link rel="stylesheet" href="../Clearsky-Julian-Jelmer-Martan-Max/css/forgetpassword.css">
     <title>Forget password</title>
     <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
     <?php 
-        include_once("../allphp/php.php"); 
-        include_once("../allphp/database.php");
+        include_once("php.php"); 
+        include_once("database.php");
         $conn = connection();
         handleForgotPassword($conn);
     ?>
@@ -21,7 +21,7 @@
 
 <style>
     body{
-        background-image: url("../assets/background.png");
+        background-image: url("../Clearsky-Julian-Jelmer-Martan-Max/assets/background.png");
         background-color: white;
         height: 900px;
         background-position: center;

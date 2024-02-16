@@ -8,18 +8,18 @@
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="../Clearsky-Julian-Jelmer-Martan-Max/css/register.css">
     <title>Register</title>
     <?php 
-        include_once("../allphp/php.php"); 
-        include_once("../allphp/database.php");
+        include_once("php.php"); 
+        include_once("database.php");
         $conn = connection();
     ?>
 </head>
 
 <style>
     body{
-        background-image: url("../assets/background.png");
+        background-image: url("../Clearsky-Julian-Jelmer-Martan-Max/assets/background.png");
         background-color: white;
         height: 900px;
         background-position: center;
@@ -55,37 +55,37 @@
 
                             <div class="form-outline mb-4">
                                 <input type="text" id="form2Example28" class="form-control form-control-lg"
-                                    name="name" required />
+                                    name="name"/>
                                 <label class="form-label" for="form2Example28">Name</label>
                             </div>
 
                             <div class="form-outline mb-4">
                                 <input type="email" id="form2Example18" class="form-control form-control-lg"
-                                    name="email" required />
+                                    name="email"/>
                                 <label class="form-label" for="form2Example18">Email address</label>
                             </div>
 
                             <div class="form-outline mb-4">
                                 <input type="password" id="form2Example28" class="form-control form-control-lg"
-                                    name="password" required />
+                                    name="password"/>
                                 <label class="form-label" for="form2Example28">Password</label>
                             </div>
 
                             <div class="form-outline mb-4">
                                 <input type="text" id="form2Example28" class="form-control form-control-lg"
-                                    name="address" required />
+                                    name="address" />
                                 <label class="form-label" for="form2Example28">Address</label>
                             </div>
 
                             <div class="form-outline mb-4">
                                 <input type="text" id="form2Example28" class="form-control form-control-lg"
-                                    name="zipcode" required />
+                                    name="zipcode"/>
                                 <label class="form-label" for="form2Example28">Zipcode</label>
                             </div>
 
                             <div class="form-outline mb-4">
                                 <input type="tel" id="form2Example28" class="form-control form-control-lg"
-                                    name="phone" required />
+                                    name="phone"/>
                                 <label class="form-label" for="form2Example28">Phone number</label>
                             </div>
 
