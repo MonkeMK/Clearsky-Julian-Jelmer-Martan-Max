@@ -10,6 +10,7 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="../Clearsky-Julian-Jelmer-Martan-Max/css/register.css">
     <title>Register</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <?php 
         include_once("php.php"); 
         include_once("database.php");

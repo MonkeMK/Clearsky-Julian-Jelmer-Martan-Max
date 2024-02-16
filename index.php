@@ -11,41 +11,8 @@
     <link rel="stylesheet" href="../Clearsky-Julian-Jelmer-Martan-Max/css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Additional CSS for overlay */
-        .overlay {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-            display: none; /* Hide initially */
-        }
 
-        .overlay-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #f5f5f5;
-            padding: 10px; /* Adjust the padding to make the overlay smaller */
-            border-radius: 5px;
-            text-align: center; /* Center align content */
-            width: auto; /* Set width to auto */
-            max-width: 80%; /* Limit maximum width */
-            height: auto; /* Set height to auto */
-            max-height: 80%; /* Limit maximum height */
-        }
-
-        .overlay-content img {
-            width: 100%; /* Ensure image fills container */
-            height: 100%; /* Ensure image fills container */
-            object-fit: contain; /* Maintain aspect ratio */
-        }
-    </style>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
 <body>
 
