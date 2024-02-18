@@ -1,11 +1,5 @@
 body{
-    background-image: url("../Clearsky-Julian-Jelmer-Martan-Max/assets/background.png");
-    background-color: white;
-    height: 900px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;    
+    margin: 0px;
 }
 
 .tekst1{
