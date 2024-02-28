@@ -2,7 +2,6 @@
 
 include_once('database.php');
 include_once('classes/cart.php');
-
 $cart = new cart(); // Create a new instance of the cart class
 
 ?>
@@ -66,13 +65,18 @@ $cart = new cart(); // Create a new instance of the cart class
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <?php
-        // Retrieve cart items and display them
-        foreach ($cart->getCart() as $key => $item) {
+    <?php
+    // Retrieve cart items and display them if the cart is not empty
+    $cartItems = $cart->getCart();
+    if (empty($cartItems)) {
+        echo "<p>Geen producten in je winkelwagen</p>";
+    } else {
+        foreach ($cartItems as $key => $item) {
+
             // Retrieve product details from the database based on the ID
             $conn = connection();
             $stmt = $conn->prepare("SELECT * FROM products WHERE id = :id");
-            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':id', $item);
             $stmt->execute();
             $product = $stmt->fetch();
 
@@ -81,20 +85,17 @@ $cart = new cart(); // Create a new instance of the cart class
                 $description = $product['description'];
                 $price = $product['price'];
                 $image = $product['image'];
-
-                // Output the product details
                 ?>
                 <div class="card mb-3">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="assets/img/<?php echo $image; ?>" alt="<?php echo $name; ?>" class="img-fluid">
+                            <img src="assets/<?php echo $image; ?>" alt="<?php echo $name; ?>" class="img-fluid">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $name; ?></h5>
                                 <p>Description: <?php echo $description; ?></p>
                                 <p>Price: <?php echo number_format($price, 2); ?></p>
-                                <p>Quantity: <?php echo $quantity; ?></p>
                                 <a href="remove.php?key=<?php echo $key; ?>" class="btn btn-danger">Remove</a>
                             </div>
                         </div>
@@ -106,7 +107,8 @@ $cart = new cart(); // Create a new instance of the cart class
         ?>
         <a href="checkout.php" class="btn btn-primary">Checkout</a>
         <a href="empty.php" class="btn btn-danger">Empty Cart</a>
-    </div>
+    <?php } ?>
+</div>
 </div>
 
 </body>
