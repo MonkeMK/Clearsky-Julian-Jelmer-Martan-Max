@@ -11,16 +11,12 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
     <?php
-    include_once("php.php");
+    include_once("header.php");
     include_once("database.php");
     $conn = connection();
     ?>
 </head>
 
 <body>
-    <header>
-    <?php
-    include_once("header.php");
-    ?>
-    </header>
+
 </body>

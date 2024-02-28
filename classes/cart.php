@@ -20,12 +20,12 @@ class cart
         return $this->cart;
     }
 
-    public function addItem($id, $size)
+    public function addItem($id)
     {
-        $item = ['id' => $id, 'size' => $size];
+        $item = ['id' => $id];
         $found = false;
         foreach ($this->cart as &$cartItem) {
-            if ($cartItem['id'] === $id && $cartItem['size'] === $size) {
+            if ($cartItem['id'] === $id) {
                 $cartItem['quantity']++;
                 $found = true;
                 break;
