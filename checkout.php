@@ -95,7 +95,7 @@ if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == 1) {
 
                         // Retrieve pizza details from the database based on the ID
                         $conn = connection();
-                        $stmt = $conn->prepare("SELECT * FROM product WHERE id = :id");
+                        $stmt = $conn->prepare("SELECT * FROM products WHERE id = :id");
                         $stmt->bindParam(':id', $item['id']);
                         $stmt->execute();
                         $pizza = $stmt->fetch();
