@@ -72,15 +72,15 @@
 
                     // Retrieve pizza details from the database based on the ID
                     $conn = connection();
-                    $stmt = $conn->prepare("SELECT * FROM product WHERE id = :id");
+                    $stmt = $conn->prepare("SELECT * FROM products WHERE id = :id");
                     $stmt->bindParam(':id', $id);
                     $stmt->execute();
                     $pizza = $stmt->fetch();
 
                     $name = $pizza['name'];
-                    $price = $pizza['price'];
-                    $image = $pizza['image'];
-                    $type = $pizza['type'];
+                    $price = $pizza['description'];
+                    $image = $pizza['price'];
+                    $type = $pizza['image'];
 
                     // Calculate the price based on the pizza size
                     if ($size === 'S') {
