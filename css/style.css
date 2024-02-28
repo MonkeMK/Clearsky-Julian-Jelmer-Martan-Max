@@ -5,8 +5,9 @@ body{
 .container{
     position: absolute;
     top:12%;
-    right:10%;
+    right:16%;
     color:black;
+    left:16%;
     text-align: center;
     border: solid black 3px;
     border-radius: 10px;
