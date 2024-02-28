@@ -13,7 +13,16 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <style>
-    /* Additional CSS for overlay */
+        body {
+            background-image: url("../Clearsky-Julian-Jelmer-Martan-Max/assets/background.png");
+            background-color: white;
+            height: 900px;
+            background-position: 0 0;
+            background-repeat: repeat;
+            position: relative;
+            animation: slide 30s linear infinite;
+        }
+
         .overlay {
             position: fixed;
             top: 0;

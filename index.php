@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+    
     include_once("header.php");
     include_once('database.php');
 ?>
@@ -17,21 +18,20 @@
         body {
             background-image: url("../Clearsky-Julian-Jelmer-Martan-Max/assets/background.png");
             background-color: white;
-            height: 900px;
+            heigcht: 900px;
             background-position: 0 0;
             background-repeat: repeat;
             position: relative;
             animation: slide 30s linear infinite;
         }
-
-    </style>
+</style>
 <body>
 <div class="container">
     <h1>Welkom bij Clearsky</h1>
     <p>Wij van Clearsky leveren u de beste producten op de markt. We zorgen voor de beste kwaliteit voor de laagste prijs. Neem een kijkje in ons assortiment en laat u verrassen door de kwaliteit van onze producten. ❤️</p> 
 </div>
 
-<div class="d-flex flex-wrap justify-content-around" style="margin-top: 200px;">
+<div class="d-flex flex-wrap justify-content-around" style="margin-top: 250px;">
     <?php
     $conn = connection();
 
