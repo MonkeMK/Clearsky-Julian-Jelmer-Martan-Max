@@ -85,7 +85,7 @@
                 <p class="card-text"><small class="text-muted">
                 € <?php echo $r['price']; ?>
                 </small></p>
-                <a href="product.php?id=<?php echo $r['id']; ?>" class="btn btn-primary">Add to cart</a>
+                <a href="addToCart.php?id=<?php echo $r['id']; ?>" class="btn btn-primary">Add to cart</a>
             </div>
             <div class="overlay">
                 <div class="overlay-content">
@@ -111,6 +111,14 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
+        const addToCartButtons = document.querySelectorAll('.btn-primary');
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function (event) {
+                event.stopPropagation(); // Prevent the click event from propagating to the container
+            });
+        });
+
         const overlayContainers = document.querySelectorAll('.overlay-container');
 
         overlayContainers.forEach(container => {
@@ -128,7 +136,7 @@
                         <h5>${name}</h5>
                         <p>${description}</p>
                         <p>${price}</p>
-                        <a href="product.php?id=<?php echo $r['id']; ?>" class="btn btn-primary">Add to cart</a>
+                        <a href="addToCart.php?id=<?php echo $r['id']; ?>" class="btn btn-primary">Add to cart</a>
                         <a href="product.php" class="btn btn-secondary">Back</a>
                     </div>
                 `;

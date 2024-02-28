@@ -1,33 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
 <?php
-    
     include_once("header.php");
     include_once('database.php');
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clearsky</title>
     <link rel="stylesheet" href="../Clearsky-Julian-Jelmer-Martan-Max/css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="../Clearsky-Julian-Jelmer-Martan-Max/css/style.css">
-</head>
-<style>
+    <style>
         body {
             background-image: url("../Clearsky-Julian-Jelmer-Martan-Max/assets/background.png");
             background-color: white;
-            heigcht: 900px;
+            height: 900px;
             background-position: 0 0;
             background-repeat: repeat;
             position: relative;
             animation: slide 30s linear infinite;
         }
-</style>
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none; /* Hide initially */
+        }
+
+        .overlay-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #f5f5f5;
+        padding: 10px; /* Adjust the padding to make the overlay smaller */
+        border-radius: 5px;
+        text-align: center; /* Center align content */
+        width: 50%; /* Set the width of the overlay */
+        }
+
+
+        .overlay-content img {
+        max-width: 40%; /* Limit image width */
+        max-height: 40%; /* Limit image height */
+        height: auto;
+        width: auto;
+        margin-bottom: 20px; /* Add some space below the image */
+        background-color: transparent;
+        border: none; /* Remove border */
+        }
+    </style>
+</head>
 <body>
+
 <div class="container">
     <h1>Welkom bij Clearsky</h1>
     <p>Wij van Clearsky leveren u de beste producten op de markt. We zorgen voor de beste kwaliteit voor de laagste prijs. Neem een kijkje in ons assortiment en laat u verrassen door de kwaliteit van onze producten. ❤️</p> 
@@ -58,7 +90,7 @@
                 <p class="card-text"><small class="text-muted">
                 € <?php echo $r['price']; ?>
                 </small></p>
-                <a href="product.php?id=<?php echo $r['id']; ?>" class="btn btn-primary">Add to cart</a>
+                <a href="addToCart.php?id=<?php echo $r['id']; ?>" class="btn btn-primary">Add to cart</a>
             </div>
             <div class="overlay">
                 <div class="overlay-content">
@@ -87,7 +119,12 @@
         const overlayContainers = document.querySelectorAll('.overlay-container');
 
         overlayContainers.forEach(container => {
-            container.addEventListener('click', function () {
+            container.addEventListener('click', function (event) {
+                // Check if the clicked element is the "Add to cart" button
+                if (event.target.classList.contains('btn-primary')) {
+                    return; // Do nothing and let the default action proceed
+                }
+
                 const overlay = this.querySelector('.overlay');
                 const name = this.querySelector('.card-title').textContent;
                 const description = this.querySelector('.card-text').textContent;
@@ -101,7 +138,7 @@
                         <h5>${name}</h5>
                         <p>${description}</p>
                         <p>${price}</p>
-                        <a href="product.php?id=<?php echo $r['id']; ?>" class="btn btn-primary">Add to cart</a>
+                        <a href="addToCart.php?id=<?php echo $r['id']; ?>" class="btn btn-primary">Add to cart</a>
                         <a href="product.php" class="btn btn-secondary">Back</a>
                     </div>
                 `;
