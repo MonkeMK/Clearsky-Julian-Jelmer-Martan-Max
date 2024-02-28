@@ -139,7 +139,7 @@
                         <p>${description}</p>
                         <p>${price}</p>
                         <a href="addToCart.php?id=<?php echo $r['id']; ?>" class="btn btn-primary">Add to cart</a>
-                        <a href="product.php" class="btn btn-secondary">Back</a>
+                        <a href="index.php" class="btn btn-secondary">Back</a>
                     </div>
                 `;
 
