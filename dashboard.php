@@ -80,7 +80,7 @@ if ($resultaat) {
     <input type="text" required name="wachtwoord"
     placeholder="wachtwoord"/>
     
-     <!-- recaptcha test engine -->
+     <!-- recaptcha test engine 
         <div class="g-recaptcha"
          data-sitekey="6LelxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhl"></div>
          <br/>
@@ -89,7 +89,7 @@ if ($resultaat) {
                         name="submit" value="&rarr;"/>
          </div>
     </form>
-    </div>
+    </div> -->
     
 </body>
 </html>

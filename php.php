@@ -6,6 +6,16 @@ $conn = connection();
 $error = ""; // Declare the $error variable
 session_start();
 
+function recaptcha($POST) {
+    $secretKey = '6LdY5YIpAAAAALfCIfLdbxtNxSeZFpqzVlhSrbQs';
+    $captcha = $POST['g-recaptcha-response'];
+    
+    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captcha");
+    $responseKeys = json_decode($response, true);
+
+    return $responseKeys["success"];
+}
+
 function login()
 {
     global $conn, $error;
@@ -16,6 +26,12 @@ function login()
     }
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (!recaptcha($_POST)) {
+            $error = "Invalid captcha robot boy little robot boy boy";
+            header("Location: login.php");
+            die();
+        }
+
         $email = $_POST['email'];
         $password = $_POST['password'];
 
