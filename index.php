@@ -26,13 +26,12 @@
 
     </style>
 <body>
+<div class="container">
+    <h1>Welkom bij Clearsky</h1>
+    <p>Wij van Clearsky leveren u de beste producten op de markt. We zorgen voor de beste kwaliteit voor de laagste prijs. Neem een kijkje in ons assortiment en laat u verrassen door de kwaliteit van onze producten. ❤️</p> 
+</div>
 
-<h1 class="tekst1">Welkom bij Clearsky</h1>
-
-
-<p class="tekst2">Wij van Clearsky leveren u de beste zonnepanelen die u ooit heeft gezien</p>
-
-<div class="d-flex flex-wrap justify-content-around" style="margin-top: 100px;">
+<div class="d-flex flex-wrap justify-content-around" style="margin-top: 200px;">
     <?php
     $conn = connection();
 
