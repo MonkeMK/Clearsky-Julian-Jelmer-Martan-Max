@@ -78,18 +78,6 @@ if ($resultaat) {
     <input type="text" required name="e-mail"
     placeholder="e-mail"/>
     <input type="text" required name="wachtwoord"
-    placeholder="wachtwoord"/>
-    
-     <!-- recaptcha test engine 
-        <div class="g-recaptcha"
-         data-sitekey="6LelxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhl"></div>
-         <br/>
-            <div class="icon_container">
-             <input type="submit" class="icon" id="submit"
-                        name="submit" value="&rarr;"/>
-         </div>
-    </form>
-    </div> -->
-    
+    placeholder="wachtwoord"/>    
 </body>
 </html>

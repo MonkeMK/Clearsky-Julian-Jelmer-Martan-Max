@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-    include_once("header.php");
-    include_once("database.php");
-    $conn = connection();
+include_once("header.php");
+include_once("database.php");
+$conn = connection();
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,18 +17,8 @@
     <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
 </head>
 
-<style>
-    body {
-    background-image: url("../Clearsky-Julian-Jelmer-Martan-Max/assets/background.png");
-    background-color: white;
-    height: 900px;
-    background-position: 0 0;
-    background-repeat: repeat;
-    position: relative;
-    animation: slide 30s linear infinite;
-}
-
 </style>
+
 <body>
     <div class="container">
         <div class="row">
@@ -36,6 +27,30 @@
                 <form action="afspraak.php" method="post">
                     <div class="form-group">
                         <label for="name">Naam</label>
-                        <input type="text" class="form-control" id="name" name="name" required> 
+                        <input type="text" class="form-control" id="name" name="name" required>
+                </form>
+            </div>
 
+<h2>Voer een datum en beschrijving in:</h2>
+
+<form id="myForm">
+  <label for="datum">Datum:</label><br>
+  <input type="date" id="datum" name="datum"><br>
+  <label for="beschrijving">Beschrijving:</label><br>
+  <textarea class="beschrijving" id="beschrijving" name="beschrijving"></textarea><br><br>
+  <button type="button" onclick="submitForm()">Verzenden</button>
+</form>
+
+<script>
+function submitForm() {
+  var datum = document.getElementById("datum").value;
+  var beschrijving = document.getElementById("beschrijving").value;
+  
+  // Maak een nieuwe blanco pagina aan en stuur de gegevens daar naartoe
+  var newWindow = window.open('', '_blank');
+  newWindow.document.write("<h2>Ingevoerde gegevens:</h2>");
+  newWindow.document.write("<p><strong>Datum:</strong> " + datum + "</p>");
+  newWindow.document.write("<p><strong>Beschrijving:</strong> " + beschrijving + "</p>");
+}
+</script>
 </body>
