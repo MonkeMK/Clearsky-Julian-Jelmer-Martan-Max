@@ -72,19 +72,19 @@ $cart = new cart(); // Create a new instance of the cart class
         echo "<p>Geen producten in je winkelwagen</p>";
     } else {
         foreach ($cartItems as $key => $item) {
-
             // Retrieve product details from the database based on the ID
             $conn = connection();
             $stmt = $conn->prepare("SELECT * FROM products WHERE id = :id");
-            $stmt->bindParam(':id', $item);
+            $stmt->bindParam(':id', $item["id"]);
             $stmt->execute();
             $product = $stmt->fetch();
-
             if ($product) {
                 $name = $product['name'];
                 $description = $product['description'];
                 $price = $product['price'];
                 $image = $product['image'];
+
+                // Output the product details
                 ?>
                 <div class="card mb-3">
                     <div class="row g-0">
@@ -94,8 +94,9 @@ $cart = new cart(); // Create a new instance of the cart class
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $name; ?></h5>
-                                <p>Description: <?php echo $description; ?></p>
-                                <p>Price: <?php echo number_format($price, 2); ?></p>
+                                <p>Beschrijving: <?php echo $description; ?></p>
+                                <p>Prijs: €<?php echo number_format($price, 2) * $item['quantity']; ?></p>
+                                <p>Aantal: <?php echo $item['quantity']; ?></p>
                                 <a href="remove.php?key=<?php echo $key; ?>" class="btn btn-danger">Remove</a>
                             </div>
                         </div>

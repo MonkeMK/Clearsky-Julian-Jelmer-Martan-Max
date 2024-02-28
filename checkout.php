@@ -56,7 +56,7 @@ include_once("database.php");
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         grid-gap: 10px;
-        margin-top: 450px; /* Adjust the top margin to move the cards down */
+        margin-top: 550px; /* Adjust the top margin to move the cards down */
     }
 </style>
 
@@ -104,9 +104,11 @@ include_once("database.php");
                             $count++;
 
                             $conn = connection();
-                            $stmt = $conn->prepare("SELECT price FROM products");
+                            $stmt = $conn->prepare("SELECT * FROM products WHERE id = :id");
+                            $stmt->bindParam(':id', $item["id"]);
                             $stmt->execute();
                             $product = $stmt->fetch();
+                        
 
                             $price = $product['price'] * $item['quantity'];
                             $totalPrice += $price;
@@ -117,10 +119,11 @@ include_once("database.php");
                                     style="max-width: 200px; max-height: 200px;">
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <?php echo $name; ?>
+                                        <?php echo $product["name"]; ?>
                                     </h5>
-                                    <?php echo $description; ?><br>
-                                    <?php echo number_format($price, 2); ?>
+                                    <?php echo "Beschrijving: " . $product["description"]; ?><br>
+                                    <?php echo "Prijs: €" . number_format($price, 2) * $item["quantity"]; ?><br>
+                                    <?php echo "Aantal: " . $item['quantity']; ?><br>
                                     <br>
                                     <a href="remove.php?key=<?php echo $key; ?>" class="btn btn-danger">Remove</a>
                                 </div>

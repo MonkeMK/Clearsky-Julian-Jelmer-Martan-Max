@@ -22,7 +22,7 @@ class cart
 
     public function addItem($id)
 {
-    $item = ['id' => $id]; // Initialize quantity
+    $item = ['id' => $id, 'quantity' => 1]; // Initialize quantity
     $found = false;
 
     // Check if cart is empty
@@ -36,6 +36,7 @@ class cart
     foreach ($this->cart as &$cartItem) {
         // Check if the current cart item matches the item being added
         if (isset($cartItem['id']) && $cartItem['id'] === $id) {
+            $cartItem['quantity']++;
             $found = true;
             break;
         }
