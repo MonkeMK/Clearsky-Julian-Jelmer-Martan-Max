@@ -3,11 +3,10 @@ body{
 }
 
 .container{
-    position: absolute;
-    top:12%;
-    right:16%;
+    position: center;
+    top:20%;
+    
     color:black;
-    left:16%;
     text-align: center;
     border: solid black 3px;
     border-radius: 10px;
