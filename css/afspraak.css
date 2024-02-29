@@ -1,12 +1,10 @@
 body {
-    background-image: url("../Clearsky-Julian-Jelmer-Martan-Max/assets/background.png");
     background-image: url("../assets/background.png");
     background-color: white;
     height: 900px;
     background-position: 0 0;
     background-repeat: repeat;
     position: relative;
-    animation: slide 30s linear infinite;
 }
 .container {
     position: absolute;
