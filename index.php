@@ -93,7 +93,7 @@
                 <form action="addToCart.php" method="post">
                     <input type="hidden" name="id" value="<?php echo $productId; ?>"> 
                     <div class="d-flex justify-content-center">
-                        <input type="submit" class="btn btn-primary" value="Add to cart">
+                        <input type="submit" class="knop" value="Add to cart">
                     </div>
                 </form>
             </div>

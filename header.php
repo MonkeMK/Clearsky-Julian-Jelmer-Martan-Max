@@ -20,7 +20,27 @@ $cart = new cart(); // Create a new instance of the cart class
 </head>
 
 <body>
-    
+
+<style>
+    .knop1 {
+    color: white;
+    background-color: #103E7E;
+    border: solid #103E7E;
+    border-radius: 10px;
+    height: 5vh;
+    width: 5%;
+    transition: 0.2s;
+}
+
+.knop1:hover{
+    color: white;
+    background-color: #3050A8;
+    border: solid #3050A8;
+}
+
+
+
+</style>
 <header>
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light" data-bs-theme="dark">
         <div class="container-fluid">
@@ -53,7 +73,7 @@ $cart = new cart(); // Create a new instance of the cart class
                     <?php } ?>
                 </li>
             </ul>
-            <button class="btn btn-primary btn-sm ms-auto" type="button" data-bs-toggle="offcanvas"
+            <button class="knop1 btn-sm ms-auto" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Cart</button>
         </div>
     </nav>

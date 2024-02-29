@@ -44,5 +44,23 @@ body {
 }
 
 .btn {
-  color: black;
+  background-color: #103E7E;
+  color: white;
+  border: #103E7E;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.btn:hover{
+  color: white;
+  background-color: #3050A8; 
+}
+
+
+.link {
+  color: #103E7E;
+}
+
+.link:hover {
+  color: #3050A8;
 }
