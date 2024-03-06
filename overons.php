@@ -23,34 +23,22 @@
                     van experts die u kunnen helpen met het kiezen van de juiste zonnepanelen voor uw dak.<br> 
                     Met ons breden aanbod aan zonnepanelen kunnen wij u altijd helpen met het vinden van de juiste zonnepanelen.
                 </p>
-            </div>
-        </div>
-    </div>
 
-    <div class="container1">
-        <div class="row">
-            <div class="col-12">
                 <h1 class="tekst3">Ons team</h1>
                 <p class="tekst4">Wij zijn een team van 10 man die u helpt om uw zonnepaneel goed te installeren. Wij hebben<br>
                     een team van experts die u kunnen helpen met het kiezen van de juiste zonnepanelen voor uw dak.<br>
                     Met ons breden aanbod aan zonnepanelen kunnen wij u altijd helpen met het vinden van de juiste zonnepanelen.
-            </div>
-        </div>
-    </div>
+                </p>
 
-    <div class="container2">
-        <div class="row">
-            <div class="col-12">
                 <h1 class="tekst5">Contact</h1>
-            <div class="gegevens">
+                <div class="gegevens">
                 <p class="teksttelefoonnummer">Telefoonnummer: +31 6 12345678</p>
                 <p class="tekstemail">Email: zonnenpanelen123@clearsky.nl</p>
-            </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <footer class="text-center text-lg-start bg-light text-muted" style="position:absolute; left:0%; bottom:0%; width: 100%;">
+    </div> 
+    <footer class="text-center text-lg-start bg-light text-muted" style="position:absolute; left:0%; bottom:-5%; width: 100%;">
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
             <b>&copy Copyright by Clearsky</b>
         </div>
