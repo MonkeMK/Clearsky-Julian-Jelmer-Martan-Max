@@ -138,24 +138,38 @@ function handleAfspraak($conn) {
             $datum = $_POST["date"];
             $beschrijving = $_POST["description"];
             
-            // Prepare the SQL statement with named placeholders
-            $sql = "INSERT INTO afspraken (name, date, description) VALUES (:name, :date, :description)";
-            $stmt = $conn->prepare($sql);
+            // Controleer of de geselecteerde datum al in de database aanwezig is
+            $sql_check = "SELECT * FROM afspraken WHERE date = :date";
+            $stmt_check = $conn->prepare($sql_check);
+            $stmt_check->bindParam(':date', $datum);
+            $stmt_check->execute();
             
-            // Bind values to named placeholders
-            $stmt->bindParam(':name', $naam);
-            $stmt->bindParam(':date', $datum);
-            $stmt->bindParam(':description', $beschrijving);
-        
-            // Close the statement
-            $stmt->closeCursor();
+            if ($stmt_check->rowCount() > 0) {
+                $GLOBALS["AFSPRAAK_ERROR"] = "Op deze datum is al een afspraak gepland. Kies een andere datum.";
+                return; // Stop de functie als de datum al in de database aanwezig is
+            }
+            
+            // Voeg de afspraak toe aan de database
+            $sql_insert = "INSERT INTO afspraken (name, date, description) VALUES (:name, :date, :description)";
+            $stmt_insert = $conn->prepare($sql_insert);
+            $stmt_insert->bindParam(':name', $naam);
+            $stmt_insert->bindParam(':date', $datum);
+            $stmt_insert->bindParam(':description', $beschrijving);
+            
+            if ($stmt_insert->execute()) {
+                $GLOBALS["AFSPRAAK_ERROR"] = "Afspraak succesvol ingepland.";
+            } else {
+                $GLOBALS["AFSPRAAK_ERROR"] = "Er is een fout opgetreden bij het plannen van de afspraak.";
+            }
         } else {
-            echo "Alle velden moeten worden ingevuld.";
+            $GLOBALS["AFSPRAAK_ERROR"] = "Alle velden moeten worden ingevuld.";
         }
     } else {
-        echo "Ongeldige aanvraag.";
+        $GLOBALS["AFSPRAAK_ERROR"] = "Ongeldige aanvraag.";
     }
 }
+
+
 
 
 ?>
