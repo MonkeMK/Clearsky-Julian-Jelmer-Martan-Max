@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2024 at 08:46 AM
+-- Generation Time: Mar 06, 2024 at 09:54 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,14 +24,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `factuur`
+-- Table structure for table `afspraken`
 --
 
-CREATE TABLE `factuur` (
+CREATE TABLE `afspraken` (
   `id` int(11) NOT NULL,
-  `datum` datetime NOT NULL,
-  `user_id` int(11) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `afspraken`
+--
+
+INSERT INTO `afspraken` (`id`, `name`, `date`, `description`) VALUES
+(1, '0', '0000-00-00', '0'),
+(2, '0', '0000-00-00', '0'),
+(3, 'fafa', '2024-01-29', 'afaf'),
+(4, 'Jelmer', '2024-02-09', 'afafaf');
 
 -- --------------------------------------------------------
 
@@ -60,20 +71,6 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `image`) VALUES
 (7, 'maxmam', 'max is een homo', 1.00, 'zonnepaneel1.png'),
 (8, 'Martan is een aap ', 'geef een aap een goude ring en het blijft nogsteeds een lelijk ding ', 0.01, 'zonnepaneel1.png'),
 (9, 'Martan is een aap ', 'geef een aap een goude ring en het blijft nogsteeds een lelijk ding ', 0.01, 'zonnepaneel1.png');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `regel`
---
-
-CREATE TABLE `regel` (
-  `id` int(11) NOT NULL,
-  `aantal` int(11) NOT NULL,
-  `factuur_id` int(11) NOT NULL,
-  `groote` varchar(255) NOT NULL,
-  `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -149,34 +146,22 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `adress`, `email`, `password`, `phonenumber`, `zipcode`, `admin`, `can_login`) VALUES
-(1, 'Jelmer', 'Jeltje de Bosch Kemperstraat 55', 'jelmerdeleeuw@gmail.com', 'AaapAaap', 627045329, '2401KC', 0, 1),
-(2, 'Jelmer de Leeuw', 'Jeltje de Bosch Kemperstraat 55', 'jelmerdeleeuw@gmail.com', 'AaapAaap', 627045329, '2401KC', 0, 1),
-(3, 'admin', 'admin admin', 'admin@gmail.com', 'admin', 0, 'adfafa', 1, 1),
-(4, 'admin', 'admin admin', 'admin@gmail.com', 'admin', 0, 'jljl', 1, 1),
-(5, 'admin', 'adminadmin', 'admin@gmail.com', 'admin', 66666, '2401fg', 1, 1),
-(6, 'admin', 'adminadmin', 'admin@gmail.com', 'admin', 66666, '2401fg', 1, 1),
-(7, '', '', '', '', 0, '', 0, 1);
+(8, 'adminadmin', 'adminadmin', 'admin@gmail.com', 'admin', 2147483647, '6969kc', 1, 1);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `factuur`
+-- Indexes for table `afspraken`
 --
-ALTER TABLE `factuur`
+ALTER TABLE `afspraken`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `regel`
---
-ALTER TABLE `regel`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -196,22 +181,16 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `factuur`
+-- AUTO_INCREMENT for table `afspraken`
 --
-ALTER TABLE `factuur`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `afspraken`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT for table `regel`
---
-ALTER TABLE `regel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sensordata`
@@ -223,7 +202,7 @@ ALTER TABLE `sensordata`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
