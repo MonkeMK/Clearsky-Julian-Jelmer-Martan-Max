@@ -1,6 +1,6 @@
 </main>
 <footer>
-	<p><?= "&copy; Martan van Verseveld | 2022-".date("Y") ?></p>
+	<b>&copy Copyright by Clearsky | 2024-<?= date("Y") ?></b>
 </footer>
 </body>
 </html>
