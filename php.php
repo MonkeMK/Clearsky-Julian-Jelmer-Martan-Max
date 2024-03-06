@@ -161,5 +161,4 @@ function handleAfspraak($conn) {
         echo "Ongeldige aanvraag.";
     }
 }
-
 ?>
