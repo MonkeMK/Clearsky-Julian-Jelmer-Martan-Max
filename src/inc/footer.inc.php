@@ -1,7 +1,9 @@
 </main>
+<?php if (!in_array($page, _CONFIG['Blacklists']['footer'])): ?>
 <footer>
 	<b>&copy Copyright by Clearsky | 2024-<?= date("Y") ?></b>
 </footer>
+<?php endif; ?>
 </body>
 </html>
 <!--

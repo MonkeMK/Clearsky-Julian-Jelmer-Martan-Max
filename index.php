@@ -1,10 +1,9 @@
 <?php
 # author @ Martan van Verseveld
 
-# Error showing
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
+# Referer handling
+$_SESSION['referer'] = $_SERVER['HTTP_REFERER'];
 
 
 # Document root overwrite
@@ -16,8 +15,13 @@ $_SERVER['DOCUMENT_ROOT'] = getcwd();
 require_once($_SERVER['DOCUMENT_ROOT']."/src/core/init.core.php");
 
 
+# Including handlers
+require_once($_SERVER['DOCUMENT_ROOT']."/src/inc/handlers.inc.php");
+
+
 # Page handler
-$page = str_replace(str_replace($_SERVER['DOCUMENT_ROOT_INIT'], "", $_SERVER['DOCUMENT_ROOT']).'/', "", $_SERVER['REQUEST_URI']);
+$requested = explode("?", str_replace(str_replace($_SERVER['DOCUMENT_ROOT_INIT'], "", $_SERVER['DOCUMENT_ROOT']).'/', "", $_SERVER['REQUEST_URI']));
+$page = $requested[0];
 
 if (!in_array($page.'.php', $_PAGES)) {
 	http_response_code(404);

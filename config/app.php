@@ -11,4 +11,9 @@ return [
 		'database' => "",
 		'port' => "3306",
 	],
+	
+	'Blacklists' => [
+		'header' => ['login', 'register'],
+		'footer' => ['login', 'register'],
+	],
 ];

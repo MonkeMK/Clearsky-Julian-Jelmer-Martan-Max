@@ -22,6 +22,10 @@ if (file_exists($localConfig)) {
 DEFINE('_CONFIG', $_CONFIG);
 
 
+# Errors
+DEFINE('ERRORS', array());
+
+
 # Files
 require_once($_PATHS['inc']."/class_autoloader.inc.php");
 require_once($_PATHS['inc']."/functions.inc.php");
