@@ -60,7 +60,7 @@
                             <div class="form-outline mb-4">
                                 <input type="email" id="form2Example18" class="form-control form-control-lg"
                                     name="email" required />
-                                <label class="form-label" for="form2Example18">Email address</label>
+                                <label class="form-label" for="form2Example18">Email adres</label>
                             </div>
 
                             <div class="form-outline mb-4">
@@ -70,17 +70,16 @@
                                     <i class="bi bi-eye-fill"></i>
                                     </button>
                                 </div>
-                                <label class="form-label" for="form2Example28">Password</label>
+                                <label class="form-label" for="form2Example28">Wachtwoord</label>
                                 </div>
 
                                 <div class="g-recaptcha" data-sitekey="6LdY5YIpAAAAAHdMKJbm3A_QQCN6w_9Qn3oveQnv"></div>
                             <div class="pt-1 mb-4">
-                                <button class="btn btn-info btn-lg btn-block" type="submit">Login</button>
+                                <button class="btn btn-info btn-lg btn-block" type="submit">Inloggen</button>
                             </div>
 
-                            <p class="small mb-5 pb-lg-2"><a class="text-muted" href="forgotpassword.php">Forgot
-                                    password?</a></p>
-                            <p>Don't have an account? <a href="register.php" class="link">Register here</a></p>
+                            <p class="small mb-5 pb-lg-2"><a class="text-muted" href="forgotpassword.php">Wachtwoord vergeten?</a></p>
+                            <p>Heb je geen account? <a href="register.php" class="link">Registeer hier</a></p>
 
                         </form>
 

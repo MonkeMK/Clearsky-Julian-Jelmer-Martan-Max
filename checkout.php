@@ -120,7 +120,7 @@ include_once("database.php");
                                 <?php echo "Prijs: €" . number_format($product["price"] * $item["quantity"], 2); ?><br>
                                 <?php echo "Aantal: " . $item['quantity']; ?><br>
                                 <br>
-                                <a href="remove.php?key=<?php echo $key; ?>" class="btn btn-danger">Remove</a>
+                                <a href="remove.php?key=<?php echo $key; ?>" class="btn btn-danger">Verwijderen</a>
                             </div>
                         </div>
                     <?php }
@@ -131,7 +131,7 @@ include_once("database.php");
                 ?>
             </div>
             <!-- Total price section moved outside of the card grid -->
-            <h4 style="position:absolute; top: 72%; left:5%;">Total Price:
+            <h4 style="position:absolute; top: 72%; left:5%;">Totaalprijs:
                 <?php echo number_format($totalPrice, 2); ?>
             </h4>
         </div>
@@ -263,5 +263,5 @@ include_once("database.php");
         <hr style="position:absolute; top:197%; width:95%; border-top: 2px solid black; left:2.5%;">
         <button type="submit" name="checkout" value="1" class="checkoutknop btn-primary" <?php if (empty($cart->getCart())) {
             echo "disabled";
-        } ?>>Checkout</button>
+        } ?>>Betalen</button>
 </body>

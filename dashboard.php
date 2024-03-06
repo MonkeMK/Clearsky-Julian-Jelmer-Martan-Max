@@ -1,83 +1,87 @@
-<?php
-include("registreren.html");
-inlcude("bibliotheek/mailen.php");
-inlcude(DBconfig.php);
-if(isset($_POST["submit"]))
-{
-    $melding=" ";
-    $voornaam=htmlspecialchars($_POST[voornaam]);
-    $achternaam=htmlspecialchars($_POST[achternaam]);
-    $klant=$voornaam . " " .$achternaam;
-    $straat=htmlspecialchars($_POST[straat]);
-    $postcode=htmlspecialchars($POST[postcode]);
-    $woonplaats=htmlspecialchars($POST[vwoonplaats]);
-    $email=htmlspecialchars($POST[email]);
-    $wachtwoord=htmlspecialchars($POST[wachtwoord]);
-    $wachtwoordhash=password_hash($wachtwoord, PASSWORD_DEFAULT);
-}
-
-// duplicaat email checker
-$sql = "SELECT * FROM klant WHERE email = ?";
-$stmt = @verbinding->prepare($sql);
-$stmt->execute(array($email));
-$resultaat = $stmt->fetch(PDO: :FETCH_ASSOC);
-if ($resultaat) {
-    $melding="Deze email staat al in het systeem";
-}else{
-    $sql = "INSERT INTO klant (ID, voornaam achternaam
-    straat, postcode, woonplaats, email,
-    wachtwoord, rol) values (null,?,?,?,?,?,?,?,?,)";
-    $stmt=$verbinding->prepare($sql);
-    try{
-       $stmt->execute(array(
-        $voornaam,
-        $achternaam,
-        $straat,
-        $postcode,
-        $woonplaats,
-        $email,
-        $wachtwoordhash,
-        0)
-       );
-       $melding="Nieuw account aangemaakt.";
-    } catch(PDOException $e) {
-        $melding="Kon geen account maken.";
-        $e->getMessage();
-    }
-    echo "<div id='melding'> .$melding."></div>
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registratie Clearsky</title>
-
-    <link rel="stylesheet" href="css/webshop.css">
-    <script>src="https://www.google.com/recaptcha/api.js" async defer</script>
+    <title>Line and Bar Graphs with Charts.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    <canvas id="lineChart" style="margin-top:5%; width:40%; height:20%;"></canvas>
+    <hr style="position:absolute; top:60%; width:95%; border-top: 2px solid black; left:2.5%;">
+    <canvas id="barChart" style="margin-top:15%; width:40%; height:20%;"></canvas>
 
-    <!-- registratie -->
-    <div class="content">
-    <form name="registreren" class="form" method="POST">
-    <p id="pagina_titel"> registreren</p>
-    <input type="text" required name="voornaam"
-    placeholder="voornaam"/>
-    <input type="text" required name="achternaam"
-    placeholder="achternaam"/>
-    <input type="text" required name="straat"
-    placeholder="straat"/>
-    <input type="text" required name="postcode"
-    placeholder="postcode"/>
-    <input type="text" required name="woonplaats"
-    placeholder="woonplaats"/>
-    <input type="text" required name="e-mail"
-    placeholder="e-mail"/>
-    <input type="text" required name="wachtwoord"
-    placeholder="wachtwoord"/>    
+    <script>
+        // Generate random data points for line chart
+        var lineDataSets = [];
+        for (var j = 0; j < 6; j++) {
+            var lineDataPoints = [];
+            for (var i = 0; i < 10; i++) {
+                lineDataPoints.push(Math.floor(Math.random() * 300) + 50);
+            }
+            lineDataSets.push({
+                label: 'Line ' + (j + 1),
+                data: lineDataPoints,
+                borderColor: 'rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',1)',
+                backgroundColor: 'rgba(0, 0, 0, 0)',
+                borderWidth: 1,
+                lineTension: 0.4 // Adjust curvature here
+            });
+        }
+
+        // Generate random data points for bar chart
+        var barDataSets = [];
+        for (var j = 0; j < 6; j++) {
+            var barDataPoints = [];
+            for (var i = 0; i < 10; i++) {
+                barDataPoints.push(Math.floor(Math.random() * 300) + 50);
+            }
+            barDataSets.push({
+                label: 'Bar ' + (j + 1),
+                data: barDataPoints,
+                backgroundColor: 'rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',0.6)',
+                borderColor: 'rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',1)',
+                borderWidth: 1
+            });
+        }
+
+        // Create a line chart
+        var ctxLine = document.getElementById('lineChart').getContext('2d');
+        var lineChart = new Chart(ctxLine, {
+            type: 'line',
+            data: {
+                labels: Array.from(Array(10).keys()), // X-axis labels (0 to 9)
+                datasets: lineDataSets
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        // Create a bar chart
+        var ctxBar = document.getElementById('barChart').getContext('2d');
+        var barChart = new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: Array.from(Array(10).keys()), // X-axis labels (0 to 9)
+                datasets: barDataSets
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+    </script>
 </body>
 </html>

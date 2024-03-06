@@ -51,9 +51,11 @@ $cart = new cart(); // Create a new instance of the cart class
                     <li class="nav-item">
                         <a class="nav-link" href="afspraak.php">Maak hier een afspraak</a>
                     </li>
+                    <?php if (isset($_SESSION["user_id"]) && $_SESSION["user_id"] === 1) { ?>
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.html">Dashboard</a>
+                        <a class="nav-link" href="dashboard.php">Dashboard</a>
                     </li>
+                    <?php } ?>
                     <li class="nav-item">
                         <a class="nav-link" href="overons.php">Over ons</a>
                     </li>
@@ -65,11 +67,11 @@ $cart = new cart(); // Create a new instance of the cart class
                                 Account
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="user.php">My Account</a></li>
-                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                                <li><a class="dropdown-item" href="user.php">Mijn account</a></li>
+                                <li><a class="dropdown-item" href="logout.php">Uitloggen</a></li>
                             </ul>
                         <?php } else { ?>
-                            <a class="nav-link" href="login.php">Login</a>
+                            <a class="nav-link" href="login.php">Inloggen</a>
                         <?php } ?>
                     </li>
                 </ul>
@@ -83,7 +85,7 @@ $cart = new cart(); // Create a new instance of the cart class
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasRightLabel">Cart</h5>
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Winkelwagen</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">

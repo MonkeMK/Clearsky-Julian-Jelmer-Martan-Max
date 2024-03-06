@@ -116,7 +116,7 @@ $_SESSION['referer'] = $_SERVER['HTTP_REFERER'];
                         <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === 1) { ?>
                     <form action="addToCart.php" method="POST">
                         <input type="hidden" name="id" value="<?php echo $r['id']; ?>">
-                        <button type="submit" class="knop btn-primary">Add to cart</button>
+                        <button type="submit" class="knop btn-primary">Toevoegen</button>
                     </form>
                     <?php } ?>
                 </div>
@@ -169,7 +169,7 @@ $_SESSION['referer'] = $_SERVER['HTTP_REFERER'];
                         <p>${description}</p>
                         <p>${price}</p>
                         <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === 1) { ?>
-                        <a href="addToCart.php?id=<?php echo $r['id']; ?>" class="btn btn-primary">Add to cart</a>
+                        <a href="addToCart.php?id=<?php echo $r['id']; ?>" class="btn btn-primary">Toevoegen</a>
                         <?php } ?>
                         <a href="product.php" class="btn btn-secondary">Back</a>
                     </div>
