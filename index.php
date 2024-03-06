@@ -35,26 +35,25 @@
         }
 
         .overlay-content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #f5f5f5;
-        padding: 10px; /* Adjust the padding to make the overlay smaller */
-        border-radius: 5px;
-        text-align: center; /* Center align content */
-        width: 50%; /* Set the width of the overlay */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f5f5f5;
+            padding: 10px; /* Adjust the padding to make the overlay smaller */
+            border-radius: 5px;
+            text-align: center; /* Center align content */
+            width: 50%; /* Set the width of the overlay */
         }
 
-
         .overlay-content img {
-        max-width: 40%; /* Limit image width */
-        max-height: 40%; /* Limit image height */
-        height: auto;
-        width: auto;
-        margin-bottom: 20px; /* Add some space below the image */
-        background-color: transparent;
-        border: none; /* Remove border */
+            max-width: 40%; /* Limit image width */
+            max-height: 40%; /* Limit image height */
+            height: auto;
+            width: auto;
+            margin-bottom: 20px; /* Add some space below the image */
+            background-color: transparent;
+            border: none; /* Remove border */
         }
     </style>
 </head>
@@ -75,6 +74,7 @@
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($result as $r) {
+        $productId = $r['id']; // Store the product ID in a variable
     ?>
         <div class="card mx-5 mb-5 overlay-container" style="width: 20rem;">
             <div class="card-img-top-container">
@@ -90,7 +90,12 @@
                 <p class="card-text"><small class="text-muted">
                 € <?php echo $r['price']; ?>
                 </small></p>
-                <a href="addToCart.php?id=<?php echo $r['id']; ?>" class="btn btn-primary">Add to cart</a>
+                <form action="addToCart.php" method="post">
+                    <input type="hidden" name="id" value="<?php echo $productId; ?>"> 
+                    <div class="d-flex justify-content-center">
+                        <input type="submit" class="knop" value="Add to cart">
+                    </div>
+                </form>
             </div>
             <div class="overlay">
                 <div class="overlay-content">
@@ -138,7 +143,7 @@
                         <h5>${name}</h5>
                         <p>${description}</p>
                         <p>${price}</p>
-                        <a href="addToCart.php?id=<?php echo $r['id']; ?>" class="btn btn-primary">Add to cart</a>
+                        <a href="addToCart.php?id=<?php echo $productId; ?>" class="btn btn-primary">Add to cart</a>
                         <a href="index.php" class="btn btn-secondary">Back</a>
                     </div>
                 `;

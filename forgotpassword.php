@@ -71,7 +71,7 @@
                         </form>
                         <a href="login.php">
                             <div class="pt-1 mb-4">
-                                <button style="position:absolute; left: 35%; bottom:10%; align-items-center" class="btn btn-info btn-lg btn-block" type="submit">Back to login</button>
+                                <button style="position:absolute; left: 35%; bottom:10%; align-items-center  background-color:#103E7E;" class="btn btn-info btn-lg btn-block" type="submit">Back to login</button>
                             </div>
                         </a>
                     </div>

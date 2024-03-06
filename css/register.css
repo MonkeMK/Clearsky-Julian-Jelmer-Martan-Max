@@ -23,8 +23,11 @@ body {
 
 .btn {
     position: absolute;
-    background-color: aqua;
+    background-color: #103E7E;
     left: 40%;
+    color: white;
+    border: none;
+    transition: 0.2s;
 }
 
 .form-label {
@@ -33,6 +36,11 @@ body {
     padding: 0 0.5rem;
     background-color: white;
     color: gray;
+  }
+
+  .btn:hover{
+    color: white;
+    background-color: #3050A8; 
   }
 
   

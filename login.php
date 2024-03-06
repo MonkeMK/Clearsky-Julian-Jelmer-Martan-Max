@@ -79,7 +79,7 @@
 
                             <p class="small mb-5 pb-lg-2"><a class="text-muted" href="forgotpassword.php">Forgot
                                     password?</a></p>
-                            <p>Don't have an account? <a href="register.php" class="link-info">Register here</a></p>
+                            <p>Don't have an account? <a href="register.php" class="link">Register here</a></p>
 
                         </form>
 

@@ -118,3 +118,19 @@ background-color: transparent;
 border: none; /* Remove border */
 }
 
+.knop{
+    color: white;
+    background-color: #103E7E;
+    border: solid #103E7E;
+    border-radius: 10px;
+    height: 5vh;
+    width: 50%;
+    transition: 0.2s;
+}
+
+.knop:hover{
+    color: white;
+    background-color: #3050A8;
+    border: solid #3050A8;  
+}
+

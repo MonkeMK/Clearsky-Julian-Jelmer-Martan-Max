@@ -4,7 +4,6 @@ include_once("database.php");
 // Establish the database connection
 $conn = connection();
 $error = ""; // Declare the $error variable
-session_start();
 
 function recaptcha($POST) {
     $secretKey = '6LdY5YIpAAAAALfCIfLdbxtNxSeZFpqzVlhSrbQs';
@@ -131,3 +130,32 @@ function handleForgotPassword($conn) {
         }
     }
 }
+
+function handleAfspraak($conn) {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if (isset($_POST["name"]) && isset($_POST["date"]) && isset($_POST["description"])) {
+            $naam = $_POST["name"];
+            $datum = $_POST["date"];
+            $beschrijving = $_POST["description"];
+            
+            // Prepare the SQL statement with named placeholders
+            $sql = "INSERT INTO afspraken (name, date, description) VALUES (:name, :date, :description)";
+            $stmt = $conn->prepare($sql);
+            
+            // Bind values to named placeholders
+            $stmt->bindParam(':name', $naam);
+            $stmt->bindParam(':date', $datum);
+            $stmt->bindParam(':description', $beschrijving);
+        
+            // Close the statement
+            $stmt->closeCursor();
+        } else {
+            echo "Alle velden moeten worden ingevuld.";
+        }
+    } else {
+        echo "Ongeldige aanvraag.";
+    }
+}
+
+
+?>
