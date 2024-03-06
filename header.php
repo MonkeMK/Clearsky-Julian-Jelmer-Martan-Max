@@ -3,7 +3,6 @@
 include_once('database.php');
 include_once('classes/cart.php');
 $cart = new cart(); // Create a new instance of the cart class
-
 ?>
 
 <!DOCTYPE html>

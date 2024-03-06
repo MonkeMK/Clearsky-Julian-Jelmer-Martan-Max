@@ -17,6 +17,7 @@
     include_once("php.php");
     include_once("database.php");
     $conn = connection();
+    session_start();  
     ?>
 </head>
 <style>
@@ -105,7 +106,7 @@
                 passwordToggle.classList.add("far", "fa-eye");
             }
         }
-    </scrip>
+    </script>
 </body>
 
 </html>
