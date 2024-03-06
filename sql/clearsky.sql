@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2024 at 12:53 PM
+-- Generation Time: Mar 06, 2024 at 01:09 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -81,6 +81,7 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `image`) VALUES
 (7, 'Max bundel', 'Zonnepaneel wasser op laag niveau', 500.00, 'max.jpg\r\n'),
 (8, 'Martan bundel', 'Aap dat alle zonnepanelen in de gaten houd qua status', 0.01, 'martan.jpg'),
 (9, 'Juul bundel', 'extra oppervlakte voor uw zonnepanalen\r\n', 999.99, 'juul.jpg'),
+(10, 'Jelmer bundel', 'De minst competente wasser maar hij kan alle taken in een voor je bijhouden', 69.69, 'jelmer.jpg'),
 (11, 'De Licht Bundel ', 'Powerbank met zonnepaneel en een zaklamp.\r\n ', 20.00, 'powerbank.png');
 
 -- --------------------------------------------------------
