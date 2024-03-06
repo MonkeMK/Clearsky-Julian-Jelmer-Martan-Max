@@ -51,29 +51,29 @@ In this folder the php source files are found.
 This is for the html form actions.
 Example: `<form action="<?= $_PATHS['action'] ?>/addToCart.php" method="post">`
 
-#### class
+#### - class
 Here you will put all classes that will be autoloaded for each page (Like a database class).
 
-#### core
+#### - core
 In this folder the core files are stored like the init file.
 
-#### inc
+#### - inc
 This is where the other files are supposed to go that you would like to be able to include like: function files, handlers, etc.
 
-#### libs
+#### - libs
 Here the libraries for the backend will go (mailing, payment, etc).
 
 ### webroot
 All files stored in this directory will be the webroot, here you will find things needed for frontend.
 
-#### js
+#### - js
 All the javascript files go here.
 
-#### styling
+#### - styling
 Styling files go here like css, less, etc.
 
-#### libs
+#### - libs
 Here the libraries for the frontend will go (bootstrap, less).
 
-#### media
+#### - media
 The media folder is for things like documents, downloadable content, images (logo, product images), etc.
