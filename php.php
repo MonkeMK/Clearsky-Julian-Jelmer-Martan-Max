@@ -162,5 +162,4 @@ function handleAfspraak($conn) {
     }
 }
 
-
 ?>
