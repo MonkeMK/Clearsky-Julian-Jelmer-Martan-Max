@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2024 at 10:26 AM
+-- Generation Time: Mar 06, 2024 at 01:09 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -78,9 +78,10 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `image`) VALUES
 (2, 'Sloppe bundel', 'een zonnepaneel voor extreem kleine daken en een kleine omzetter.\r\n(koop een normaal huis jij loser)', 200.00, 'krotje.png'),
 (3, 'luxe pakket', '6 panelen met keuze locatie op en rond het huis. Super omzetter inbegrepen', 1500.00, 'gigazonnepaneel.png'),
 (4, 'Koning\'s bundel', 'Vrije keuze op locatie en bedekking naar keuze. tot een max van twintig panelen. Super omzetter inbegrepen.', 3999.99, 'koningsbundel.png'),
-(7, 'maxmam', 'max is een homo', 1.00, 'zonnepaneel1.png'),
-(8, 'Martan is een aap ', 'geef een aap een goude ring en het blijft nogsteeds een lelijk ding ', 0.01, 'zonnepaneel1.png'),
-(9, 'Martan is een aap ', 'geef een aap een goude ring en het blijft nogsteeds een lelijk ding ', 0.01, 'zonnepaneel1.png'),
+(7, 'Max bundel', 'Zonnepaneel wasser op laag niveau', 500.00, 'max.jpg\r\n'),
+(8, 'Martan bundel', 'Aap dat alle zonnepanelen in de gaten houd qua status', 0.01, 'martan.jpg'),
+(9, 'Juul bundel', 'extra oppervlakte voor uw zonnepanalen\r\n', 999.99, 'juul.jpg'),
+(10, 'Jelmer bundel', 'De minst competente wasser maar hij kan alle taken in een voor je bijhouden', 69.69, 'jelmer.jpg'),
 (11, 'De Licht Bundel ', 'Powerbank met zonnepaneel en een zaklamp.\r\n ', 20.00, 'powerbank.png');
 
 -- --------------------------------------------------------
