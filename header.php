@@ -101,7 +101,7 @@ $cart = new cart(); // Create a new instance of the cart class
                 $name = $product['name'];
                 $description = $product['description'];
                 $price = $product['price'];
-                $image = $product['image'];
+                $image = $product['image']; 
 
                 // Output the product details
                 ?>
@@ -114,7 +114,7 @@ $cart = new cart(); // Create a new instance of the cart class
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $name; ?></h5>
                                 <p>Beschrijving: <?php echo $description; ?></p>
-                                <p>Prijs: €<?php echo number_format($price, 2) * $item['quantity']; ?></p>
+                                <?php echo "Prijs: €" . number_format($product["price"] * $item["quantity"], 2); ?><br>
                                 <p>Aantal: <?php echo $item['quantity']; ?></p>
                                 <a href="remove.php?key=<?php echo $key; ?>" class="btn btn-danger">Remove</a>
                             </div>
