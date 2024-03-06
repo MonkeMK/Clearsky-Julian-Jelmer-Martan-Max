@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 06, 2024 at 09:54 AM
+-- Generation Time: Mar 06, 2024 at 10:26 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -39,10 +39,21 @@ CREATE TABLE `afspraken` (
 --
 
 INSERT INTO `afspraken` (`id`, `name`, `date`, `description`) VALUES
-(1, '0', '0000-00-00', '0'),
-(2, '0', '0000-00-00', '0'),
-(3, 'fafa', '2024-01-29', 'afaf'),
-(4, 'Jelmer', '2024-02-09', 'afafaf');
+(9, 'Jelmer', '2024-03-21', 'Jelmeemlemle'),
+(10, 'Julain', '2024-03-20', 'julian julian '),
+(11, 'Je moeder', '2024-03-22', 'a');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `factuur`
+--
+
+CREATE TABLE `factuur` (
+  `id` int(11) NOT NULL,
+  `datum` datetime NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -63,14 +74,28 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `description`, `price`, `image`) VALUES
-(1, 'hakhalhalahf', 'gaagagagaagga', 4.00, 'zonnepaneel1.png'),
-(3, 'keoekoekoekoekoekoe', 'keokeokeokewoekoek', 55.00, 'zonnepaneel1.png'),
-(4, 'abcdefghahiha', 'akeokeokfeoakoaf', 22.00, 'zonnepaneel1.png'),
-(5, 'masFf', 'max is een homo', 1.00, 'zonnepaneel1.png'),
-(6, 'maxmama', 'max is een homo', 1.00, 'zonnepaneel1.png'),
+(1, 'Basis bundel clearsky', 'twee zonnepanelen met lowpower omzet instalatie in huis. ', 799.99, 'basispakket.png'),
+(2, 'Sloppe bundel', 'een zonnepaneel voor extreem kleine daken en een kleine omzetter.\r\n(koop een normaal huis jij loser)', 200.00, 'krotje.png'),
+(3, 'luxe pakket', '6 panelen met keuze locatie op en rond het huis. Super omzetter inbegrepen', 1500.00, 'gigazonnepaneel.png'),
+(4, 'Koning\'s bundel', 'Vrije keuze op locatie en bedekking naar keuze. tot een max van twintig panelen. Super omzetter inbegrepen.', 3999.99, 'koningsbundel.png'),
 (7, 'maxmam', 'max is een homo', 1.00, 'zonnepaneel1.png'),
 (8, 'Martan is een aap ', 'geef een aap een goude ring en het blijft nogsteeds een lelijk ding ', 0.01, 'zonnepaneel1.png'),
-(9, 'Martan is een aap ', 'geef een aap een goude ring en het blijft nogsteeds een lelijk ding ', 0.01, 'zonnepaneel1.png');
+(9, 'Martan is een aap ', 'geef een aap een goude ring en het blijft nogsteeds een lelijk ding ', 0.01, 'zonnepaneel1.png'),
+(11, 'De Licht Bundel ', 'Powerbank met zonnepaneel en een zaklamp.\r\n ', 20.00, 'powerbank.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `regel`
+--
+
+CREATE TABLE `regel` (
+  `id` int(11) NOT NULL,
+  `aantal` int(11) NOT NULL,
+  `factuur_id` int(11) NOT NULL,
+  `groote` varchar(255) NOT NULL,
+  `product_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -146,7 +171,13 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `name`, `adress`, `email`, `password`, `phonenumber`, `zipcode`, `admin`, `can_login`) VALUES
-(8, 'adminadmin', 'adminadmin', 'admin@gmail.com', 'admin', 2147483647, '6969kc', 1, 1);
+(1, 'Jelmer', 'Jeltje de Bosch Kemperstraat 55', 'jelmerdeleeuw@gmail.com', 'AaapAaap', 627045329, '2401KC', 0, 1),
+(2, 'Jelmer de Leeuw', 'Jeltje de Bosch Kemperstraat 55', 'jelmerdeleeuw@gmail.com', 'AaapAaap', 627045329, '2401KC', 0, 1),
+(3, 'admin', 'admin admin', 'admin@gmail.com', 'admin', 0, 'adfafa', 1, 1),
+(4, 'admin', 'admin admin', 'admin@gmail.com', 'admin', 0, 'jljl', 1, 1),
+(5, 'admin', 'adminadmin', 'admin@gmail.com', 'admin', 66666, '2401fg', 1, 1),
+(6, 'admin', 'adminadmin', 'admin@gmail.com', 'admin', 66666, '2401fg', 1, 1),
+(7, '', '', '', '', 0, '', 0, 1);
 
 --
 -- Indexes for dumped tables
@@ -159,9 +190,21 @@ ALTER TABLE `afspraken`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `factuur`
+--
+ALTER TABLE `factuur`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `regel`
+--
+ALTER TABLE `regel`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -184,13 +227,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `afspraken`
 --
 ALTER TABLE `afspraken`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `factuur`
+--
+ALTER TABLE `factuur`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `regel`
+--
+ALTER TABLE `regel`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `sensordata`
@@ -202,7 +257,7 @@ ALTER TABLE `sensordata`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

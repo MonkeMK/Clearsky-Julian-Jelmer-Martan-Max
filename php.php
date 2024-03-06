@@ -138,17 +138,22 @@ function handleAfspraak($conn) {
             $datum = $_POST["date"];
             $beschrijving = $_POST["description"];
             
-            // Prepare the SQL statement with named placeholders
-            $sql = "INSERT INTO afspraken (name, date, description) VALUES (:name, :date, :description)";
-            $stmt = $conn->prepare($sql);
-            
-            // Bind values to named placeholders
-            $stmt->bindParam(':name', $naam);
-            $stmt->bindParam(':date', $datum);
-            $stmt->bindParam(':description', $beschrijving);
-        
-            // Close the statement
-            $stmt->closeCursor();
+            try {
+                // Prepare the SQL statement with named placeholders
+                $sql = "INSERT INTO afspraken (name, date, description) VALUES (:name, :date, :description)";
+                $stmt = $conn->prepare($sql);
+                
+                // Bind values to named placeholders
+                $stmt->bindParam(':name', $naam);
+                $stmt->bindParam(':date', $datum);
+                $stmt->bindParam(':description', $beschrijving);
+                
+                // Execute the statement
+                $stmt->execute();
+                
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
+            }
         } else {
             echo "Alle velden moeten worden ingevuld.";
         }
@@ -156,6 +161,5 @@ function handleAfspraak($conn) {
         echo "Ongeldige aanvraag.";
     }
 }
-
 
 ?>
