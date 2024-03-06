@@ -69,7 +69,7 @@
     <?php
     $conn = connection();
 
-    $stmt = $conn->prepare("SELECT * FROM products");
+    $stmt = $conn->prepare("SELECT * FROM products LIMIT 8 "); // Fetch only 6 products
     $stmt->execute();
 
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
