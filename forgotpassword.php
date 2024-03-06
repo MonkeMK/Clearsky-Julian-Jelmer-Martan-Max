@@ -9,7 +9,7 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
         crossorigin="anonymous">
     <link rel="stylesheet" href="../Clearsky-Julian-Jelmer-Martan-Max/css/forgetpassword.css">
-    <title>Forget password</title>
+    <title>Wachtwoord vergeten?</title>
     <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
     <?php 
         include_once("php.php"); 
@@ -45,12 +45,12 @@
 
                         <form style="width: 23rem;" method="POST">
 
-                            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Forgot Password</h3>
+                            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Wachtwoord vergeten?</h3>
 
                             <div class="form-outline mb-4">
                                 <input type="email" id="form2Example18" class="form-control form-control-lg"
                                     name="email" required />
-                                <label class="form-label" for="form2Example18">Email address</label>
+                                <label class="form-label" for="form2Example18">Email adres</label>
                             </div>
 
                             <div class="form-outline mb-4">
@@ -61,11 +61,11 @@
                                         <i id="passwordToggle" class="far fa-eye"></i>
                                     </button>
                                 </div>
-                                <label class="form-label" for="form2Example28">New Password</label>
+                                <label class="form-label" for="form2Example28">Nieuw wachtwoord</label>
                             </div>
 
                             <div class="pt-1 mb-4">
-                                <button class="btn btn-info btn-lg btn-block" type="submit">DONE!!</button>
+                                <button class="btn btn-info btn-lg btn-block" type="submit">KLAAR!!</button>
                             </div>
 
                         </form>

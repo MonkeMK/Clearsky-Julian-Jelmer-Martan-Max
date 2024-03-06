@@ -138,6 +138,7 @@ function handleAfspraak($conn) {
             $datum = $_POST["date"];
             $beschrijving = $_POST["description"];
             
+<<<<<<< HEAD
             // Controleer of de geselecteerde datum al in de database aanwezig is
             $sql_check = "SELECT * FROM afspraken WHERE date = :date";
             $stmt_check = $conn->prepare($sql_check);
@@ -160,6 +161,23 @@ function handleAfspraak($conn) {
                 $GLOBALS["AFSPRAAK_ERROR"] = "Afspraak succesvol ingepland.";
             } else {
                 $GLOBALS["AFSPRAAK_ERROR"] = "Er is een fout opgetreden bij het plannen van de afspraak.";
+=======
+            try {
+                // Prepare the SQL statement with named placeholders
+                $sql = "INSERT INTO afspraken (name, date, description) VALUES (:name, :date, :description)";
+                $stmt = $conn->prepare($sql);
+                
+                // Bind values to named placeholders
+                $stmt->bindParam(':name', $naam);
+                $stmt->bindParam(':date', $datum);
+                $stmt->bindParam(':description', $beschrijving);
+                
+                // Execute the statement
+                $stmt->execute();
+                
+            } catch (PDOException $e) {
+                echo "Error: " . $e->getMessage();
+>>>>>>> 3149cbce13247c58ab4dad999e28e6c7d3620cd8
             }
         } else {
             $GLOBALS["AFSPRAAK_ERROR"] = "Alle velden moeten worden ingevuld.";
@@ -168,8 +186,11 @@ function handleAfspraak($conn) {
         $GLOBALS["AFSPRAAK_ERROR"] = "Ongeldige aanvraag.";
     }
 }
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 3149cbce13247c58ab4dad999e28e6c7d3620cd8
 ?>

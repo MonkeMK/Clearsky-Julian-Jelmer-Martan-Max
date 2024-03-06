@@ -3,6 +3,7 @@
 <?php
     include_once("header.php");
     include_once('database.php');
+    $_SESSION['referer'] = $_SERVER['HTTP_REFERER'];
 ?>
 <head>
     <meta charset="UTF-8">
@@ -90,12 +91,14 @@
                 <p class="card-text"><small class="text-muted">
                 € <?php echo $r['price']; ?>
                 </small></p>
+                <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === 1) { ?>
                 <form action="addToCart.php" method="post">
                     <input type="hidden" name="id" value="<?php echo $productId; ?>"> 
                     <div class="d-flex justify-content-center">
-                        <input type="submit" class="knop" value="Add to cart">
+                        <input type="submit" class="knop" value="Toevoegen">
                     </div>
                 </form>
+                <?php } ?>
             </div>
             <div class="overlay">
                 <div class="overlay-content">
@@ -143,7 +146,9 @@
                         <h5>${name}</h5>
                         <p>${description}</p>
                         <p>${price}</p>
-                        <a href="addToCart.php?id=<?php echo $productId; ?>" class="btn btn-primary">Add to cart</a>
+                        <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === 1) { ?>
+                        <a href="addToCart.php?id=<?php echo $productId; ?>" class="btn btn-primary">Toevoegen</a>
+                        <?php } ?>
                         <a href="index.php" class="btn btn-secondary">Back</a>
                     </div>
                 `;
