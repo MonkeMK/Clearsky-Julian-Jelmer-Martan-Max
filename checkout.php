@@ -1,14 +1,5 @@
 <?php
 include_once('classes/cart.php');
-if (isset($_POST["checkout"]) && $_POST["checkout"] == 1) {
-    $cart = new Cart();
-    $cart->checkout($_POST["email"], $_POST["country"], $_POST["voornaam"], $_POST["achternaam"], $_POST["zipcode"], $_POST["huisnummer"], $_POST["straatnaam"], $_POST["plaats"], $_POST["telefoon"]);
-
-    // Redirect to index.php with a parameter indicating successful checkout
-    header("Location: index.php?checkout=success");
-    exit; // Make sure to exit after redirection
-}
-
 include_once('header.php');
 include_once("database.php");
 ?>
@@ -248,13 +239,13 @@ include_once("database.php");
         </div>
         <hr style="position:absolute; top:175%; width:95%; border-top: 2px solid black; left:2.5%;">
         <h3 style="position:absolute; top:180%; left:5%;">Verzendopties</h3>
-        <form style="position:absolute; top:185%; left:5%;">
+        <form style="position:absolute; top:185%; left:5%;" required>
             <div class="radio-container">
                 <input type="radio" id="thuis" name="verzendoptie" value="thuis">
                 <label for="thuis">Thuis laten bezorgen</label>
             </div>
             <div class="radio-container">
-                <input type="radio" id="afhalen" name="verzendoptie" value="afhalen">
+                <input type="radio" id="afhalen" name="verzendoptie" value="afhalen" re>
                 <label for="afhalen">Afhalen bij de winkel</label>
             </div>
             <div class="radio-container">
@@ -263,21 +254,24 @@ include_once("database.php");
             </div>
         </form>
         <hr style="position:absolute; top:197%; width:95%; border-top: 2px solid black; left:2.5%;">
-        <button type="submit" name="checkout" value="1" class="checkoutknop btn-primary" id="checkoutButton" <?php if (empty($cart->getCart())) {
-            echo "disabled";
-        } ?>>Betalen</button>
+        <form action="" method="POST">
+            <input type="hidden" name="checkout_submit" value="1">
+            <button type="submit" name="checkout" value="1" class="checkoutknop btn-primary">Betalen</button>
+        </form>
 
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                document.getElementById('checkoutButton').addEventListener('click', function () {
-                    // Perform the redirect
+        <?php
+        if (isset($_POST['checkout'])) {
+            $cart->emptyCart();
+            echo "
+            <script>
+                alert('Your order has been successfully placed!')
+                setTimeout(function () {
                     window.location.href = 'index.php';
-
-                    // Display a pop-up message
-                    alert('Your order has been successfully placed!');
-                });
-            });
-        </script>
+                }, 10); // Adjust the delay as needed
+            </script>
+            ";
+        }
+        ?>
 </body>
 
 </html>

@@ -3,7 +3,6 @@
 <?php
     include_once("header.php");
     include_once('database.php');
-    $_SESSION['referer'] = $_SERVER['HTTP_REFERER'];
 ?>
 <head>
     <meta charset="UTF-8">

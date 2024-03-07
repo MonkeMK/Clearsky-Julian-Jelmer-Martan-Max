@@ -4,6 +4,8 @@ class cart
 {
     private $cart = [];
 
+    private $items = array();
+
     function __construct()
     {
         session_start();
@@ -68,42 +70,12 @@ class cart
         $_SESSION['cart'] = $this->cart;
     }
 
-    public function checkout($email, $country, $surname, $lastname, $zipcode, $housenumber, $streetname, $place, $phonenumber)
-{
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "clearsky";
 
-    try {
-        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-        // set the PDO error mode to exception
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        //echo "Connected successfully";
-    } catch (PDOException $e) {
-        echo "Connection failed: " . $e->getMessage();
+
+    public function emptyCart() {
+        unset($this->cart);
+        $this->cart = []; // re init
+        $_SESSION['cart'] = $this->cart;
     }
-
-    if (!$_SESSION["logged_in"]) {
-        $query = "INSERT INTO bestellingen (email, land, voornaam, achternaam, postcode, huisnummer, straatnaam, plaats, telefoonnummer) VALUES (:email, :country, :voornaam, :achternaam, :zipcode, :huisnummer, :straatnaam, :place, :telefoonnummer)";
-        $stmt = $conn->prepare($query);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':country', $country);
-        $stmt->bindParam(':voornaam', $surname);
-        $stmt->bindParam(':achternaam', $lastname);
-        $stmt->bindParam(':zipcode', $zipcode);
-        $stmt->bindParam(':huisnummer', $housenumber);
-        $stmt->bindParam(':straatnaam', $streetname);
-        $stmt->bindParam(':place', $place);
-        $stmt->bindParam(':telefoonnummer', $phonenumber);
-        $stmt->execute();
-
-        $user_id = $conn->lastInsertId();
-    } else {
-        $user_id = $_SESSION["user_id"];
-    }
-
-    $this->flush();
-}
 }
 ?>

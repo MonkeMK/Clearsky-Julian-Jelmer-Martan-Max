@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Line and Bar Graphs with Charts.js</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/dashboard.css">
     <?php
     include_once("header.php");
     include_once('database.php');
-   
-?>
+
+    ?>
 </head>
+
 <body>
-    <canvas id="lineChart" style="margin-top:5%; width:40%; height:20%;"></canvas>
-    <hr style="position:absolute; top:60%; width:95%; border-top: 2px solid black; left:2.5%;">
-    <canvas id="barChart" style="margin-top:15%; width:40%; height:20%;"></canvas>
+
+    <div class="container">
+        <h1 class="title">Dashboard verkoopcijfers</h1>
+        <canvas id="lineChart" style="margin-top:5%; width:40%; height:20%;"></canvas>
+        <hr class="tussenlijn">
+        <canvas id="barChart" style="margin-top:15%; width:40%; height:20%;"></canvas>
+    </div>
 
     <script>
+        // Define array of names for lines and bars
+        var lineNames = ['Basis bundel clearsky', 'Sloppe bundel', 'Luxe pakket', 'Konings bundel', 'Licht bundel', 'Gaymer bundel'];
+        var barNames = ['Basis bundel clearsky', 'Sloppe bundel', 'Luxe pakket', 'Konings bundel', 'Licht bundel', 'Gaymer bundel'];
+
         // Generate random data points for line chart
         var lineDataSets = [];
         for (var j = 0; j < 6; j++) {
@@ -25,7 +36,7 @@
                 lineDataPoints.push(Math.floor(Math.random() * 300) + 50);
             }
             lineDataSets.push({
-                label: 'Line ' + (j + 1),
+                label: lineNames[j], // Use the name from lineNames array
                 data: lineDataPoints,
                 borderColor: 'rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',1)',
                 backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -42,7 +53,7 @@
                 barDataPoints.push(Math.floor(Math.random() * 300) + 50);
             }
             barDataSets.push({
-                label: 'Bar ' + (j + 1),
+                label: barNames[j], // Use the name from barNames array
                 data: barDataPoints,
                 backgroundColor: 'rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',0.6)',
                 borderColor: 'rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',1)',
@@ -89,4 +100,10 @@
         });
     </script>
 </body>
+
+<footer class="onderbalk text-lg-start bg-light text-muted">
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            <b>&copy Copyright by Clearsky</b>
+        </div>
+    </footer>
 </html>

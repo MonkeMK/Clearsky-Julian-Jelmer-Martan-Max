@@ -1,0 +1,39 @@
+body{
+    background-image: url("../assets/background.png");
+    background-color: white;
+    height: 900px;
+    background-position: 0 0;
+    background-repeat: repeat;
+    position: relative;
+    margin: 0px;
+
+    
+}
+
+.title{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.container{
+    position: absolute;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    top: 20%;
+    left: 10%;
+}
+
+.tussenlijn{
+    position:absolute; 
+    top:53%; 
+    width:95%; 
+    border-top: 2px solid black; 
+    left:2.5%;
+}
+
+.onderbalk{
+    position:absolute; 
+    bottom: -50%; 
+    left:0%; 
+    width: 100%;
+}
