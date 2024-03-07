@@ -161,8 +161,4 @@ function handleAfspraak($conn) {
         $GLOBALS["AFSPRAAK_ERROR"] = "Ongeldige aanvraag.";
     }
 }
-
-
-
-
 ?>
