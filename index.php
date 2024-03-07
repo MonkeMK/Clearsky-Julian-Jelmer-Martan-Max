@@ -17,7 +17,7 @@
         body {
             background-image: url("../Clearsky-Julian-Jelmer-Martan-Max/assets/background.png");
             background-color: white;
-            height: 900px;
+            height: 900px;`
             background-position: 0 0;
             background-repeat: repeat;
             position: relative;
