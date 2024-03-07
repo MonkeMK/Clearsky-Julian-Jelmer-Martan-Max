@@ -51,11 +51,13 @@ $cart = new cart(); // Create a new instance of the cart class
                     <li class="nav-item">
                         <a class="nav-link" href="afspraak.php">Maak hier een afspraak</a>
                     </li>
+                    
                     <?php if (isset($_SESSION["user_id"]) && $_SESSION["user_id"] === 1) { ?>
                     <li class="nav-item">
                         <a class="nav-link" href="dashboard.php">Dashboard</a>
                     </li>
                     <?php } ?>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="overons.php">Over ons</a>
                     </li>

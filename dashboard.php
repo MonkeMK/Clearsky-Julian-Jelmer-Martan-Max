@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Line and Bar Graphs with Charts.js</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <?php
+    include_once("header.php");
+    include_once('database.php');
+   
+?>
 </head>
 <body>
     <canvas id="lineChart" style="margin-top:5%; width:40%; height:20%;"></canvas>

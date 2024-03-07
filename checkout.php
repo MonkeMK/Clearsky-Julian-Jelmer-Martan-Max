@@ -3,13 +3,14 @@ include_once('classes/cart.php');
 if (isset($_POST["checkout"]) && $_POST["checkout"] == 1) {
     $cart = new Cart();
     $cart->checkout($_POST["email"], $_POST["country"], $_POST["voornaam"], $_POST["achternaam"], $_POST["zipcode"], $_POST["huisnummer"], $_POST["straatnaam"], $_POST["plaats"], $_POST["telefoon"]);
+
+    // Redirect to index.php with a parameter indicating successful checkout
     header("Location: index.php?checkout=success");
-    include("php.php");
+    exit; // Make sure to exit after redirection
 }
 
 include_once('header.php');
 include_once("database.php");
-
 ?>
 
 <style>
@@ -265,3 +266,15 @@ include_once("database.php");
             echo "disabled";
         } ?>>Betalen</button>
 </body>
+
+<script>
+    // Check if URL contains parameter indicating successful checkout
+    const urlParams = new URLSearchParams(window.location.search);
+    const checkoutSuccess = urlParams.get('checkout');
+
+    // If checkout was successful, show the popup
+    if (checkoutSuccess === 'success') {
+        // Show the popup
+        alert('Your order has been placed!');
+    }
+</script>
