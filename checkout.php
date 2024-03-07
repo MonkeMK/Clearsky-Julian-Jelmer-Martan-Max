@@ -66,19 +66,20 @@ include_once("database.php");
     }
 
     .checkoutknop {
-    position: relative;
-    margin-top: 75%; /* Adjust as needed */
-    margin-bottom: 5%;
-    left: 45%;
-    color: white;
-    background-color: #103E7E;
-    border: solid #103E7E;
-    border-radius: 10px;
-    height: 5%;
-    transition: 0.2s;
-    width: 10%;
-    font-size: 20px;
-}
+        position: relative;
+        margin-top: 75%;
+        /* Adjust as needed */
+        margin-bottom: 5%;
+        left: 45%;
+        color: white;
+        background-color: #103E7E;
+        border: solid #103E7E;
+        border-radius: 10px;
+        height: 5%;
+        transition: 0.2s;
+        width: 10%;
+        font-size: 20px;
+    }
 
     .checkoutknop:hover {
         color: white;
@@ -262,19 +263,21 @@ include_once("database.php");
             </div>
         </form>
         <hr style="position:absolute; top:197%; width:95%; border-top: 2px solid black; left:2.5%;">
-        <button type="submit" name="checkout" value="1" class="checkoutknop btn-primary" <?php if (empty($cart->getCart())) {
+        <button type="submit" name="checkout" value="1" class="checkoutknop btn-primary" id="checkoutButton" <?php if (empty($cart->getCart())) {
             echo "disabled";
         } ?>>Betalen</button>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                document.getElementById('checkoutButton').addEventListener('click', function () {
+                    // Perform the redirect
+                    window.location.href = 'index.php';
+
+                    // Display a pop-up message
+                    alert('Your order has been successfully placed!');
+                });
+            });
+        </script>
 </body>
 
-<script>
-    // Check if URL contains parameter indicating successful checkout
-    const urlParams = new URLSearchParams(window.location.search);
-    const checkoutSuccess = urlParams.get('checkout');
-
-    // If checkout was successful, show the popup
-    if (checkoutSuccess === 'success') {
-        // Show the popup
-        alert('Your order has been placed!');
-    }
-</script>
+</html>
