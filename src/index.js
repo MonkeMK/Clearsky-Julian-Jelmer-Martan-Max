@@ -1,12 +1,12 @@
 //the JS for the wheel. I did my math homework. 
 
 const sectors = [
-    { color: '#F6851E', label: '1' },
-    { color: '#733B97', label: '2' },
-    { color: '#8EC63F', label: '3' },
-    { color: '#F6851E', label: '4' },
-    { color: '#733B97', label: '5' },
-    { color: '#8EC63F', label: '6' }
+    { color: '#F6851E', label: 'De Licht Bundel' },
+    { color: '#733B97', label: 'Basis bundel clearsky' },
+    { color: '#8EC63F', label: 'Max bundel' },
+    { color: '#F6851E', label: 'Konings bundel' },
+    { color: '#733B97', label: 'oof de zon is fel' },
+    { color: '#8EC63F', label: 'Sloppe bundel' },
   ]
   
   const rand = (m, M) => Math.random() * (M - m) + m
@@ -40,7 +40,7 @@ const sectors = [
     ctx.rotate(ang + arc / 2)
     ctx.textAlign = 'right'
     ctx.fillStyle = '#fff'
-    ctx.font = 'bold 30px sans-serif'
+    ctx.font = 'bold 10px sans-serif'
     ctx.fillText(sector.label, rad - 10, 10)
     //
     ctx.restore()

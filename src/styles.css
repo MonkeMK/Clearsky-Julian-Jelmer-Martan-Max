@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+
   body {
     height: 100vh; /*today I learned that vh means viewport height */
     display: grid;
@@ -22,7 +22,7 @@
   }
 
   #spin {
-    font: 2em/0 sans-serif; /*idk*/
+    font: 1em/0 sans-serif; /*idk*/
     user-select: none;
     cursor: pointer;
     display: flex;
@@ -38,8 +38,7 @@
     color: #181E2C;
     box-shadow: 0 0 0 10px currentColor, 0 0px 15px 5px rgba(0, 0, 0, 0.6);
     border-radius: 50%;
-    transition: 0.1s;
-    font-weight: bolder;
+    font-weight: bold;
   }
   
   #spin::after {
