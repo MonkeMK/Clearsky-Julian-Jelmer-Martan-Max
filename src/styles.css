@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh; /*today I learned that vh means viewport height */
+    display: grid;
+    place-items: center;
+    background: #181E2C;
+  }
+  
+  #wheelOfFortune {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  #wheel {
+    height: 75vh;
+  }
+
+  #spin {
+    font: 2em/0 sans-serif; /*idk*/
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    height: 30%;
+    margin: -15%;
+    background: #181E2C;
+    color: #181E2C;
+    box-shadow: 0 0 0 10px currentColor, 0 0px 15px 5px rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    transition: 0.1s;
+    font-weight: bolder;
+  }
+  
+  #spin::after {
+    content: '';
+    position: absolute;
+    top: -25px;
+    border: 20px solid transparent;
+    border-bottom-color: #181E2C;
+    border-top: none;
+  }
+  
