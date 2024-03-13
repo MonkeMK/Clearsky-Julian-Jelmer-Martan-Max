@@ -2,17 +2,16 @@
 # author @ Martan van Verseveld
 
 
-# Referer handling
-$_SESSION['referer'] = $_SERVER['HTTP_REFERER'];
-
-
 # Document root overwrite
 $_SERVER['DOCUMENT_ROOT_INIT'] = $_SERVER['DOCUMENT_ROOT'];
-$_SERVER['DOCUMENT_ROOT'] = getcwd();
+$_SERVER['DOCUMENT_ROOT'] = str_replace('\\', '/', getcwd());
 
 
 # Including core
 require_once($_SERVER['DOCUMENT_ROOT']."/src/core/init.core.php");
+if (_CONFIG['debug']) {
+	echo "<script>console.log(". json_encode($_SESSION) .")</script>";
+}
 
 
 # Including handlers
@@ -25,10 +24,14 @@ $page = $requested[0];
 
 if (!in_array($page.'.php', $_PAGES)) {
 	http_response_code(404);
-	return header("Location: ".str_replace($_SERVER['DOCUMENT_ROOT_INIT'], "", $_SERVER['DOCUMENT_ROOT']).'/home');
-} else {
-	require_once($_PATHS['inc']."/header.inc.php");
-	require_once($_PATHS['pages']."/$page.php");
-	require_once($_PATHS['inc']."/footer.inc.php");
+    Redirect::to(str_replace($_SERVER['DOCUMENT_ROOT_INIT'], "", $_SERVER['DOCUMENT_ROOT']).'/home');
 }
 
+PageRenderer::renderPage($page);
+
+
+# Session
+if (!isset($_SESSION['REFERER'])) $_SESSION['REFERER'] = $page;
+if ($_SESSION['REFERER'] != $page) {
+	$_SESSION['REFERER'] = $page;
+}

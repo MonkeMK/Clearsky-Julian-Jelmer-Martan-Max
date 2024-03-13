@@ -5,34 +5,34 @@
 	<!-- bootstrap jumble -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-+0V4cXq+QRoi6iKzK2KRP3zZlNQrj5819m1GfOJwXwXcA+toUOD2KhTjhp5jcqv5"
         crossorigin="anonymous"></script>
 
 	<!-- stylesheets -->
-	<link rel="stylesheet/less" href="<?= $_PATHS['web'] ?>/styling/styles.less">
+	<link rel="stylesheet/less" href="<?= _PATHS['web'] ?>/styling/styles.less">
 
 	<!-- bootstrap icons -->	
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 	<!-- page specific stylesheet -->
-	<?php if (file_exists($_PATHS['webroot']."/styling/".$page.".less")): ?>
-	<link rel="stylesheet/less" href="<?= $_PATHS['web'] ?>/styling/<?= $page ?>.less">
-	<?php endif; if (file_exists($_PATHS['webroot']."/styling/".$page.".css")): ?>
-	<link rel="stylesheet/css" href="<?= $_PATHS['web'] ?>/styling/<?= $page ?>.css">
+	<?php if (file_exists(_PATHS['webroot']."/styling/".$page.".less")): ?>
+	<link rel="stylesheet/less" href="<?= _PATHS['web'] ?>/styling/<?= $page ?>.less">
+	<?php endif; if (file_exists(_PATHS['webroot']."/styling/".$page.".css")): ?>
+	<link rel="stylesheet/css" href="<?= _PATHS['web'] ?>/styling/<?= $page ?>.css">
 	<?php endif; ?>
 
 	<!-- font(s) -->
 	<style>@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');</style>
 
 	<!-- less library -->
-	<script src="<?= $_PATHS['web'] ?>/libs/less/less.js"></script>
+	<script src="<?= _PATHS['web'] ?>/libs/less/less.js"></script>
 
 	<!-- recaptcha -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 	<!-- icon -->
-	<link rel="icon" type="image/x-icon" href="<?= $_PATHS['web'] ?>/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="<?= _PATHS['web'] ?>/favicon.ico">
 </head>
 <?php $cart = new Cart() ?>
 <body>
@@ -40,7 +40,7 @@
 <header>
 	<nav class="navbar navbar-expand-lg bg-body-tertiary bg-light" data-bs-theme="dark">
 		<div class="container-fluid">
-			<a href="home"><img src="<?= $_PATHS['web'] ?>/media/Logo.png" width="100" height="100"></a>
+			<a href="home"><img src="<?= _PATHS['web'] ?>/media/Logo.png" width="100" height="100"></a>
 			<ul class="navbar-nav d-flex justify-content-around align-items- w-100">
 				<li class="nav-item">
 					<a class="nav-link" href="products">Producten</a>
@@ -55,9 +55,8 @@
 					<a class="nav-link" href="overons">Over ons</a>
 				</li>
 				<li class="nav-item dropdown">
-				<?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === 1): ?>
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-						data-bs-toggle="dropdown" aria-expanded="false">
+				<?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true): ?>
+					<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Account
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -73,7 +72,7 @@
 		<script>
 			document.querySelectorAll('body > header > nav > div > ul > li.nav-item > .nav-link').forEach((el) => {
 				const el_page = el.href.split('/').pop();
-				if (el_page == "<?= $page ?>") {
+				if (el_page == "<?= $page ?>" && el_page != "") {
 					el.classList.add('on');
 				}
 			});

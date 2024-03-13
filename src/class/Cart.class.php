@@ -6,7 +6,6 @@ class Cart
 
     function __construct()
     {
-        session_start();
         if (isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
             $this->cart = $_SESSION['cart'];
         } else {

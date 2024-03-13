@@ -1,12 +1,14 @@
-<?php $ERROR = login(); ?>
 <div class="unstyled-container login">
-	<form method="POST">
+	<form method="POST" action="formHandler">
+		<input type='hidden' name='action' value='login'>
+
 		<h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
 
-		<?php
-		if ($error) {
-			echo '<div class="alert alert-danger">' . $error . '</div>';
-		}
+		<?php if (isset($_SESSION['ERROR']) && isset($_SESSION['ERROR']['LOGIN_ERROR'])): ?>
+			<h4 class='form-error'><?= $_SESSION['ERROR']['LOGIN_ERROR'] ?></h4>
+		<?php 
+			$_SESSION['ERROR']['LOGIN_ERROR'] = null;
+			endif; 
 		?>
 
 		<div class="form-outline mb-4">
@@ -28,7 +30,7 @@
 			<button class="btn btn-info btn-lg btn-block" type="submit">Inloggen</button>
 		</div>
 
-		<p class="small mb-5 pb-lg-2"><a href="forgotpassword">Wachtwoord vergeten?</a></p>
+		<a href="forgot_password">Wachtwoord vergeten?</a>
 		<p>Heb je geen account? <a href="register" class="link">Registeer hier</a></p>
 	</form>
 </div>

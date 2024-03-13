@@ -2,13 +2,10 @@
 <?php
 
 $db = new Database();
-$conn = $db->pdo;
 
 // receive from database
 $query = "SELECT date FROM afspraken";
-$stmt = $conn->prepare($query);
-$stmt->execute();
-$results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+$results = $db->query($query);
 
 // create array with dates only
 $dates = array();

@@ -10,6 +10,10 @@ return [
 		'password' => "",
 		'database' => "",
 		'port' => "3306",
+
+		'PASS_ENC' => CRYPT_SHA256,
+		'PASS_SALT' => "",
+		'PASS_PEPPER' => "",
 	],
 	
 	'Blacklists' => [

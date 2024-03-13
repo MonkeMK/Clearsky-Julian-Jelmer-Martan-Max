@@ -4,13 +4,11 @@ $error = "";
 function login()
 {
     global $error;
-	$db = new Database();
-	$conn = $db->pdo;
+	$conn = Database::getConnection();
 
-    if (!$conn) {
-        // Error handling for database connection
-        die("Connection failed: " . $conn->errorInfo());
-    }
+	if (!$conn) {
+		die($conn);
+	}
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!recaptcha($_POST)) {
@@ -125,7 +123,7 @@ function handleForgotPassword() {
 
 function handleAfspraak() {
 	$db = new Database();
-	$conn = $db->pdo;
+	$conn = $db->getConnection();
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($_POST["name"]) && isset($_POST["date"]) && isset($_POST["description"])) {
