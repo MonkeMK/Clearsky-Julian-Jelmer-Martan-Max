@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     }
 
     // Prepare the SQL statement to delete a record
-    $sql = "DELETE FROM user WHERE id=:id";
+    $sql = "DELETE FROM products WHERE id=:id";
     $stmt = $conn->prepare($sql);
 
     // Bind parameters
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
     // Execute the statement
     if ($stmt->execute()) {
         // If deletion is successful, redirect to a success page
-        header("Location: useroverview.php");
+        header("Location: productoverview.php");
         exit(); // Make sure to stop executing further code after redirection
     } else {
         // If there's an error, redirect to an error page with error message

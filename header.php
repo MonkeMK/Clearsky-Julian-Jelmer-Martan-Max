@@ -15,7 +15,7 @@ $cart = new cart(); // Create a new instance of the cart class
     <link rel=stylesheet href="../css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-+0V4cXq+QRoi6iKzK2KRP3zZlNQrj5819m1GfOJwXwXcA+toUOD2KhTjhp5jcqv5"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous" defer></script>
     <title>Clearsky</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
@@ -50,16 +50,17 @@ $cart = new cart(); // Create a new instance of the cart class
                     <li class="nav-item">
                         <a class="nav-link" href="afspraak.php">Maak hier een afspraak</a>
                     </li>
-                    
+
                     <?php if (isset($_SESSION["user_id"]) && $_SESSION["user_id"] === 1) { ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="dashboard.php">Dashboard</a>
-                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard.php">Dashboard</a>
+                        </li>
                     <?php } ?>
-                    
+
                     <li class="nav-item">
                         <a class="nav-link" href="overons.php">Over ons</a>
                     </li>
+
                     <li class="nav-item dropdown">
                         <?php
                         if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === 1) { ?>

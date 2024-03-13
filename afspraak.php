@@ -1,50 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php
-include_once("header.php");
-include_once("database.php");
-print_r($_SESSION);
-$conn = connection();
-include_once("php.php");
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    handleAfspraak($conn); 
-}
-
-
-// receive from database
-$query = "SELECT date FROM afspraken";
-$stmt = $conn->prepare($query);
-$stmt->execute();
-$results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-
-// create array with dates only
-$dates = array();
-foreach ($results as $row) {
-    array_push($dates, $row['date']);   
-}
-
-// php array to json array
-$json_encoded = json_encode($dates);
-
-// putting json array into session storage 
-echo "<script>sessionStorage.setItem('unavailable_setad', '$json_encoded')</script>";
-?>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/afspraak.css">
-    <title>Login</title>
+    <title>Clearsky</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Clearsky-Julian-Jelmer-Martan-Max/css/overons.css">
+    <link rel="stylesheet" href="css/afspraak.css" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
 </head>
 
-
-
 <body>
+    <?php
+    include_once("header.php");
+    include_once("database.php");
+    $conn = connection();
+    include_once("php.php");
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        handleAfspraak($conn);
+    }
+
+
+    // receive from database
+    $query = "SELECT date FROM afspraken";
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+    $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+    // create array with dates only
+    $dates = array();
+    foreach ($results as $row) {
+        array_push($dates, $row['date']);
+    }
+
+    // php array to json array
+    $json_encoded = json_encode($dates);
+
+    // putting json array into session storage 
+    echo "<script>sessionStorage.setItem('unavailable_setad', '$json_encoded')</script>";
+    ?>
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -56,7 +53,7 @@ echo "<script>sessionStorage.setItem('unavailable_setad', '$json_encoded')</scri
                     <input class="date" type="date" id="date" name="date" oninput="on_date_input(this)"><br>
                     <label class="beschrijvingtext" for="beschrijvinigtext">Beschrijving:</label><br>
                     <textarea class="beschrijving" id="description" name="description"></textarea><br><br>
-                    <button disabled id="disabled-button" name="button" class="button"  type="submit">Verzenden</button>
+                    <button disabled id="disabled-button" name="button" class="button" type="submit">Verzenden</button>
                 </form>
 
             </div>
@@ -88,13 +85,16 @@ echo "<script>sessionStorage.setItem('unavailable_setad', '$json_encoded')</scri
             }
         } 
     </script>
-    
 
-<?php
-if (isset($GLOBALS["AFSPRAAK_ERROR"])) {
-    echo "<script>document.addEventListener('DOMContentLoaded', window.alert('". $GLOBALS["AFSPRAAK_ERROR"] ."'));</script>";
-}
-?>
+
+    <?php
+    if (isset($GLOBALS["AFSPRAAK_ERROR"])) {
+        echo "<script>document.addEventListener('DOMContentLoaded', window.alert('" . $GLOBALS["AFSPRAAK_ERROR"] . "'));</script>";
+    }
+    ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

@@ -13,7 +13,7 @@ include_once("database.php");
 include_once("header.php");
 $conn = connection();
 
-$sql = "SELECT id, name, adress, email, password, phonenumber, zipcode FROM user";
+$sql = "SELECT id, name, date, description FROM afspraken";
 $result = $conn->query($sql);
 
 $rows = array(); // Array to hold fetched rows
@@ -33,19 +33,15 @@ $conn = null;
 
 <body>
     <input type="button" class="button" value="<- Terug" onclick="window.location.href='admin.php'" />
-    <h1 class="title">Admin</h1>
+    <h1 class="title">Afspraken</h1>
     <div class="tabel">
         <table>
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Naam</th>
-                    <th>Adres</th>
-                    <th>Email</th>
-                    <th>Wachtwoord</th>
-                    <th>Telefoonnummer</th>
-                    <th>Postcode</th>
-                    <th>Acties</th>
+                    <th>Datum</th>
+                    <th>Beschrijving</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,15 +51,8 @@ $conn = null;
                     echo "<tr>";
                     echo "<td>" . $row['id'] . "</td>";
                     echo "<td>" . $row['name'] . "</td>";
-                    echo "<td>" . $row['adress'] . "</td>";
-                    echo "<td>" . $row['email'] . "</td>";
-                    echo "<td>" . $row['password'] . "</td>";
-                    echo "<td>" . $row['phonenumber'] . "</td>";
-                    echo "<td>" . $row['zipcode'] . "</td>";
-                    echo "<td>";
-                    echo "<a href='edit.php?id=" . $row['id'] . "' class='knopedit'>Edit</a>";
-                    echo "<a href='delete.php?id=" . $row['id'] . "' class='knopdelete'>Delete</a>";
-                    echo "</td>";
+                    echo "<td>" . $row['date'] . "</td>";
+                    echo "<td>" . $row['description'] . "</td>";
                     echo "</tr>";
                 }
                 ?>

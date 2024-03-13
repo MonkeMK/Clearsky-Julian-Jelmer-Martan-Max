@@ -161,4 +161,87 @@ function handleAfspraak($conn) {
         $GLOBALS["AFSPRAAK_ERROR"] = "Ongeldige aanvraag.";
     }
 }
+
+function update_user(){
+    $db = connection();
+    // Check if form is submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Retrieve form data
+        $user_id = $_GET['id'];
+        $new_username = $_POST['new_username'];
+        $new_address = $_POST['new_address'];
+        $new_email = $_POST['new_email'];
+        $new_password = $_POST['new_password'];
+        $new_phone = $_POST['new_phone'];
+        $new_zipcode = $_POST['new_zipcode'];
+        
+        // Update user information in the database
+        $query = "UPDATE user SET name=:name, adress=:adress, email=:email, password=:password, phonenumber=:phonenumber, zipcode=:zipcode WHERE id=:id";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':name', $new_username);
+        $stmt->bindParam(':adress', $new_address);
+        $stmt->bindParam(':email', $new_email);
+        $stmt->bindParam(':password', $new_password);
+        $stmt->bindParam(':phonenumber', $new_phone);
+        $stmt->bindParam(':zipcode', $new_zipcode);
+        $stmt->bindParam(':id', $user_id);
+        
+        if ($stmt->execute()) {
+            // User updated successfully
+            // Redirect to another page
+            header("Location: useroverview.php");
+            exit(); // Make sure to stop execution after redirection
+        } else {
+            // Error occurred
+            echo "Error updating user: " . $stmt->errorInfo()[2];
+        }
+        
+        // Close statement
+        $stmt->closeCursor();
+        
+        // Close connection
+        $db = null;
+    }
+}
+
+function update_product(){
+    $db = connection();
+    // Check if form is submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Retrieve form data
+        $user_id = $_GET['id'];
+        $new_username = $_POST['new_name'];
+        $new_address = $_POST['new_description'];
+        $new_email = $_POST['new_price'];
+        $new_password = $_POST['new_image'];
+        
+        // Update user information in the database
+        $query = "UPDATE products SET name=:name, description=:description, price=:price, image=:image WHERE id=:id";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':name', $new_username);
+        $stmt->bindParam(':description', $new_address);
+        $stmt->bindParam(':price', $new_email);
+        $stmt->bindParam(':image', $new_password);
+        $stmt->bindParam(':id', $user_id);
+        
+        if ($stmt->execute()) {
+            // User updated successfully
+            // Redirect to another page
+            header("Location: productoverview.php");
+            exit(); // Make sure to stop execution after redirection
+        } else {
+            // Error occurred
+            echo "Error updating user: " . $stmt->errorInfo()[2];
+        }
+        
+        // Close statement
+        $stmt->closeCursor();
+        
+        // Close connection
+        $db = null;
+    }
+
+}
+
+
 ?>
