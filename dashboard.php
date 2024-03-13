@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+    include_once("header.php");
+    include_once('database.php');
+    print_r($_SESSION);
+?>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Line and Bar Graphs with Charts.js</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="css/dashboard.css">
-    <?php
-    include_once("header.php");
-    include_once('database.php');
-
-    ?>
 </head>
 
 <body>
@@ -23,6 +24,7 @@
         <canvas id="barChart" style="margin-top:15%; width:40%; height:20%;"></canvas>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>    
     <script>
         // Define array of names for lines and bars
         var lineNames = ['Basis bundel clearsky', 'Sloppe bundel', 'Luxe pakket', 'Konings bundel', 'Licht bundel', 'Gaymer bundel'];
@@ -98,12 +100,15 @@
                 }
             }
         });
+        
+
     </script>
 </body>
 
 <footer class="onderbalk text-lg-start bg-light text-muted">
-        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-            <b>&copy Copyright by Clearsky</b>
-        </div>
-    </footer>
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+        <b>&copy Copyright by Clearsky</b>
+    </div>
+</footer>
+
 </html>

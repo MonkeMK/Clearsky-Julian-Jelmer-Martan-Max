@@ -4,6 +4,7 @@
 <?php
 include_once("header.php");
 include_once("database.php");
+print_r($_SESSION);
 $conn = connection();
 include_once("php.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
