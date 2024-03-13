@@ -14,10 +14,10 @@
 
 <body>
     <?php
-    include_once("header.php");
-    include_once("database.php");
+    include_once ("header.php");
+    include_once ("database.php");
     $conn = connection();
-    include_once("php.php");
+    include_once ("php.php");
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         handleAfspraak($conn);
     }
@@ -50,12 +50,14 @@
                     <label class="naamtext" for="name">Naam</label>
                     <input class="naam" type="text" placeholder="naam" name="name">
                     <label class="datetext" for="datum">Datum:</label><br>
-                    <input class="date" type="date" id="date" name="date" oninput="on_date_input(this)"><br>
+                    <input class="date" type="date" id="date" name="date" oninput="on_date_input(this)"
+                        min="<?php echo date('Y-m-d'); ?>"><br>
+                    <label class="addresstext" for="address">Adres:</label> <!-- Changed type to "text" -->
+                    <input class="address" type="text" placeholder="adres" name="address"> <!-- Added name attribute -->
                     <label class="beschrijvingtext" for="beschrijvinigtext">Beschrijving:</label><br>
                     <textarea class="beschrijving" id="description" name="description"></textarea><br><br>
                     <button disabled id="disabled-button" name="button" class="button" type="submit">Verzenden</button>
                 </form>
-
             </div>
         </div>
     </div>
@@ -83,12 +85,39 @@
                 window.alert("This date is unavailable, please pick another one.")
                 button.setAttribute("disabled", "disabled");
             }
+        }
+
+        function on_date_input(element) {
+            var selectedDate = new Date(element.value);
+            var currentDate = new Date();
+
+            if (selectedDate < currentDate) {
+                window.alert('Please select a future date.');
+                element.value = ''; // Clear the input field
+                return;
+            }
+
+            var dayOfWeek = selectedDate.getDay();
+
+            const button = document.querySelector("#myForm button[name='button']")
+
+            if (dayOfWeek === 0 || dayOfWeek === 6) {
+                window.alert('Please select a weekday (Monday to Friday)');
+                button.setAttribute("disabled", "disabled");
+            }
+
+            if (!unavailable_setad.includes(element.value)) {
+                button.removeAttribute("disabled");
+            } else {
+                window.alert("This date is unavailable, please pick another one.")
+                button.setAttribute("disabled", "disabled");
+            }
         } 
     </script>
 
 
     <?php
-    if (isset($GLOBALS["AFSPRAAK_ERROR"])) {
+    if (isset ($GLOBALS["AFSPRAAK_ERROR"])) {
         echo "<script>document.addEventListener('DOMContentLoaded', window.alert('" . $GLOBALS["AFSPRAAK_ERROR"] . "'));</script>";
     }
     ?>

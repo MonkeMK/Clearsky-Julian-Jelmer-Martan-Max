@@ -129,7 +129,7 @@ $cart = new cart(); // Create a new instance of the cart class
                                         <p>Aantal:
                                             <?php echo $item['quantity']; ?>
                                         </p>
-                                        <a href="remove.php?key=<?php echo $key; ?>" class="btn btn-danger">Remove</a>
+                                        <a href="remove.php?key=<?php echo $key; ?>" class="btn btn-danger">Verwijderen</a>
                                     </div>
                                 </div>
                             </div>
@@ -138,8 +138,8 @@ $cart = new cart(); // Create a new instance of the cart class
                     }
                 }
                 ?>
-                <a href="checkout.php" class="btn btn-primary">Checkout</a>
-                <a href="empty.php" class="btn btn-danger">Empty Cart</a>
+                <a href="checkout.php" class="btn btn-primary">Betalen</a>
+                <a href="empty.php" class="btn btn-danger">Winkelwagen legen</a>
             <?php } ?>
         </div>
     </div>

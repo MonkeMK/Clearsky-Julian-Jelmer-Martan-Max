@@ -133,20 +133,26 @@ function handleForgotPassword($conn) {
 
 function handleAfspraak($conn) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset($_POST["name"]) && isset($_POST["date"]) && isset($_POST["description"])) {
+        if (isset($_POST["name"]) && isset($_POST["date"]) && isset($_POST["description"]) && isset($_POST["address"])) { // Added check for address
             $naam = $_POST["name"];
             $datum = $_POST["date"];
             $beschrijving = $_POST["description"];
+            $address = $_POST["address"]; // Added address variable
+            
+            // Example: Assuming you have a user authentication system and can obtain the user ID
+            $user_id = $_SESSION['user_id']; // This is just an example, you need to replace it with the actual way you retrieve user ID
             
             try {
                 // Prepare the SQL statement with named placeholders
-                $sql = "INSERT INTO afspraken (name, date, description) VALUES (:name, :date, :description)";
+                $sql = "INSERT INTO afspraken (name, date, description, address, user_id) VALUES (:name, :date, :description, :address, :user_id)";
                 $stmt = $conn->prepare($sql);
                 
                 // Bind values to named placeholders
                 $stmt->bindParam(':name', $naam);
                 $stmt->bindParam(':date', $datum);
                 $stmt->bindParam(':description', $beschrijving);
+                $stmt->bindParam(':address', $address); // Bind address variable
+                $stmt->bindParam(':user_id', $user_id); // Bind user_id variable
                 
                 // Execute the statement
                 $stmt->execute();
@@ -161,6 +167,7 @@ function handleAfspraak($conn) {
         $GLOBALS["AFSPRAAK_ERROR"] = "Ongeldige aanvraag.";
     }
 }
+
 
 function update_user(){
     $db = connection();
@@ -242,6 +249,48 @@ function update_product(){
     }
 
 }
+
+function update_userpage(){
+    $db = connection();
+    // Check if form is submitted
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Retrieve form data
+        $user_id = $_SESSION['user_id'];
+        $new_username = $_POST['new_username'];
+        $new_address = $_POST['new_address'];
+        $new_email = $_POST['new_email'];
+        $new_password = $_POST['new_password'];
+        $new_phone = $_POST['new_phone'];
+        $new_zipcode = $_POST['new_zipcode'];
+        
+        // Update user information in the database
+        $query = "UPDATE user SET name=:name, adress=:adress, email=:email, password=:password, phonenumber=:phonenumber, zipcode=:zipcode WHERE id=:id";
+        $stmt = $db->prepare($query);
+        $stmt->bindParam(':name', $new_username);
+        $stmt->bindParam(':adress', $new_address);
+        $stmt->bindParam(':email', $new_email);
+        $stmt->bindParam(':password', $new_password);
+        $stmt->bindParam(':phonenumber', $new_phone);
+        $stmt->bindParam(':zipcode', $new_zipcode);
+        $stmt->bindParam(':id', $user_id);
+        
+        if ($stmt->execute()) {
+
+            exit(); // Make sure to stop execution after redirection
+        } else {
+            // Error occurred
+            echo "Error updating user: " . $stmt->errorInfo()[2];
+        }
+        
+        // Close statement
+        $stmt->closeCursor();
+        
+        // Close connection
+        $db = null;
+    }
+}
+
+
 
 
 ?>

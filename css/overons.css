@@ -15,7 +15,7 @@ body{
     left: 42%;
     font-size: 50px;
     color: black;
-    font-family: 'Lobster', cursive;
+
 }
 
 .tekst2{
@@ -34,7 +34,6 @@ body{
     text-align: center;
     font-size: 50px;
     color: black;
-    font-family: 'Lobster', cursive;    
 }
 
 .tekst4{
@@ -51,7 +50,6 @@ body{
     left: 43%;
     font-size: 50px;
     color: black;
-    font-family: 'Lobster', cursive;
 }
 
 .gegevens{

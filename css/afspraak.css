@@ -46,7 +46,7 @@ body {
     border-radius: 10px;
     border: none;
     background-color: #103E7E;
-    font-family: 'Lobster', cursive;
+    
     color: white;
     transition: 0.2s;
 }
@@ -71,8 +71,8 @@ height: 40%;
     left:31%;
     top:43%;
     font-size:20px;
-    font-family: 'Lobster', cursive;
-}
+}   
+    
 
 .date{
     position: absolute;
@@ -86,15 +86,15 @@ height: 40%;
 .datetext{
     position:absolute;
     left:31%;
-    top:30.5%;
+    top:31%;
     font-size:20px; 
-    font-family: 'Lobster', cursive;
+    
 }
 
 .naam{
     position: absolute;
     left: 31%;
-    top:20%;
+    top:15%;
     width: 38%;
     border-radius: 10px;
     border: solid black 1px;   
@@ -103,9 +103,9 @@ height: 40%;
 .naamtext{
     position:absolute;
     left:31%;
-    top:16.5%;
+    top:12%;
     font-size:20px;
-    font-family: 'Lobster', cursive;
+    
 }
 
 .titel{
@@ -113,5 +113,21 @@ height: 40%;
     top:16.5%;
     left:38%;
     top:5%;
-    font-family: 'Lobster', cursive;
+    
+}
+
+.addresstext{
+    position:absolute;
+    left:31%;
+    top:23%;
+    font-size:20px;
+}
+
+.address{
+    position: absolute;
+    left: 31%;
+    top:27%;
+    width: 38%;
+    border-radius: 10px;
+    border: solid black 1px;   
 }

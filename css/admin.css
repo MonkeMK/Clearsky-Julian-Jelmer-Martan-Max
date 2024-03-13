@@ -147,3 +147,7 @@ tr:hover {
     color: #fff;
     text-decoration: none;
 }
+
+.past-date td {
+    background-color:  #777; /* Gray color */
+}

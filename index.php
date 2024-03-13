@@ -76,7 +76,7 @@
     foreach ($result as $r) {
         $productId = $r['id']; // Store the product ID in a variable
     ?>
-        <div class="card mx-5 mb-5 overlay-container" style="width: 20rem;">
+        <div class="card mx-5 mb-5 overlay-container" style="width: 20rem; position: relative;">
             <div class="card-img-top-container">
                 <img class="card-img-top p-2" src="assets/<?php echo $r['image']; ?>" alt="Card image cap">
             </div>
@@ -90,15 +90,11 @@
                 <p class="card-text"><small class="text-muted">
                 € <?php echo $r['price']; ?>
                 </small></p>
-                <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === 1) { ?>
-                <form action="addToCart.php" method="post">
-                    <input type="hidden" name="id" value="<?php echo $productId; ?>"> 
-                    <div class="d-flex justify-content-center">
-                        <input type="submit" class="knop" value="Toevoegen">
-                    </div>
-                </form>
-                <?php } ?>
             </div>
+            <form action="addToCart.php" method="POST" style="position: absolute; padding:5px; bottom: 0%; left: 80%; transform: translateX(-50%);">
+                <input type="hidden" name="id" value="<?php echo $r['id']; ?>">
+                <button type="submit" class="knop btn-primary" style="width: 100%;">Toevoegen</button>
+            </form>
             <div class="overlay">
                 <div class="overlay-content">
                     <!-- Content will be dynamically populated here -->
@@ -109,6 +105,8 @@
     }
     ?>
 </div>
+
+
 
 <footer class="text-center text-lg-start bg-light text-muted" style="position:absolute; left:0%; width: 100%;">
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
@@ -127,11 +125,6 @@
 
         overlayContainers.forEach(container => {
             container.addEventListener('click', function (event) {
-                // Check if the clicked element is the "Add to cart" button
-                if (event.target.classList.contains('btn-primary')) {
-                    return; // Do nothing and let the default action proceed
-                }
-
                 const overlay = this.querySelector('.overlay');
                 const name = this.querySelector('.card-title').textContent;
                 const description = this.querySelector('.card-text').textContent;
@@ -148,14 +141,25 @@
                         <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === 1) { ?>
                         <a href="addToCart.php?id=<?php echo $productId; ?>" class="btn btn-primary">Toevoegen</a>
                         <?php } ?>
-                        <a href="index.php" class="btn btn-secondary">Back</a>
+                        <a href="index.php" class="btn btn-secondary">Terug</a>
                     </div>
                 `;
 
                 overlay.style.display = 'block';
             });
+
+            // Add event listener for "Toevoegen" button
+            const toevoegenButtons = container.querySelectorAll('.btn-primary');
+            toevoegenButtons.forEach(button => {
+                button.addEventListener('click', function(event) {
+                    event.stopPropagation(); // Prevent event from bubbling up to the container
+                    const productId = this.getAttribute('data-product-id');
+                    window.location.href = `addToCart.php?id=${productId}`; // Redirect to addToCart.php with product ID
+                });
+            });
         });
     });
 </script>
+
 </body>
 </html>

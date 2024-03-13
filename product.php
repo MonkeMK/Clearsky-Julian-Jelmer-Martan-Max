@@ -171,7 +171,7 @@ $_SESSION['referer'] = $_SERVER['HTTP_REFERER'];
                         <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === 1) { ?>
                         <a href="addToCart.php?id=<?php echo $r['id']; ?>" class="btn btn-primary">Toevoegen</a>
                         <?php } ?>
-                        <a href="product.php" class="btn btn-secondary">Back</a>
+                        <a href="product.php" class="btn btn-secondary">Terug</a>
                     </div>
                 `;
 
