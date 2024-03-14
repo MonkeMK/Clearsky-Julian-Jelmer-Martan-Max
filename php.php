@@ -278,6 +278,45 @@ function update_userpage()
     }
 }
 
+function getCurrentUsername($conn) {
+    $user_id = $_SESSION["user_id"];
+    $sql = "SELECT name FROM user WHERE id = :user_id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    return ($row) ? $row["name"] : "Guest";
+}
+
+function displayAppointmentsForCurrentUser($conn) {
+    $user_id = $_SESSION["user_id"];
+    $query = "SELECT id, name, date, description, address
+              FROM afspraken
+              WHERE user_id = :user_id
+              ORDER BY date DESC";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    if ($stmt->rowCount() > 0) {
+        echo "<table>";
+        echo "<tr>
+                <th>Naam</th>
+                <th>Datum</th>
+                <th>Beschrijving</th>
+                <th>Adres</th>
+              </tr>";
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            // Check if the date is in the past
+            $date = strtotime($row["date"]);
+            $today = strtotime(date("Y-m-d"));
+            $date_class = ($date < $today) ? 'past-date' : '';
+            echo "<tr class='$date_class'><td>" . $row["name"] . "</td><td>" . $row["date"] . "</td><td>" . $row["description"] . "</td><td>" . $row["address"] . "</td></tr>";
+        }
+        echo "</table>";
+    } else {
+        echo "No appointments found for the current user.";
+    }
+}
 
 
 

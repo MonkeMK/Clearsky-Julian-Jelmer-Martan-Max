@@ -18,9 +18,9 @@
 
     <div class="container">
         <h1 class="title">Dashboard verkoopcijfers</h1>
-        <canvas id="lineChart" style="margin-top:5%; width:40%; height:20%;"></canvas>
+        <canvas id="lineChart" style="position:absolute; top:5%; margin-top:5%; width:20%; height:8%;"></canvas>
         <hr class="tussenlijn">
-        <canvas id="barChart" style="margin-top:15%; width:40%; height:20%;"></canvas>
+        <canvas id="barChart" style="position:absolute; top:35%; margin-top:15%; width:20%; height:8%;"></canvas>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>    

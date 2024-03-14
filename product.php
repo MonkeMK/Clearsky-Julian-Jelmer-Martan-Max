@@ -26,7 +26,7 @@
 
         foreach ($result as $r) {
             ?>
-            <div class="card mx-5 mb-5 overlay-container" style="width: 20rem;">
+            <div class="card mx-5 mb-5 overlay-container" style="position:relative; max-width: 15%;">
                 <div class="card-img-top-container">
                     <img class="card-img-top p-2" src="assets/<?php echo $r['image']; ?>" alt="Card image cap">
                 </div>

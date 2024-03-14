@@ -1,7 +1,8 @@
-<?php include_once("header.php");
-include_once("database.php"); ?>
+<?php 
+include_once("header.php");
+include_once("database.php"); 
 
-<?php
+
 if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] == 1) {
     $sql = "SELECT * FROM user WHERE id = :id";
     $conn = connection();

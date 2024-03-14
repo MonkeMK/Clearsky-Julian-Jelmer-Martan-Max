@@ -1,81 +1,47 @@
-<?php
-
-include_once ("database.php");
-$conn = connection();
-
-if (!$conn) {
-    die ("Connection failed");
-}
-
-$user_id = $_SESSION["user_id"];
-
-$sql = "SELECT name FROM user WHERE id = :user_id";
-$stmt = $conn->prepare($sql);
-$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-$stmt->execute();
-
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
-if ($row) {
-    $current_username = $row["name"];
-} else {
-    $current_username = "Guest";
-}
-$conn = null;
-
-$pdo = connection();
-$id = $_SESSION["user_id"];
-
-$sql = "SELECT * FROM user WHERE id = :id";
-$stmt = $pdo->prepare($sql);
-$stmt->bindParam(':id', $user_id, PDO::PARAM_INT);
-$stmt->execute();
-
-
-$product = $stmt->fetch(PDO::FETCH_ASSOC);
-
-$sql = connection();
-$user_id = $_SESSION["user_id"];
-
-$query = "SELECT id, name, date, description, address
-          FROM afspraken
-          WHERE user_id = :user_id
-          ORDER BY date DESC";
-$stmt = $sql->prepare($query);
-
-$stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-
-$stmt->execute();
-if ($stmt->rowCount() > 0) {
-    echo "<table>";
-    echo "<tr>
-            <th>Naam</th>
-            <th>Datum</th>
-            <th>Beschrijving</th>
-            <th>Adres</th>
-          </tr>";
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        // Check if the date is in the past
-        $date = strtotime($row["date"]);
-        $today = strtotime(date("Y-m-d"));
-        $date_class = ($date < $today) ? 'past-date' : '';
-
-        echo "<tr class='$date_class'><td>" . $row["name"] . "</td><td>" . $row["date"] . "</td><td>" . $row["description"] . "</td><td>" . $row["address"] . "</td></tr>";
-    }
-    echo "</table>";
-} else {
-    echo "No appointments found for the current user.";
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/user.css">
-    <title>Gebruikerspage</title>
+    <title>User</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <?php
+    include_once ("database.php");
+    include_once ("header.php");
+    include_once ("php.php");
+    ?>
+   <link rel="stylesheet" href="css/user.css">
 </head>
+
+<?php
+
+// Initialize database connection
+$conn = connection();
+
+// Check if connection is successful
+if (!$conn) {
+    die ("Connection failed");
+}
+
+// Get current username
+$current_username = getCurrentUsername($conn);
+
+// Get current user's appointments
+displayAppointmentsForCurrentUser($conn);
+
+// Fetch user details (assuming $product represents user details)
+$user_id = $_SESSION["user_id"];
+$sql = "SELECT * FROM user WHERE id = :id";
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':id', $user_id, PDO::PARAM_INT);
+$stmt->execute();
+$product = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Close the database connection
+$conn = null;
+?>
 
 <body>
     <h2 class="editproduct">Afspraken</h2>
@@ -97,7 +63,7 @@ if ($stmt->rowCount() > 0) {
         <label for="new_zipcode">Nieuwe postcode</label><br>
         <input type="text" id="new_zipcode" name="new_zipcode" value="<?php echo $product["zipcode"] ?>"><br>
 
-        <input class="buttonsubmit" type="submit" name="submit" value="Submit">
+        <input class="buttonsubmit" type="submit" name="submit" value="Veranderen">
     </form>
 
     <div class="container">
@@ -186,14 +152,11 @@ if ($stmt->rowCount() > 0) {
         });
 
     </script>
-</body>
 
-<?php
-include_once ("php.php");
-update_userpage();
-?>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
     crossorigin="anonymous"></script>
+
+</body>
 
 </html>

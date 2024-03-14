@@ -8,17 +8,17 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-</head>
 
-<?php
-include_once ("header.php");
-include_once ('database.php');
-?>
+
+    <?php
+    include_once ("header.php");
+    include_once ('database.php');
+    ?>
+</head>
 
 <body>
 
-    <div class="container1">
+    <div class="containertext">
         <h1>Welkom bij Clearsky</h1>
         <p>Wij van Clearsky leveren u de beste producten op de markt. We zorgen voor de beste kwaliteit voor de laagste
             prijs. Neem een kijkje in ons assortiment en laat u verrassen door de kwaliteit van onze producten. ❤️</p>
@@ -100,7 +100,7 @@ include_once ('database.php');
                         <p>${description}</p>
                         <p>${price}</p>
                         <?php if (isset ($_SESSION["logged_in"]) && $_SESSION["logged_in"] === 1) { ?>
-                                <a href="addToCart.php?id=<?php echo $productId; ?>" class="btn btn-primary">Toevoegen</a>
+                                        <a href="addToCart.php?id=<?php echo $productId; ?>" class="btn btn-primary">Toevoegen</a>
                         <?php } ?>
                         <a href="index.php" class="btn btn-secondary">Terug</a>
                     </div>

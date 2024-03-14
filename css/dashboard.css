@@ -9,8 +9,10 @@ body{
 }
 
 .title{
+    position: absolute;
     margin-top: 10px;
     text-align: center;
+    top:0%;
 }
 
 .container{
@@ -19,11 +21,12 @@ body{
     border-radius: 10px;
     top: 20%;
     left: 10%;
+    height: 100%;
 }
 
 .tussenlijn{
     position:absolute; 
-    top:53%; 
+    top:52%; 
     width:95%; 
     border-top: 2px solid black; 
     left:2.5%;
@@ -31,7 +34,7 @@ body{
 
 .onderbalk{
     position:absolute; 
-    bottom: -50%; 
+    bottom: -30%; 
     left:0%; 
     width: 100%;
 }
