@@ -38,7 +38,7 @@
             </div>
         </div>
     </div> 
-    <footer class="text-center text-lg-start bg-light text-muted" style="position:absolute; left:0%; bottom:-5%; width: 100%;">
+    <footer class="text-center text-lg-start bg-light text-muted" style="position:absolute; left:0%; bottom:-40%; width: 100%;">
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
             <b>&copy Copyright by Clearsky</b>
         </div>

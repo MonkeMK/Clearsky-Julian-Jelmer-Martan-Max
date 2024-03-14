@@ -1,0 +1,67 @@
+body {
+    background-image: url("../assets/background.png");
+    background-color: white;
+    height: 900px;
+    background-position: 0 0;
+    background-repeat: repeat;
+    position: relative;
+    animation: slide 30s linear infinite;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+    /* Hide initially */
+}
+
+.overlay-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #f5f5f5;
+    padding: 10px;
+    /* Adjust the padding to make the overlay smaller */
+    border-radius: 5px;
+    text-align: center;
+    /* Center align content */
+    width: 50%;
+    /* Set the width of the overlay */
+}
+
+
+.overlay-content img {
+    max-width: 40%;
+    /* Limit image width */
+    max-height: 40%;
+    /* Limit image height */
+    height: auto;
+    width: auto;
+    margin-bottom: 20px;
+    /* Add some space below the image */
+    background-color: transparent;
+    border: none;
+    /* Remove border */
+}
+
+.knop {
+    color: white;
+    background-color: #103E7E;
+    border: solid #103E7E;
+    border-radius: 10px;
+    height: 5vh;
+    width: 50%;
+    transition: 0.2s;
+}
+
+.knop:hover {
+    color: white;
+    background-color: #3050A8;
+    border: solid #3050A8;
+}

@@ -9,17 +9,17 @@
 </head>
 
 <?php
-include_once("database.php");
-include_once("header.php");
+include_once ("database.php");
+include_once ("header.php");
 $conn = connection();
 
 $sql = "SELECT id, name, description, price, image FROM products";
 $result = $conn->query($sql);
 
-$rows = array(); // Array to hold fetched rows
+$rows = array();
 
 if ($result->rowCount() > 0) {
-    // Fetch data and store in array
+
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         $rows[] = $row;
     }
@@ -27,7 +27,7 @@ if ($result->rowCount() > 0) {
     echo "0 results";
 }
 
-// Close connection
+
 $conn = null;
 ?>
 
@@ -49,7 +49,6 @@ $conn = null;
             </thead>
             <tbody>
                 <?php
-                // Output data into table rows
                 foreach ($rows as $row) {
                     echo "<tr>";
                     echo "<td>" . $row['id'] . "</td>";
@@ -70,6 +69,7 @@ $conn = null;
 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+
 </html>

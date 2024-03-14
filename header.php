@@ -2,9 +2,9 @@
 <html lang="en">
 
 <?php
-include_once('database.php');
-include_once('classes/cart.php');
-$cart = new cart(); // Create a new instance of the cart class
+    include_once('database.php');
+    include_once('classes/cart.php');
+    $cart = new cart();
 ?>
 
 <head>
@@ -12,7 +12,7 @@ $cart = new cart(); // Create a new instance of the cart class
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel=stylesheet href="../css/style.css">
+    <link rel=stylesheet href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-+0V4cXq+QRoi6iKzK2KRP3zZlNQrj5819m1GfOJwXwXcA+toUOD2KhTjhp5jcqv5"
         crossorigin="anonymous" defer></script>
@@ -21,24 +21,6 @@ $cart = new cart(); // Create a new instance of the cart class
 </head>
 
 <body>
-
-    <style>
-        .knop1 {
-            color: white;
-            background-color: #103E7E;
-            border: solid #103E7E;
-            border-radius: 10px;
-            height: 5vh;
-            width: 10%;
-            transition: 0.2s;
-        }
-
-        .knop1:hover {
-            color: white;
-            background-color: #3050A8;
-            border: solid #3050A8;
-        }
-    </style>
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light" data-bs-theme="dark">
             <div class="container-fluid">
@@ -92,13 +74,11 @@ $cart = new cart(); // Create a new instance of the cart class
         </div>
         <div class="offcanvas-body">
             <?php
-            // Retrieve cart items and display them if the cart is not empty
             $cartItems = $cart->getCart();
             if (empty($cartItems)) {
                 echo "<p>Geen producten in je winkelwagen</p>";
             } else {
                 foreach ($cartItems as $key => $item) {
-                    // Retrieve product details from the database based on the ID
                     $conn = connection();
                     $stmt = $conn->prepare("SELECT * FROM products WHERE id = :id");
                     $stmt->bindParam(':id', $item["id"]);
@@ -109,8 +89,6 @@ $cart = new cart(); // Create a new instance of the cart class
                         $description = $product['description'];
                         $price = $product['price'];
                         $image = $product['image'];
-
-                        // Output the product details
                         ?>
                         <div class="card mb-3">
                             <div class="row g-0">

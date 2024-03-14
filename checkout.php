@@ -1,83 +1,10 @@
 <?php
-include_once('classes/cart.php');
-include_once('header.php');
-include_once("database.php");
+include_once ('classes/cart.php');
+include_once ('header.php');
+include_once ("database.php");
 ?>
-
-<style>
-    .mb-32 {
-        margin-left: 7%;
-        margin-bottom: 10%;
-    }
-
-    .container {
-        position: absolute;
-        top: 70%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-
-    .form {
-        position: absolute;
-        left: 5%;
-        top: 20%;
-    }
-
-    .card {
-        max-width: 200px;
-    }
-
-    .titel {
-        text-align: center;
-        position: absolute;
-        left: 5%;
-        top: 15%;
-    }
-
-    .center-content {
-        left: 50%;
-        width: 100%;
-        height: 100%;
-        top: 20%;
-    }
-
-    .card-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        grid-gap: 10px;
-        margin-top: 4%;
-        margin-left: 5%;
-    }
-
-    .radio-container {
-        display: block;
-        margin-bottom: 10px;
-    }
-
-    .checkoutknop {
-        position: relative;
-        margin-top: 75%;
-        /* Adjust as needed */
-        margin-bottom: 5%;
-        left: 45%;
-        color: white;
-        background-color: #103E7E;
-        border: solid #103E7E;
-        border-radius: 10px;
-        height: 5%;
-        transition: 0.2s;
-        width: 10%;
-        font-size: 20px;
-    }
-
-    .checkoutknop:hover {
-        color: white;
-        background-color: #3050A8;
-        border: solid #3050A8;
-    }
-</style>
+<!DOCTYPE html>
+<html lang="en">
 
 <body>
     <div class="d-flex flex-wrap">
@@ -88,7 +15,7 @@ include_once("database.php");
                 $count = 0;
                 $totalPrice = 0;
 
-                if (!empty($cart->getCart())) {
+                if (!empty ($cart->getCart())) {
                     foreach ($cart->getCart() as $key => $item) {
                         $count++;
 
@@ -260,7 +187,7 @@ include_once("database.php");
         </form>
 
         <?php
-        if (isset($_POST['checkout'])) {
+        if (isset ($_POST['checkout'])) {
             $cart->emptyCart();
             echo "
             <script>

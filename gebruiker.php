@@ -1,15 +1,14 @@
 <?php
-// Assuming this is where you include database.php and establish a connection
+
 include_once ("database.php");
-$conn = connection(); // Assuming this function returns a PDO connection object
+$conn = connection();
 
 if (!$conn) {
     die ("Connection failed");
 }
 
-$user_id = $_SESSION["user_id"]; // Assuming you have stored user_id in the session upon login
+$user_id = $_SESSION["user_id"];
 
-// Fetching the username from the database
 $sql = "SELECT name FROM user WHERE id = :user_id";
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
@@ -19,42 +18,34 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 if ($row) {
     $current_username = $row["name"];
 } else {
-    $current_username = "Guest"; // Set default value if username is not found
+    $current_username = "Guest";
 }
-$conn = null; // Close the connection
+$conn = null;
 
 $pdo = connection();
 $id = $_SESSION["user_id"];
-// Fetching the user data from the database
+
 $sql = "SELECT * FROM user WHERE id = :id";
 $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':id', $user_id, PDO::PARAM_INT);
 $stmt->execute();
 
-// Fetching user data and assigning it to $product
+
 $product = $stmt->fetch(PDO::FETCH_ASSOC);
 
 $sql = connection();
-$user_id = $_SESSION["user_id"]; // Replace "user_id" with the actual session variable name
+$user_id = $_SESSION["user_id"];
 
-// Prepare SQL query
 $query = "SELECT id, name, date, description, address
           FROM afspraken
           WHERE user_id = :user_id
-          ORDER BY date DESC"; // Order by date in descending order
-
-// Prepare the statement
+          ORDER BY date DESC";
 $stmt = $sql->prepare($query);
 
-// Bind parameter
 $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
 
-// Execute SQL query
 $stmt->execute();
-
-// Check if there are any results
 if ($stmt->rowCount() > 0) {
-    // Output data of each row
     echo "<table>";
     echo "<tr>
             <th>Naam</th>
@@ -66,7 +57,7 @@ if ($stmt->rowCount() > 0) {
         // Check if the date is in the past
         $date = strtotime($row["date"]);
         $today = strtotime(date("Y-m-d"));
-        $date_class = ($date < $today) ? 'past-date' : ''; // Apply 'past-date' class to past dates
+        $date_class = ($date < $today) ? 'past-date' : '';
 
         echo "<tr class='$date_class'><td>" . $row["name"] . "</td><td>" . $row["date"] . "</td><td>" . $row["description"] . "</td><td>" . $row["address"] . "</td></tr>";
     }
@@ -92,7 +83,6 @@ if ($stmt->rowCount() > 0) {
         <?php echo $current_username; ?>!
     </h1>
     <form method="post" action="" class="invoervelden">
-        <!-- Assuming $user_id holds the ID of the logged-in user -->
         <input type="hidden" name="id" value="<?php echo $user_id; ?>">
         <label for="new_username">Nieuwe naam</label><br>
         <input type="text" id="new_username" name="new_username" value="<?php echo $product["name"] ?>"><br>
@@ -202,7 +192,8 @@ if ($stmt->rowCount() > 0) {
 include_once ("php.php");
 update_userpage();
 ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+
 </html>

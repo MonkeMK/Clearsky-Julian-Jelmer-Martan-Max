@@ -16,10 +16,10 @@ $conn = connection();
 $sql = "SELECT id, name, date, description, address FROM afspraken ORDER BY date DESC";
 $result = $conn->query($sql);
 
-$rows = array(); // Array to hold fetched rows
+$rows = array(); 
 
 if ($result->rowCount() > 0) {
-    // Fetch data and store in array
+
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         $rows[] = $row;
     }
@@ -27,7 +27,7 @@ if ($result->rowCount() > 0) {
     echo "0 results";
 }
 
-// Close connection
+
 $conn = null;
 ?>
 
@@ -48,17 +48,15 @@ $conn = null;
             </thead>
             <tbody>
                 <?php
-                // Output data into table rows
+
                 foreach ($rows as $row) {
-                    // Check if the date is in the past
+
                     $currentDate = date('Y-m-d');
                     $appointmentDate = $row['date'];
                     $isPastDate = ($currentDate > $appointmentDate);
 
-                    // Apply different CSS class based on whether the date is in the past or not
                     $rowClass = ($isPastDate) ? 'past-date' : '';
 
-                    // Output table row with appropriate class
                     echo "<tr class='$rowClass'>";
                     echo "<td>" . $row['id'] . "</td>";
                     echo "<td>" . $row['name'] . "</td>";

@@ -23,22 +23,20 @@
     }
 
 
-    // receive from database
+
     $query = "SELECT date FROM afspraken";
     $stmt = $conn->prepare($query);
     $stmt->execute();
     $results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-    // create array with dates only
     $dates = array();
     foreach ($results as $row) {
         array_push($dates, $row['date']);
     }
 
-    // php array to json array
     $json_encoded = json_encode($dates);
 
-    // putting json array into session storage 
+
     echo "<script>sessionStorage.setItem('unavailable_setad', '$json_encoded')</script>";
     ?>
 
@@ -52,8 +50,8 @@
                     <label class="datetext" for="datum">Datum:</label><br>
                     <input class="date" type="date" id="date" name="date" oninput="on_date_input(this)"
                         min="<?php echo date('Y-m-d'); ?>"><br>
-                    <label class="addresstext" for="address">Adres:</label> <!-- Changed type to "text" -->
-                    <input class="address" type="text" placeholder="adres" name="address"> <!-- Added name attribute -->
+                    <label class="addresstext" for="address">Adres:</label>
+                    <input class="address" type="text" placeholder="adres" name="address">
                     <label class="beschrijvingtext" for="beschrijvinigtext">Beschrijving:</label><br>
                     <textarea class="beschrijving" id="description" name="description"></textarea><br><br>
                     <button disabled id="disabled-button" name="button" class="button" type="submit">Verzenden</button>
