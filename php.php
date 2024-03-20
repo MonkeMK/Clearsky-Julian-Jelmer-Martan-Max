@@ -318,6 +318,4 @@ function displayAppointmentsForCurrentUser($conn) {
     }
 }
 
-
-
 ?>

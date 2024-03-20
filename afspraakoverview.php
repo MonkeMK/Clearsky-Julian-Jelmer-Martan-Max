@@ -26,7 +26,7 @@ if ($result->rowCount() > 0) {
         $rows[] = $row;
     }
 } else {
-    echo "0 results";
+    echo "";
 }
 
 

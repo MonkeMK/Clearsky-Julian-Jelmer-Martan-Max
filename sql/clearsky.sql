@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2024 at 09:06 AM
+-- Generation Time: Mar 20, 2024 at 08:40 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -35,23 +35,6 @@ CREATE TABLE `afspraken` (
   `address` varchar(255) NOT NULL,
   `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `afspraken`
---
-
-INSERT INTO `afspraken` (`id`, `name`, `date`, `description`, `address`, `user_id`) VALUES
-(9, 'Jelmer', '2024-03-21', 'Jelmeemlemle', '', NULL),
-(10, 'Julain', '2024-03-20', 'julian julian ', '', NULL),
-(11, 'Je moeder', '2024-03-22', 'a', '', NULL),
-(12, 'fafa', '2024-03-22', 'afaf', '', NULL),
-(13, 'Jelmer', '2024-03-13', 'agag', 'aap aap aap', NULL),
-(14, 'Jelmer', '2024-03-04', 'afaf', 'afafa', NULL),
-(15, 'abc', '2024-03-29', 'abc', 'abc', NULL),
-(16, 'ikakkaa', '2024-03-18', 'af', 'aafaf', NULL),
-(17, 'ikakkaa', '2024-03-18', 'af', 'aafaf', 11),
-(18, 'kakaka', '2024-03-28', 'faafaf', 'kakakka', 11),
-(19, 'fafa', '2024-03-14', 'afaf', 'afaf', 11);
 
 -- --------------------------------------------------------
 
@@ -107,7 +90,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `name`, `adress`, `email`, `password`, `phonenumber`, `zipcode`, `admin`, `can_login`) VALUES
 (1, 'admin', 'adminadmin', 'admin@gmail.com', 'admin', 66666, '2401fg', 1, 1),
 (11, 'max', 'maxmax', 'max@gmail.com', 'max', 0, '0000', 0, 1),
-(13, 'test', 'testtest', 'test@gmail.com', 'test', 0, '', 0, 1);
+(13, 'test', 'testtest', 'test@gmail.com', 'test', 0, '0', 0, 1);
 
 --
 -- Indexes for dumped tables
