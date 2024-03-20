@@ -4,7 +4,6 @@ include_once ("database.php");
 // Establish the database connection
 $conn = connection();
 $error = ""; // Declare the $error variable
-
 function recaptcha($POST)
 {
     $secretKey = '6LdY5YIpAAAAALfCIfLdbxtNxSeZFpqzVlhSrbQs';
@@ -133,15 +132,15 @@ function handleForgotPassword($conn)
     }
 }
 
+
 function handleAfspraak($conn)
 {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (isset ($_POST["name"]) && isset ($_POST["date"]) && isset ($_POST["description"]) && isset ($_POST["address"])) {
+        if (isset($_POST["name"]) && isset($_POST["date"]) && isset($_POST["description"]) && isset($_POST["address"])) {
             $naam = $_POST["name"];
             $datum = $_POST["date"];
             $beschrijving = $_POST["description"];
             $address = $_POST["address"];
-
             $user_id = $_SESSION['user_id'];
 
             try {
@@ -156,6 +155,10 @@ function handleAfspraak($conn)
                 $stmt->bindParam(':user_id', $user_id);
 
                 $stmt->execute();
+                
+
+                // Redirect to another page with a query parameter indicating form submission
+                echo '<script>window.location.href = "index.php?submitted=true";</script>';
 
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();

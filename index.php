@@ -17,6 +17,9 @@
 </head>
 
 <body>
+    <div id="popupBar" class="popup-bar">
+        <span id="popupText"></span>
+    </div>
 
     <div class="containertext">
         <h1>Welkom bij Clearsky</h1>
@@ -81,46 +84,77 @@
     <script src="script.js"></script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const overlayContainers = document.querySelectorAll('.overlay-container');
 
-            overlayContainers.forEach(container => {
-                container.addEventListener('click', function (event) {
-                    const overlay = this.querySelector('.overlay');
-                    const name = this.querySelector('.card-title').textContent;
-                    const description = this.querySelector('.card-text').textContent;
-                    const price = this.querySelector('.text-muted').textContent;
-                    const imageSrc = this.querySelector('.card-img-top').src;
+    function displayPopup(message) {
+        var popupBar = document.getElementById("popupBar");
+        var popupText = document.getElementById("popupText");
+        popupText.textContent = message;
+        popupBar.style.display = "block";
 
-                    const overlayContent = overlay.querySelector('.overlay-content');
-                    overlayContent.innerHTML = `
+        setTimeout(function() {
+            popupBar.style.display = "none";
+        }, 4000);
+    }
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Select all overlay containers
+        const overlayContainers = document.querySelectorAll('.overlay-container');
+
+ 
+        overlayContainers.forEach(container => {
+  
+            container.addEventListener('click', function (event) {
+                const overlay = this.querySelector('.overlay');
+                const name = this.querySelector('.card-title').textContent;
+                const description = this.querySelector('.card-text').textContent;
+                const price = this.querySelector('.text-muted').textContent;
+                const imageSrc = this.querySelector('.card-img-top').src;
+
+                const overlayContent = overlay.querySelector('.overlay-content');
+
+                // Generate HTML content for overlay
+                overlayContent.innerHTML = `
                     <div>
                         <img src="${imageSrc}" alt="Product Image">
                         <h5>${name}</h5>
                         <p>${description}</p>
                         <p>${price}</p>
-                        <?php if (isset ($_SESSION["logged_in"]) && $_SESSION["logged_in"] === 1) { ?>
-                                        <a href="addToCart.php?id=<?php echo $productId; ?>" class="btn btn-primary">Toevoegen</a>
-                        <?php } ?>
+                        <button class="btn btn-primary addToCart">Toevoegen</button>
                         <a href="index.php" class="btn btn-secondary">Terug</a>
                     </div>
                 `;
 
-                    overlay.style.display = 'block';
-                });
+                overlay.style.display = 'block';
+            });
 
-                // Add event listener for "Toevoegen" button
-                const toevoegenButtons = container.querySelectorAll('.btn-primary');
-                toevoegenButtons.forEach(button => {
-                    button.addEventListener('click', function (event) {
-                        event.stopPropagation(); // Prevent event from bubbling up to the container
-                        const productId = this.getAttribute('data-product-id');
-                        window.location.href = `addToCart.php?id=${productId}`; // Redirect to addToCart.php with product ID
-                    });
+    
+            const toevoegenButtons = container.querySelectorAll('.addToCart');
+
+         
+            toevoegenButtons.forEach(button => {
+                button.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                    const productId = container.querySelector('.btn-primary').getAttribute('data-product-id');
+                    window.location.href = `addToCart.php?id=${productId}`;
                 });
             });
         });
-    </script>
+    });
+
+
+    window.onload = function() {
+    // Check if the URL contains the query parameter for form submission
+    const urlParams = new URLSearchParams(window.location.search);
+    const submitted = urlParams.get('submitted');
+    
+    // If the form was submitted, display the popup
+    if (submitted === 'true') {
+        displayPopup("Uw afspraak is bevestigd");
+    }
+};
+</script>
+
 
 </body>
 

@@ -153,3 +153,12 @@ tr:hover {
 .past-date td {
     background-color:  #777; /* Gray color */
 }
+
+#popupBar {
+    position: absolute;
+    z-index: 9999; /* Ensure popup appears above other content */
+    top: 0%; /* Adjust as needed */
+    left: 50%; /* Adjust as needed */
+    transform: translateX(-50%);
+    width: 100%; /* Adjust as needed */
+  } 
