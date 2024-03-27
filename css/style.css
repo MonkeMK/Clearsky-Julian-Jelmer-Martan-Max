@@ -594,16 +594,6 @@ tr:hover {
     width: 100%;
 }
 
-.containerindex{
-    position: absolute;
-    top: 12%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    left:5%;
-    width: 90%;
-}
 
 .d-flexlogin {
     position: absolute;
@@ -993,6 +983,13 @@ tr:hover {
     color: white;
     background-color: #3050A8;
     border: solid #3050A8;
+}
+
+.d-flexindex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    top:15%;
 }
 
 
