@@ -35,7 +35,23 @@
                         <?php echo $r['name']; ?>
                     </h5>
                     <p class="card-text">
-                        <?php echo $r['description']; ?>
+                        <?php 
+                        // Get the description from the PHP variable
+                        $description = $r['description'];
+
+                        // Count the words in the description
+                        $wordCount = str_word_count($description);
+
+                        // Check if the word count exceeds 50
+                        if ($wordCount > 50) {
+                            // If more than 50 words, limit the description to 50 words and append "..."
+                            $limitedDescription = implode(' ', array_slice(str_word_count($description, 1), 0, 50)) . '...';
+                            echo $limitedDescription;
+                        } else {
+                            // If less than or equal to 50 words, display the original description
+                            echo $description;
+                        }
+                        ?>
                     </p>
                     <p class="card-text"><small class="text-muted">
                             €

@@ -107,7 +107,7 @@
     }
 
     function displayPopup(message) {
-            var popupBar = document.getElementById("popupBarregister");
+            var popupBar = document.getElementById("popupBar");
             popupBar.innerHTML = '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' + message;
             popupBar.classList.add("alert-warning");
             popupBar.style.display = "block";
