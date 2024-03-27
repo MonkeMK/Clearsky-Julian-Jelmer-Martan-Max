@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="nl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Line and Bar Graphs with Charts.js</title>
+    <title>Lijn- en staafdiagrammen met Charts.js</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <?php
-include_once ("header.php");
-include_once ('database.php');
+include_once("header.php");
+include_once('database.php');
 ?>
 
 <body>
@@ -25,11 +25,11 @@ include_once ('database.php');
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
-        // Define array of names for lines and bars
+        // Array met namen voor lijnen en staafjes definiëren
         var lineNames = ['Basis bundel clearsky', 'Sloppe bundel', 'Luxe pakket', 'Konings bundel', 'Licht bundel', 'Gaymer bundel'];
         var barNames = ['Basis bundel clearsky', 'Sloppe bundel', 'Luxe pakket', 'Konings bundel', 'Licht bundel', 'Gaymer bundel'];
 
-        // Generate random data points for line chart
+        // Willekeurige datapunten genereren voor lijndiagram
         var lineDataSets = [];
         for (var j = 0; j < 6; j++) {
             var lineDataPoints = [];
@@ -37,16 +37,16 @@ include_once ('database.php');
                 lineDataPoints.push(Math.floor(Math.random() * 300) + 50);
             }
             lineDataSets.push({
-                label: lineNames[j], // Use the name from lineNames array
+                label: lineNames[j], // Gebruik de naam uit de lineNames-array
                 data: lineDataPoints,
                 borderColor: 'rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',1)',
                 backgroundColor: 'rgba(0, 0, 0, 0)',
                 borderWidth: 1,
-                lineTension: 0.4 // Adjust curvature here
+                lineTension: 0.4 // Hier de kromming aanpassen
             });
         }
 
-        // Generate random data points for bar chart
+        // Willekeurige datapunten genereren voor staafdiagram
         var barDataSets = [];
         for (var j = 0; j < 6; j++) {
             var barDataPoints = [];
@@ -54,7 +54,7 @@ include_once ('database.php');
                 barDataPoints.push(Math.floor(Math.random() * 300) + 50);
             }
             barDataSets.push({
-                label: barNames[j], // Use the name from barNames array
+                label: barNames[j], // Gebruik de naam uit de barNames-array
                 data: barDataPoints,
                 backgroundColor: 'rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',0.6)',
                 borderColor: 'rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',1)',
@@ -62,12 +62,12 @@ include_once ('database.php');
             });
         }
 
-        // Create a line chart
+        // Lijndiagram maken
         var ctxLine = document.getElementById('lineChart').getContext('2d');
         var lineChart = new Chart(ctxLine, {
             type: 'line',
             data: {
-                labels: Array.from(Array(10).keys()), // X-axis labels (0 to 9)
+                labels: Array.from(Array(10).keys()), // X-as labels (0 tot 9)
                 datasets: lineDataSets
             },
             options: {
@@ -81,12 +81,12 @@ include_once ('database.php');
             }
         });
 
-        // Create a bar chart
+        // Staafdiagram maken
         var ctxBar = document.getElementById('barChart').getContext('2d');
         var barChart = new Chart(ctxBar, {
             type: 'bar',
             data: {
-                labels: Array.from(Array(10).keys()), // X-axis labels (0 to 9)
+                labels: Array.from(Array(10).keys()), // X-as labels (0 tot 9)
                 datasets: barDataSets
             },
             options: {
@@ -110,7 +110,7 @@ include_once ('database.php');
 
 <footer class="onderbalkdashboard text-lg-start bg-light text-muted">
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-        <b>&copy Copyright by Clearsky</b>
+        <b>&copy Auteursrecht door Clearsky</b>
     </div>
 </footer>
 
