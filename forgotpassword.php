@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/forgetpassword.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Wachtwoord vergeten?</title>
     <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
     <?php
@@ -51,7 +51,7 @@
                             </div>
 
                             <div class="pt-1 mb-4">
-                                <button class="btn btn-info btn-lg btn-block" type="submit">KLAAR!!</button>
+                                <button class="btnfp btn-info btn-lg btn-block" type="submit">KLAAR!!</button>
                             </div>
 
                         </form>
@@ -59,7 +59,7 @@
                             <div class="pt-1 mb-4">
                                 <button
                                     style="position:absolute; left: 35%; bottom:10%; align-items-center  background-color:#103E7E;"
-                                    class="btn btn-info btn-lg btn-block" type="submit">Back to login</button>
+                                    class="btnfp btn-info btn-lg btn-block" type="submit">Back to login</button>
                             </div>
                         </a>
                     </div>
@@ -85,7 +85,7 @@
     }
 
     function displayPopup(message) {
-        var popupBar = document.getElementById("popupBar");
+        var popupBar = document.getElementById("popupBarfp");
         popupBar.innerHTML = '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' + message;
         popupBar.style.display = "block";
 

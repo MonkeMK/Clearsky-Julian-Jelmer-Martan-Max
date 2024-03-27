@@ -8,14 +8,11 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
-
-    <?php
+</head>
+<?php
     include_once ("header.php");
     include_once ('database.php');
     ?>
-</head>
-
 <body>
     <div id="popupBar" class="popup-bar">
         <span id="popupText"></span>
@@ -27,7 +24,7 @@
             prijs. Neem een kijkje in ons assortiment en laat u verrassen door de kwaliteit van onze producten. ❤️</p>
     </div>
 
-    <div class="d-flex flex-wrap justify-content-around" style=" margin-top: 250px;">
+    <div class="containerindex d-flexindex flex-wrap justify-content-around" style=" margin-top: 250px;">
         <?php
         $conn = connection();
 
@@ -58,11 +55,11 @@
                 <form action="addToCart.php" method="POST"
                     style="position: absolute; padding:5px; bottom: 0%; left: 80%; transform: translateX(-50%);">
                     <input type="hidden" name="id" value="<?php echo $r['id']; ?>">
-                    <button type="submit" class="knop btn-primary" style="width: 100%;">Toevoegen</button>
+                    <button type="submit" class="knopindex btn-primary" style="width: 100%;">Toevoegen</button>
                 </form>
                 <div class="overlay">
                     <div class="overlay-content">
-                    </div>
+                </div>
                 </div>
             </div>
             <?php
@@ -72,7 +69,7 @@
 
 
 
-    <footer class="text-center text-lg-start bg-light text-muted" style="position:absolute; left:0%; width: 100%;">
+    <footer class="onderbalk text-center text-lg-start bg-light text-muted" style="position:absolute; left:0%; width: 100%;">
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
             <b>&copy Copyright by Clearsky</b>
         </div>

@@ -11,11 +11,11 @@
         include_once("database.php");
         include_once("header.php");
     ?>
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <div class="container">
+<body style="background:#fff;">
+    <div class="containeradmin">
         <input type="button" class="userbutton" value="Gebruikers" onclick="window.location.href='useroverview.php';">
         <input type="button" class="productbutton" value="Producten"
             onclick="window.location.href='productoverview.php';">

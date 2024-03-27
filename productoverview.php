@@ -9,7 +9,7 @@
     include_once ("database.php");
     include_once ("header.php");
     ?>
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <?php
@@ -33,8 +33,8 @@ if ($result->rowCount() > 0) {
 $conn = null;
 ?>
 
-<body>
-    <input type="button" class="button" value="<- Terug" onclick="window.location.href='admin.php'" />
+<body style="background:#fff;">
+    <input type="button" class="buttonback" value="<- Terug" onclick="window.location.href='admin.php'" />
     <h2 class="editproduct">Producten</h2>
     <div class="tabel2">
         <table>

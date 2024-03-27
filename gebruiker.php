@@ -12,7 +12,7 @@
     include_once ("header.php");
     include_once ("php.php");
     ?>
-   <link rel="stylesheet" href="css/user.css">
+   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <?php
@@ -43,12 +43,12 @@ $product = $stmt->fetch(PDO::FETCH_ASSOC);
 $conn = null;
 ?>
 
-<body>
-    <h2 class="editproduct">Afspraken</h2>
-    <h1 class="title">Welkom,
+<body style="background:#fff;">
+    <h2 class="editproductuser">Afspraken</h2>
+    <h1 class="titleuser">Welkom,
         <?php echo $current_username; ?>!
     </h1>
-    <form method="post" action="" class="invoervelden">
+    <form method="post" action="" class="invoerveldenuser">
         <input type="hidden" name="id" value="<?php echo $user_id; ?>">
         <label for="new_username">Nieuwe naam</label><br>
         <input type="text" id="new_username" name="new_username" value="<?php echo $product["name"] ?>"><br>
@@ -63,7 +63,7 @@ $conn = null;
         <label for="new_zipcode">Nieuwe postcode</label><br>
         <input type="text" id="new_zipcode" name="new_zipcode" value="<?php echo $product["zipcode"] ?>"><br>
 
-        <input class="buttonsubmit" type="submit" name="submit" value="Veranderen">
+        <input class="buttonsubmituser" type="submit" name="submit" value="Veranderen">
     </form>
 
     <div class="container">

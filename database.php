@@ -2,8 +2,8 @@
 
 function connection(){
   $servername = "localhost";
-  $username = "clearsky";
-  $password = "clearsky";
+  $username = "root";
+  $password = "";
   $dbname = "clearsky";
 
   try {
@@ -16,4 +16,4 @@ function connection(){
     echo "Connection failed: " . $e->getMessage();
   }
 };
-?>
+

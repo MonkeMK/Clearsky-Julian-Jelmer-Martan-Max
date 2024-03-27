@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clearsky</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="../Clearsky-Julian-Jelmer-Martan-Max/css/overons.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 </head>
 <body>
@@ -13,7 +13,7 @@
         include_once("header.php");
         include_once('database.php');
     ?>
-    <div class="container">
+    <div class="containeroverons">
         <div class="row">
             <div class="col-12">
                 <h1 class="tekst1">Over ons</h1>
@@ -38,7 +38,7 @@
             </div>
         </div>
     </div> 
-    <footer class="text-center text-lg-start bg-light text-muted" style="position:absolute; left:0%; bottom:-40%; width: 100%;">
+    <footer class="text-center text-lg-start bg-light text-muted" style="position:absolute; left:0%; bottom:-3.5%; width: 100%;">
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
             <b>&copy Copyright by Clearsky</b>
         </div>

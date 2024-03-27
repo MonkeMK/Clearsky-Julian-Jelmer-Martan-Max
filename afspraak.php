@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clearsky</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/afspraak.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
@@ -57,20 +57,21 @@
             });
         });
     </script>
-    <div class="container">
+    <div class="containerafspraak">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="title">Maak een afspraak</h1>
+                <h1 class="titleafspraak">Maak een afspraak</h1>
                 <form id="myForm" method="post">
-                    <label class="naamtext" for="name">Naam</label>
-                    <input class="naam" type="text" placeholder="naam" name="name">
-                    <label class="datetext" for="datepicker">Datum:</label><br>
+                    <label class="naamtextafspraak" for="name">Naam</label>
+                    <input class="naamafspraak" type="text" placeholder="naam" name="name">
+                    <label class="datetextafspraak" for="datepicker">Datum:</label><br>
                     <input type="text" id="datepicker" name="date">
-                    <label class="addresstext" for="address">Adres:</label>
-                    <input class="address" type="text" placeholder="adres" name="address">
-                    <label class="beschrijvingtext" for="beschrijvinigtext">Beschrijving:</label><br>
-                    <textarea class="beschrijving" id="description" name="description"></textarea><br><br>
-                    <button id="disabled-button" name="button" class="button" type="submit">Verzenden</button>
+                    
+                    <label class="addresstextafspraak" for="address">Adres:</label>
+                    <input class="addressafspraak" type="text" placeholder="adres" name="address">
+                    <label class="beschrijvingtextafspraak" for="beschrijvinigtext">Beschrijving:</label><br>
+                    <textarea class="beschrijvingafspraak" id="description" name="description"></textarea><br><br>
+                    <button id="disabled-button" name="button" class="buttonsubmitafspraak" type="submit">Verzenden</button>
                 </form>
             </div>
         </div>
@@ -87,4 +88,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 
-</html>`
+</html>

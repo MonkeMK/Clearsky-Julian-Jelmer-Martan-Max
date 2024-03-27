@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-    include_once("header.php");
-    include_once('database.php');
-?>
+
 
 <head>
     <meta charset="UTF-8">
@@ -11,19 +8,22 @@
     <title>Line and Bar Graphs with Charts.js</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+<?php
+include_once ("header.php");
+include_once ('database.php');
+?>
 
 <body>
-
-    <div class="container">
-        <h1 class="title">Dashboard verkoopcijfers</h1>
+    <div class="containerdashboard">
+        <h1 class="titeldashboard">Dashboard</h1>
         <canvas id="lineChart" style="position:absolute; top:5%; margin-top:5%; width:20%; height:8%;"></canvas>
         <hr class="tussenlijn">
         <canvas id="barChart" style="position:absolute; top:35%; margin-top:15%; width:20%; height:8%;"></canvas>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         // Define array of names for lines and bars
         var lineNames = ['Basis bundel clearsky', 'Sloppe bundel', 'Luxe pakket', 'Konings bundel', 'Licht bundel', 'Gaymer bundel'];
@@ -99,16 +99,16 @@
                 }
             }
         });
-        
+
 
     </script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
 </body>
 
-<footer class="onderbalk text-lg-start bg-light text-muted">
+<footer class="onderbalkdashboard text-lg-start bg-light text-muted">
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
         <b>&copy Copyright by Clearsky</b>
     </div>

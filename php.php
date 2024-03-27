@@ -324,9 +324,7 @@ function displayAppointmentsForCurrentUser($conn) {
         }
         echo "</table>";
     } else {
-        echo "Geen afspraken gevonden voor de huidige gebruiker.";
+       
     }
 }
-
-?>
 

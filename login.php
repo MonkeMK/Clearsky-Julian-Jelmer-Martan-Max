@@ -9,7 +9,7 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
         integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Login</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
@@ -32,15 +32,15 @@
         </div>
     </header>
     <section>
-        <div class="container-fluid">
+        <div class="containerlogin-fluid">
             <div class="row">
                 <div class="col-sm-6 text-black">
 
-                    <div class="d-flex h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+                    <div class="d-flexlogin h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
                         <form id="loginForm" style="width: 23rem;" method="POST">
 
-                            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
+                            <h3 class="fw-normallogin mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
 
                             <?php
                             if ($error) {
@@ -51,24 +51,24 @@
                             <div class="form-outline mb-4">
                                 <input type="email" id="form2Example18" class="form-control form-control-lg"
                                     name="email">
-                                <label class="form-label" for="form2Example18">Email adres</label>
+                                <label class="form-labellogin" for="form2Example18">Email adres</label>
                             </div>
 
                             <div class="form-outline mb-4">
                                 <div class="input-group">
                                     <input type="password" id="form2Example28"
                                         class="form-control form-control-lg password-input" name="password">
-                                    <button type="button" class="btn btn-light password-toggle-btn"
+                                    <button type="button" class="btnlogin btn-light password-toggle-btn"
                                         onclick="togglePasswordVisibility()">
                                         <i class="bi bi-eye-fill"></i>
                                     </button>
                                 </div>
-                                <label class="form-label" for="form2Example28">Wachtwoord</label>
+                                <label class="form-labellogin" for="form2Example28">Wachtwoord</label>
                             </div>
 
                             <div class="g-recaptcha" data-sitekey="6LdY5YIpAAAAAHdMKJbm3A_QQCN6w_9Qn3oveQnv"></div>
                             <div class="pt-1 mb-4">
-                                <button class="btn btn-info btn-lg btn-block" type="submit"
+                                <button class="btnlogin btn-info btn-lg btn-block" type="submit"
                                     onclick="return validateForm(event)">Inloggen</button>
                             </div>
 
@@ -87,7 +87,7 @@
 
     <script>
     function displayPopup(message) {
-            var popupBar = document.getElementById("popupBar");
+            var popupBar = document.getElementById("popupBarlogin");
             popupBar.innerHTML = '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' + message;
             popupBar.classList.add("alert-warning");
             popupBar.style.display = "block";

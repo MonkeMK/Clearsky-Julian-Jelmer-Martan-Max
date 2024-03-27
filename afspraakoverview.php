@@ -9,7 +9,7 @@
     include_once ("database.php");
     include_once ("header.php");
     ?>
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <?php
@@ -36,8 +36,8 @@ $conn = null;
 ?>
 
 
-<body>
-    <input type="button" class="button" value="<- Terug" onclick="window.location.href='admin.php'" />
+<body style="background:white;">
+    <input type="button" class="buttonback" value="<- Terug" onclick="window.location.href='admin.php'" />
     <h1 class="title">Afspraken</h1>
     <div class="tabel">
         <table>
