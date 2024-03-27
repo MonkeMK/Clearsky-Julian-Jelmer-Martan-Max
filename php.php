@@ -1,9 +1,11 @@
 <?php
 include_once ("database.php");
 
-// Establish the database connection
+// Maak de databaseverbinding
 $conn = connection();
-$error = ""; // Declare the $error variable
+$error = ""; // De variabele $error wordt gedeclareerd
+
+// Functie voor reCAPTCHA
 function recaptcha($POST)
 {
     $secretKey = '6LdY5YIpAAAAALfCIfLdbxtNxSeZFpqzVlhSrbQs';
@@ -15,66 +17,65 @@ function recaptcha($POST)
     return $responseKeys["success"];
 }
 
-// Called when logging in
+// Functie voor inloggen
 function login()
 {
-	// accessing variables outside of function
     global $conn, $error;
 
-	// stop all current php code if there is no connection
+    // Stop de uitvoering van de code als er geen verbinding is
     if (!$conn) {
-        die ("Connection failed: " . $conn->errorInfo());
+        die ("Verbinding mislukt: " . $conn->errorInfo());
     }
 
-	// only if the page is called via post
+    // Alleen als de pagina wordt aangeroepen via post
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		// recaptcha check
+        // Controleer reCAPTCHA
         if (!recaptcha($_POST)) {
-            $error = "Invalid captcha robot boy little robot boy boy";
+            $error = "Ongeldige captcha.";
             header("Location: login.php");
             die();
         }
-		
-		// form info
+        
+        // Formuliergegevens
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        // Prepare the query to check if the user exists and can log in
+        // Bereid de query voor om te controleren of de gebruiker bestaat en kan inloggen
         $query = "SELECT * FROM user WHERE email = :email AND password = :password AND can_login = 1";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $password);
         $stmt->execute();
 
-        // Fetch the result
+        // Haal het resultaat op
         $result = $stmt->fetch();
 
         if ($result) {
-            // User exists and can log in, set session variables and redirect to the dashboard
+            // Gebruiker bestaat en kan inloggen, stel sessievariabelen in en leid door naar het dashboard
             $_SESSION['user_id'] = $result["id"];
             $_SESSION["logged_in"] = 1;
             header("Location: index.php");
             exit();
         } else {
-            // Invalid credentials or user cannot log in, update the error message
-            $error = "Invalid email or password. Please try again.";
+            // Ongeldige referenties of gebruiker kan niet inloggen, update het foutbericht
+            $error = "Ongeldige e-mail of wachtwoord. Probeer het opnieuw.";
         }
     }
 }
 
-// Called when regisetering
+// Functie voor registreren
 function register()
 {
     global $conn, $error;
 
-	// stop php code if there is no connection
+    // Stop de code als er geen verbinding is
     if (!$conn) {
-        die ("Connection failed: " . $conn->errorInfo());
+        die ("Verbinding mislukt: " . $conn->errorInfo());
     }
 
-	// only if the page is called via post
+    // Alleen als de pagina wordt aangeroepen via post
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		// form variables
+        // Formuliergegevens
         $name = $_POST['name'];
         $email = $_POST['email'];
         $password = $_POST['password'];
@@ -82,7 +83,7 @@ function register()
         $zipcode = $_POST['zipcode'];
         $phone = $_POST['phone'];
 
-        // Prepare the query to insert the user into the database
+        // Bereid de query voor om de gebruiker in de database in te voegen
         $query = "INSERT INTO user (name, email, password, adress, zipcode, phonenumber, can_login) VALUES (:name, :email, :password, :address, :zipcode, :phone, 1)";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':name', $name);
@@ -93,65 +94,65 @@ function register()
         $stmt->bindParam(':phone', $phone);
 
         if ($stmt->execute()) {
-            // Registration successful, set session variables and redirect to the dashboard
+            // Registratie succesvol, stel sessievariabelen in en leid door naar het dashboard
             $_SESSION['email'] = $email;
             header("Location: login.php");
             exit();
         } else {
-            // Registration failed, update the error message
-            $error = "Registration failed. Please try again.";
+            // Registratie mislukt, update het foutbericht
+            $error = "Registratie mislukt. Probeer het opnieuw.";
         }
     }
 }
 
-// Called when password was forgotton
+// Functie voor behandelen van vergeten wachtwoord
 function handleForgotPassword($conn)
 {
-	// only if page is called via post
+    // Alleen als de pagina wordt aangeroepen via post
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-		// form variables
+        // Formuliergegevens
         $email = $_POST['email'];
         $newPassword = $_POST['password'];
 
-        // Validate the email and perform necessary checks
+        // Valideer de e-mail en voer noodzakelijke controles uit
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            // Check if the email exists in the database
+            // Controleer of het e-mailadres in de database bestaat
             $query = "SELECT * FROM user WHERE email = :email";
             $stmt = $conn->prepare($query);
             $stmt->bindParam(':email', $email);
             $stmt->execute();
 
             if ($stmt->rowCount() > 0) {
-                // Update the user's password
+                // Update het wachtwoord van de gebruiker
                 $updateQuery = "UPDATE user SET password = :password WHERE email = :email";
                 $stmt = $conn->prepare($updateQuery);
                 $stmt->bindParam(':password', $newPassword);
                 $stmt->bindParam(':email', $email);
                 $stmt->execute();
             } else {
-                echo "Email not found.";
+                echo "E-mail niet gevonden.";
             }
         } else {
-            echo "Invalid email format.";
+            echo "Ongeldig e-mailformaat.";
         }
     }
 }
 
-// called when creating a new afspraak
+// Functie voor behandelen van nieuwe afspraak
 function handleAfspraak($conn)
 {
-	// only if page is called via post
+    // Alleen als de pagina wordt aangeroepen via post
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		// check if all fields are set in post
+        // Controleer of alle velden zijn ingevuld in de post
         if (isset($_POST["name"]) && isset($_POST["date"]) && isset($_POST["description"]) && isset($_POST["address"])) {
-			// form variables
+            // Formuliergegevens
             $naam = $_POST["name"];
             $datum = $_POST["date"];
             $beschrijving = $_POST["description"];
             $address = $_POST["address"];
             $user_id = $_SESSION['user_id'];
 
-			// inserting the afspraak into the database
+            // Voeg de afspraak toe aan de database
             try {
                 $sql = "INSERT INTO afspraken (name, date, description, address, user_id) VALUES (:name, :date, :description, :address, :user_id)";
                 $stmt = $conn->prepare($sql);
@@ -163,12 +164,11 @@ function handleAfspraak($conn)
                 $stmt->bindParam(':user_id', $user_id);
 
                 $stmt->execute();
-                
 
-                // Redirect to another page with a query parameter indicating form submission
+                // Doorsturen naar een andere pagina met een queryparameter die het verzenden van het formulier aangeeft
                 echo '<script>window.location.href = "index.php?submitted=true";</script>';
             } catch (PDOException $e) {
-                echo "Error: " . $e->getMessage();
+                echo "Fout: " . $e->getMessage();
             }
         } else {
             $GLOBALS["AFSPRAAK_ERROR"] = "Alle velden moeten worden ingevuld.";
@@ -178,12 +178,12 @@ function handleAfspraak($conn)
     }
 }
 
-// called when a user updates their data
+// Functie voor het bijwerken van gebruikersgegevens
 function update_user()
 {
     $db = connection();
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Retrieve form data
+        // Formuliergegevens ophalen
         $user_id = $_GET['id'];
         $new_username = $_POST['new_username'];
         $new_address = $_POST['new_address'];
@@ -207,7 +207,7 @@ function update_user()
             header("Location: useroverview.php");
             exit();
         } else {
-            echo "Error updating user: " . $stmt->errorInfo()[2];
+            echo "Fout bij het bijwerken van gebruiker: " . $stmt->errorInfo()[2];
         }
 
         $stmt->closeCursor();
@@ -240,7 +240,7 @@ function update_product()
             exit();
         } else {
 
-            echo "Error updating user: " . $stmt->errorInfo()[2];
+            echo "Fout bij het bijwerken van gebruiker: " . $stmt->errorInfo()[2];
         }
 
         $stmt->closeCursor();
@@ -279,7 +279,7 @@ function update_userpage()
             exit();
         } else {
 
-            echo "Error updating user: " . $stmt->errorInfo()[2];
+            echo "Fout bij het bijwerken van gebruiker: " . $stmt->errorInfo()[2];
         }
 
         $stmt->closeCursor();
@@ -295,7 +295,7 @@ function getCurrentUsername($conn) {
     $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    return ($row) ? $row["name"] : "Guest";
+    return ($row) ? $row["name"] : "Gast";
 }
 
 function displayAppointmentsForCurrentUser($conn) {
@@ -316,7 +316,7 @@ function displayAppointmentsForCurrentUser($conn) {
                 <th>Adres</th>
               </tr>";
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            // Check if the date is in the past
+            // Controleer of de datum in het verleden ligt
             $date = strtotime($row["date"]);
             $today = strtotime(date("Y-m-d"));
             $date_class = ($date < $today) ? 'past-date' : '';
@@ -324,8 +324,9 @@ function displayAppointmentsForCurrentUser($conn) {
         }
         echo "</table>";
     } else {
-        echo "No appointments found for the current user.";
+        echo "Geen afspraken gevonden voor de huidige gebruiker.";
     }
 }
 
 ?>
+
