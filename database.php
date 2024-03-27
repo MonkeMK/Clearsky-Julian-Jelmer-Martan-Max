@@ -2,8 +2,8 @@
 
 function connection(){
   $servername = "localhost";
-  $username = "root";
-  $password = "";
+  $username = "clearsky";
+  $password = "clearsky";
   $dbname = "clearsky";
 
   try {

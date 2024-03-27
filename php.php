@@ -15,26 +15,29 @@ function recaptcha($POST)
     return $responseKeys["success"];
 }
 
+// Called when logging in
 function login()
 {
+	// accessing variables outside of function
     global $conn, $error;
 
+	// stop all current php code if there is no connection
     if (!$conn) {
-        // Error handling for database connection
         die ("Connection failed: " . $conn->errorInfo());
     }
 
+	// only if the page is called via post
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		// recaptcha check
         if (!recaptcha($_POST)) {
             $error = "Invalid captcha robot boy little robot boy boy";
             header("Location: login.php");
             die();
         }
-
+		
+		// form info
         $email = $_POST['email'];
         $password = $_POST['password'];
-
-        // Perform input validation and sanitization
 
         // Prepare the query to check if the user exists and can log in
         $query = "SELECT * FROM user WHERE email = :email AND password = :password AND can_login = 1";
@@ -59,25 +62,25 @@ function login()
     }
 }
 
-
+// Called when regisetering
 function register()
 {
     global $conn, $error;
 
+	// stop php code if there is no connection
     if (!$conn) {
-        // Error handling for database connection
         die ("Connection failed: " . $conn->errorInfo());
     }
 
+	// only if the page is called via post
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		// form variables
         $name = $_POST['name'];
         $email = $_POST['email'];
         $password = $_POST['password'];
         $address = $_POST['address'];
         $zipcode = $_POST['zipcode'];
         $phone = $_POST['phone'];
-
-        // Perform input validation and sanitization
 
         // Prepare the query to insert the user into the database
         $query = "INSERT INTO user (name, email, password, adress, zipcode, phonenumber, can_login) VALUES (:name, :email, :password, :address, :zipcode, :phone, 1)";
@@ -101,10 +104,12 @@ function register()
     }
 }
 
+// Called when password was forgotton
 function handleForgotPassword($conn)
 {
+	// only if page is called via post
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Retrieve the email and new password from the form
+		// form variables
         $email = $_POST['email'];
         $newPassword = $_POST['password'];
 
@@ -132,19 +137,22 @@ function handleForgotPassword($conn)
     }
 }
 
-
+// called when creating a new afspraak
 function handleAfspraak($conn)
 {
+	// only if page is called via post
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		// check if all fields are set in post
         if (isset($_POST["name"]) && isset($_POST["date"]) && isset($_POST["description"]) && isset($_POST["address"])) {
+			// form variables
             $naam = $_POST["name"];
             $datum = $_POST["date"];
             $beschrijving = $_POST["description"];
             $address = $_POST["address"];
             $user_id = $_SESSION['user_id'];
 
+			// inserting the afspraak into the database
             try {
-
                 $sql = "INSERT INTO afspraken (name, date, description, address, user_id) VALUES (:name, :date, :description, :address, :user_id)";
                 $stmt = $conn->prepare($sql);
 
@@ -159,7 +167,6 @@ function handleAfspraak($conn)
 
                 // Redirect to another page with a query parameter indicating form submission
                 echo '<script>window.location.href = "index.php?submitted=true";</script>';
-
             } catch (PDOException $e) {
                 echo "Error: " . $e->getMessage();
             }
@@ -171,7 +178,7 @@ function handleAfspraak($conn)
     }
 }
 
-
+// called when a user updates their data
 function update_user()
 {
     $db = connection();
