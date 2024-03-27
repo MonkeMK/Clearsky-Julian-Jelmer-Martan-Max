@@ -108,7 +108,7 @@
                                         <p>Aantal:
                                             <?php echo $item['quantity']; ?>
                                         </p>
-                                        <a href="remove.php?key=<?php echo $key; ?>" class="btn btn-danger">Verwijderen</a>
+                                        <a href="remove.php?key=<?php echo $key; ?>" class="btndelete btn-danger">Verwijderen</a>
                                     </div>
                                 </div>
                             </div>
@@ -117,8 +117,8 @@
                     }
                 }
                 ?>
-                <a href="checkout.php" class="btn btn-primary">Betalen</a>
-                <a href="empty.php" class="btn btn-danger">Winkelwagen legen</a>
+                <a href="checkout.php" class="btncheckout btn-primary">Betalen</a>
+                <a href="empty.php" class="btnempty btn-danger">Winkelwagen legen</a>
             <?php } ?>
         </div>
     </div>

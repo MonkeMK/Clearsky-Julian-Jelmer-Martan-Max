@@ -133,7 +133,6 @@ body {
 .checkoutknop {
     position: relative;
     margin-top: 75%;
-    /* Adjust as needed */
     margin-bottom: 5%;
     left: 45%;
     color: white;
@@ -938,5 +937,71 @@ tr:hover {
     left: 18%;
     top: 73%;
 }
+
+.titelcheckout{
+    position: absolute;
+    left: 5%;
+    top: 80%;
+}
+
+.formcheckout{
+    position: absolute;
+    left: 5%;
+    top: 90%;
+}
+
+.btndelete{
+    background-color: red;
+    border: red solid 3px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #fff;
+    padding: 5px;
+}
+
+.btnempty{
+    position: absolute;
+    background-color: red;
+    border: red solid 3px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #fff;
+    top: 75%;
+    left:50%;
+    padding: 5px;
+}
+
+.btnempty:hover {
+    color: white;
+    background-color: #3050A8;
+    border: solid #3050A8;
+}
+
+.btncheckout{
+    position: absolute;
+    background-color: #198754;
+    border: #198754 solid 3px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #fff;
+    top: 75%;
+    left:20%;
+    padding: 5px;
+}
+
+.btncheckout:hover{
+    color: white;
+    background-color: #3050A8;
+    border: solid #3050A8;
+}
+
+
+
+
+
+
+
+
+
 
 
