@@ -13,6 +13,8 @@
 </head>
 
 <?php
+
+// afspraak halen uit de database 
 $conn = connection();
 
 $sql = "SELECT id, name, date, description, address FROM afspraken ORDER BY date DESC";
@@ -51,6 +53,7 @@ $conn = null;
             <tbody>
                 <?php
 
+                // laten zien van de opgegeven gegevens
                 foreach ($rows as $row) {
 
                     $currentDate = date('Y-m-d');
