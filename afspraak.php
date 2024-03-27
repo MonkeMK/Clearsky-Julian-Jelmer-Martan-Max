@@ -27,6 +27,7 @@
     $conn = connection();
     include_once("php.php");
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		$_POST['date'] = date("Y-m-d", strtotime($_POST['date']));
         handleAfspraak($conn);
     }
 
