@@ -126,7 +126,7 @@
                             <h5>${name}</h5>
                             <p>${description}</p>
                             <p>${price}</p>
-                            <button class="btn btn-primary addToCart">Toevoegen</button>
+                            <button class="btn btn-primary addToCart" style="background-color:green;">Toevoegen</button>
                             <a href="index.php" class="btn btn-secondary">Terug</a>
                         </div>
                     `;

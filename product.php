@@ -111,7 +111,7 @@
                     <h5>${name}</h5>
                     <p>${description}</p>
                     <p>${price}</p>
-                    <button class="btn btn-primary addToCartBtn">Toevoegen</button>
+                    <button class="btn btn-primary addToCartBtn" style="background-color:green;">Toevoegen</button>
                     <a href="product.php" class="btn btn-secondary">Terug</a>
                 </div>
             `;
