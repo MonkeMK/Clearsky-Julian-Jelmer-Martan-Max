@@ -1,0 +1,6 @@
+- Producten toevoegen 
+- UI checkout fixen V
+- Checkout user info auto fill
+- File upload edit product page V
+- Comment CSS
+- Password hash  

@@ -17,7 +17,7 @@ function recaptcha($POST)
     return $responseKeys["success"];
 }
 
-// Functie voor inloggen
+// Functie inloggen
 function login()
 {
     global $conn, $error;
@@ -326,5 +326,14 @@ function displayAppointmentsForCurrentUser($conn) {
     } else {
        
     }
+}
+
+function getCurrentUserData($conn) {
+    $user_id = $_SESSION["user_id"];
+    $sql = "SELECT name, adress, email, phonenumber, zipcode, place FROM user WHERE id = :user_id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 

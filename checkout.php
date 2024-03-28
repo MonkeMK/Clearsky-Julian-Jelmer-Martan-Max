@@ -9,7 +9,10 @@
 include_once ('classes/cart.php');
 include_once ('header.php');
 include_once ("database.php");
+include_once ("php.php");
+$userData = getCurrentUserData($conn);
 ?>
+
 <body style="background:#fff;">
     <div class="d-flexcheckout flex-wrap">
         <div class="float-endcheckout w-100">
@@ -19,7 +22,7 @@ include_once ("database.php");
                 $count = 0;
                 $totalPrice = 0;
 
-                if (!empty ($cart->getCart())) {
+                if (!empty($cart->getCart())) {
                     foreach ($cart->getCart() as $key => $item) {
                         $count++;
 
@@ -54,13 +57,13 @@ include_once ("database.php");
                 ?>
             </div>
             <!-- Total price section moved outside of the card grid -->
-            <h4 style="position:absolute; top: 72%; left:5%;">Totaalprijs:
+            <h4 style="position:absolute; top: 85%; left:5%;">Totaalprijs:
                 <?php echo number_format($totalPrice, 2); ?>
             </h4>
         </div>
     </div>
 
-    <hr style="position:absolute; top:75%; width:95%; border-top: 2px solid black; left:2.5%;">
+    <hr style="position:absolute; top:90%; width:95%; border-top: 2px solid black; left:2.5%;">
     <br>
     <be>
         <div class="containercheckout">
@@ -70,9 +73,11 @@ include_once ("database.php");
                         <h3 class="titelcheckout">Factuurgegevens</h3>
                         <div class="formcheckout">
                             <form method="POST" style="display: flex; flex-direction: column; align-items: center;">
+                                <!-- Populate form fields with user data -->
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email:</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        value="<?php echo $userData['email']; ?>" required>
                                 </div>
                                 <div class="mb-32">
                                     <label for="land" class="form-label">Land:</label>
@@ -134,32 +139,29 @@ include_once ("database.php");
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="voornaam" class="form-label">Voornaam</label>
-                                    <input type="text" class="form-control" id="voornaam" name="voornaam" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="achternaam" class="form-label">Achternaam</label>
-                                    <input type="text" class="form-control" id="achternaam" name="achternaam" required>
+                                    <label for="voornaam" class="form-label">Volledige naam</label>
+                                    <input type="text" class="form-control" id="voornaam" name="voornaam"
+                                        value="<?php echo $userData['name']; ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="zipcode" class="form-label">Postcode</label>
-                                    <input type="text" class="form-control" id="zipcode" name="zipcode" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="huisnummer" class="form-label">Huisnummer</label>
-                                    <input type="text" class="form-control" id="huisnummer" name="huisnummer" required>
+                                    <input type="text" class="form-control" id="zipcode" name="zipcode"
+                                        value="<?php echo $userData['zipcode']; ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="straatnaam" class="form-label">Straatnaam</label>
-                                    <input type="text" class="form-control" id="straatnaam" name="straatnaam" required>
+                                    <input type="text" class="form-control" id="straatnaam" name="straatnaam" 
+                                    value="<?php echo $userData['adress']; ?>"required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="plaats" class="form-label">Plaats</label>
-                                    <input type="text" class="form-control" id="plaats" name="plaats" required>
+                                    <input type="text" class="form-control" id="plaats" name="plaats" 
+                                    value="<?php echo $userData['place']; ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="telefoon" class="form-label">Telefoon</label>
-                                    <input type="text" class="form-control" id="telefoon" name="telefoon" required>
+                                    <input type="text" class="form-control" id="telefoon" name="telefoon"
+                                        value="<?php echo $userData['phonenumber']; ?>" required>
                                 </div>
                             </form>
                         </div>
@@ -167,9 +169,9 @@ include_once ("database.php");
                 </div>
             </div>
         </div>
-        <hr style="position:absolute; top:175%; width:95%; border-top: 2px solid black; left:2.5%;">
-        <h3 style="position:absolute; top:180%; left:5%;">Verzendopties</h3>
-        <form style="position:absolute; top:185%; left:5%;" required>
+        <hr style="position:absolute; top:190%; width:95%; border-top: 2px solid black; left:2.5%;">
+        <h3 style="position:absolute; top:195%; left:5%;">Verzendopties</h3>
+        <form style="position:absolute; top:200%; left:5%;" required>
             <div class="radio-container">
                 <input type="radio" id="thuis" name="verzendoptie" value="thuis">
                 <label for="thuis">Thuis laten bezorgen</label>
@@ -183,14 +185,14 @@ include_once ("database.php");
                 <label for="pakketpunt">Bij een pakketpunt bezorgen</label>
             </div>
         </form>
-        <hr style="position:absolute; top:197%; width:95%; border-top: 2px solid black; left:2.5%;">
+        <hr style="position:absolute; top:215%; width:95%; border-top: 2px solid black; left:2.5%;">
         <form action="" method="POST">
             <input type="hidden" name="checkout_submit" value="1">
             <button type="submit" name="checkout" value="1" class="checkoutknop btn-primary">Betalen</button>
         </form>
 
         <?php
-        if (isset ($_POST['checkout'])) {
+        if (isset($_POST['checkout'])) {
             $cart->emptyCart();
             echo "
             <script>

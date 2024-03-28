@@ -11,27 +11,27 @@
 </head>
 
 <?php
-include_once ("database.php");
+include_once("database.php");
 $pdo = connection();
 $id = $_GET["id"];
 $sql = "SELECT * FROM products WHERE id = :id";
 $products = $pdo->prepare($sql);
 $products->bindParam(':id', $id);
 $products->execute();
-include_once ("php.php");
+include_once("php.php");
 update_product();
 
 $product = $products->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <body style="background:#fff;">
-<div class="bovenbalk"> 
-<div id="popupBar" class="alert alert-danger" style="display: none; background-color: #fff3cd;"></div>
-</div
+    <div class="bovenbalk">
+        <div id="popupBar" class="alert alert-danger" style="display: none; background-color: #fff3cd;"></div>
+    </div>
 
     <input type="button" class="buttonback" value="<- Terug" onclick="window.location.href='productoverview.php'" />
     <h2 class="edituser">Producten bewerken</h2>
-    <form method="post" action="" class="invoervelden">
+    <form method="post" action="" class="invoervelden" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?php echo $user_id; ?>">
         <label for="new_name">Nieuwe naam</label><br>
         <input type="text" id="new_name" name="new_name" value="<?php echo $product["name"] ?>"><br>
@@ -41,7 +41,7 @@ $product = $products->fetch(PDO::FETCH_ASSOC);
         <label for="new_price">Nieuwe prijs</label><br>
         <input type="text" id="new_price" name="new_price" value="<?php echo $product["price"] ?>"><br>
         <label for="new_image">Nieuwe image</label><br>
-        <input type="text" id="new_image" name="new_image" value="<?php echo $product["image"] ?>"><br>
+        <input type="file" id="new_image" name="new_image"><br> <!-- File input added here -->
         <input class="buttonsubmit" type="submit" name="submit" value="submit" onclick="return validateForm(event)">
     </form>
 </body>
