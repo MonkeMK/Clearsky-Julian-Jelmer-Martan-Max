@@ -74,10 +74,8 @@ function login()
 }
 
 // Functie voor registreren
-function register()
-{
-    global $conn, $error;
-	global $PASS_PEPPER, $PASS_SALT, $PASS_ENC;
+function register() {
+    global $conn, $error, $PASS_PEPPER, $PASS_SALT, $PASS_ENC;
 
     // Stop de code als er geen verbinding is
     if (!$conn) {
@@ -91,25 +89,27 @@ function register()
         $email = $_POST['email'];
         $password = $_POST['password'];
         $address = $_POST['address'];
+        $place = $_POST['place'];  
         $zipcode = $_POST['zipcode'];
-		$phone = $_POST['phone'];
+        $phone = $_POST['phone'];
 
-		$hashed_passwd = password_hash($PASS_PEPPER . $password . $PASS_SALT, $PASS_ENC);
+        $hashed_passwd = password_hash($PASS_PEPPER . $password . $PASS_SALT, $PASS_ENC);
 
         // Bereid de query voor om de gebruiker in de database in te voegen
-        $query = "INSERT INTO user (name, email, password, adress, zipcode, phonenumber, can_login, admin) VALUES (:name, :email, :password, :address, :zipcode, :phone, 1, 0)";
+        $query = "INSERT INTO user (name, email, password, adress, place, zipcode, phonenumber, can_login, admin) VALUES (:name, :email, :password, :address, :place, :zipcode, :phone, 1, 0)";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $hashed_passwd);
         $stmt->bindParam(':address', $address);
+        $stmt->bindParam(':place', $place);
         $stmt->bindParam(':zipcode', $zipcode);
         $stmt->bindParam(':phone', $phone);
 
         if ($stmt->execute()) {
             // Registratie succesvol, stel sessievariabelen in en leid door naar het dashboard
             $_SESSION['email'] = $email;
-            header("Location: login.php");
+            header("Location: login.php"); // Redirect to login.php
             exit();
         } else {
             // Registratie mislukt, update het foutbericht
