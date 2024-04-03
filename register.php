@@ -83,8 +83,7 @@
 
                             <a href="login.php">
                                 <div class="pt-12 mb-4">
-                                    <button class="btnregister2 btn-info btn-lg btn-block" type="button">Terug naar
-                                        login</button>
+                                    <button class="btnregister2 btn-info btn-lg btn-block">Terug</button>
                                 </div>
                             </a>
                         </form>
