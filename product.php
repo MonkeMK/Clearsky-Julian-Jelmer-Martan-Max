@@ -28,7 +28,7 @@
             ?>
             <div class="card mx-5 mb-5 overlay-container" style="position:relative; max-width: 15%;">
                 <div class="card-img-top-container">
-                    <img class="card-img-top p-2" src="assets/<?php echo $r['image']; ?>" alt="Card image cap">
+                    <img class="card-img-top p-2" src="assets/Images/<?php echo $r['image']; ?>" alt="Card image cap">
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">

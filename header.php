@@ -10,7 +10,7 @@
         integrity="sha384-+0V4cXq+QRoi6iKzK2KRP3zZlNQrj5819m1GfOJwXwXcA+toUOD2KhTjhp5jcqv5"
         crossorigin="anonymous" defer></script>
     <title>Clearsky</title>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/Images/favicon.ico">
 </head>
 <?php
     include_once('database.php');
@@ -21,7 +21,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light" data-bs-theme="dark">
             <div class="container-fluid">
-                <a href="index.php"><img src="assets/Logo.png" width="100" height="100"></a>
+                <a href="index.php"><img src="assets/Images/Logo.png" width="100" height="100"></a>
                 <ul class="navbar-nav d-flexindex justify-content-around align-items- w-100">
                     <li class="nav-item">
                         <a class="nav-link" href="product.php">Producten</a>
