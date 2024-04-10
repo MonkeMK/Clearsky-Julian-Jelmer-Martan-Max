@@ -150,13 +150,13 @@ $userData = getCurrentUserData($conn);
                                 </div>
                                 <div class="mb-3">
                                     <label for="straatnaam" class="form-label">Straatnaam</label>
-                                    <input type="text" class="form-control" id="straatnaam" name="straatnaam" 
-                                    value="<?php echo $userData['adress']; ?>"required>
+                                    <input type="text" class="form-control" id="straatnaam" name="straatnaam"
+                                        value="<?php echo $userData['adress']; ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="plaats" class="form-label">Plaats</label>
-                                    <input type="text" class="form-control" id="plaats" name="plaats" 
-                                    value="<?php echo $userData['place']; ?>" required>
+                                    <input type="text" class="form-control" id="plaats" name="plaats"
+                                        value="<?php echo $userData['place']; ?>" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="telefoon" class="form-label">Telefoon</label>
@@ -190,18 +190,29 @@ $userData = getCurrentUserData($conn);
             <input type="hidden" name="checkout_submit" value="1">
             <button type="submit" name="checkout" value="1" class="checkoutknop btn-primary">Betalen</button>
         </form>
-
         <?php
+
+
         if (isset($_POST['checkout'])) {
-            $cart->emptyCart();
-            echo "
+            // Your checkout logic here
+        
+            // Flush the cart
+            unset($_SESSION['cart']); // Assuming 'cart' is the session variable storing cart items
+        
+            // Display success message and redirect
+            ?>
+            <div id="popupBarcheckout" class="alert alert-dismissible fade show" role="alert"
+                style="position: fixed; left: 50%; background: green;">
+                <p>Je bestelling is succesvol geplaatst</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
             <script>
-                alert('Your order has been successfully placed!')
                 setTimeout(function () {
+                    document.getElementById('popupBarcheckout').style.display = 'none';
                     window.location.href = 'index.php';
-                }, 10); // Adjust the delay as needed
+                }, 1000); // Adjust the delay as needed
             </script>
-            ";
+            <?php
         }
         ?>
 </body>

@@ -998,6 +998,14 @@ tr:hover {
   top: 20%;
   background-color: #3050a8;
   border-radius: 10px;
-  
+}
+
+#popupBarcheckout {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  background-color: green;
 }
 
