@@ -28,14 +28,30 @@
             ?>
             <div class="card mx-5 mb-5 overlay-container" style="position:relative; max-width: 15%;">
                 <div class="card-img-top-container">
-                    <img class="card-img-top p-2" src="assets/<?php echo $r['image']; ?>" alt="Card image cap">
+                    <img class="card-img-top p-2" src="assets/Images/<?php echo $r['image']; ?>" alt="Card image cap">
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">
                         <?php echo $r['name']; ?>
                     </h5>
                     <p class="card-text">
-                        <?php echo $r['description']; ?>
+                        <?php 
+                        // Get the description from the PHP variable
+                        $description = $r['description'];
+
+                        // Count the words in the description
+                        $wordCount = str_word_count($description);
+
+                        // Check if the word count exceeds 50
+                        if ($wordCount > 50) {
+                            // If more than 50 words, limit the description to 50 words and append "..."
+                            $limitedDescription = implode(' ', array_slice(str_word_count($description, 1), 0, 50)) . '...';
+                            echo $limitedDescription;
+                        } else {
+                            // If less than or equal to 50 words, display the original description
+                            echo $description;
+                        }
+                        ?>
                     </p>
                     <p class="card-text"><small class="text-muted">
                             €
@@ -95,7 +111,7 @@
                     <h5>${name}</h5>
                     <p>${description}</p>
                     <p>${price}</p>
-                    <button class="btn btn-primary addToCartBtn">Toevoegen</button>
+                    <button class="btn btn-primary addToCartBtn" style="background-color:green;">Toevoegen</button>
                     <a href="product.php" class="btn btn-secondary">Terug</a>
                 </div>
             `;

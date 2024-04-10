@@ -1,1004 +1,984 @@
 body {
-    margin: 0px;
-    background-image: url("../assets/background.png");
-    background-color: white;
-    height: 900px;
-    background-position: 0 0;
-    background-repeat: repeat;
-    position: relative;
-    animation: slide 30s linear infinite;
+  margin: 0px;
+  background-image: url("../assets/Images/background.png");
+  background-color: white;
+  height: 900px;
+  background-position: 0 0;
+  background-repeat: repeat;
+  position: relative;
+  animation: slide 30s linear infinite;
 }
 
 .card-img-top-container {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-top: 105%;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-top: 105%;
+  overflow: hidden;
 }
 
 .card-img-top-container img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
 }
 
 .overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-    display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
 }
 
 .overlay-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #f5f5f5;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .overlay-content img {
-    max-width: 40%;
-    max-height: 40%;
-    height: auto;
-    width: auto;
-    margin-bottom: 20px;
-    background-color: transparent;
-    border: none;
+  max-width: 40%;
+  max-height: 40%;
+  height: auto;
+  width: auto;
+  margin-bottom: 20px;
+  background-color: transparent;
+  border: none;
 }
 
 .knopindex {
-    position: relative;
-    color: white;
-    background-color: #103E7E;
-    border: solid #103E7E;
-    border-radius: 10px;
-    height: 5vh;
-    width: 50%;
-    transition: 0.2s;
-    margin-left: -7%;
+  position: relative;
+  color: white;
+  background-color: #103e7e;
+  border: solid #103e7e;
+  border-radius: 10px;
+  height: 5vh;
+  width: 50%;
+  transition: 0.2s;
+  margin-left: -7%;
 }
 
 .knopindex:hover {
-    color: white;
-    background-color: #3050A8;
-    border: solid #3050A8;
+  color: white;
+  background-color: #3050a8;
+  border: solid #3050a8;
 }
-    
+
 .mb-32 {
-    margin-left: 7%;
-    margin-bottom: 10%;
+  margin-left: 7%;
+  margin-bottom: 10%;
 }
 
 .containerindex {
-    position: absolute;
-    top: 70%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  position: absolute;
+  top: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .form {
-    position: absolute;
-    left: 5%;
-    top: 20%;
+  position: absolute;
+  left: 5%;
+  top: 20%;
 }
 
 .card {
-    max-width: 400px;
+  max-width: 400px;
+  
 }
 
 .titel {
-    text-align: center;
-    position: absolute;
-    left: 5%;
-    top: 15%;
+  text-align: center;
+  position: absolute;
+  left: 5%;
+  top: 15%;
 }
 
 .center-content {
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    top: 20%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  top: 20%;
 }
 
 .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 10px;
-    margin-top: 4%;
-    margin-left: 5%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 10px;
+  margin-top: 4%;
+  margin-left: 5%;
 }
 
 .radio-container {
-    display: block;
-    margin-bottom: 10px;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .checkoutknop {
-    position: relative;
-    margin-top: 75%;
-    margin-bottom: 5%;
-    left: 45%;
-    color: white;
-    background-color: #103E7E;
-    border: solid #103E7E;
-    border-radius: 10px;
-    height: 5%;
-    transition: 0.2s;
-    width: 10%;
-    font-size: 20px;
+  position: relative;
+  margin-top: 75%;
+  margin-bottom: 5%;
+  left: 45%;
+  color: white;
+  background-color: #103e7e;
+  border: solid #103e7e;
+  border-radius: 10px;
+  height: 5%;
+  transition: 0.2s;
+  width: 10%;
+  font-size: 20px;
 }
 
 .checkoutknop:hover {
-    color: white;
-    background-color: #3050A8;
-    border: solid #3050A8;
+  color: white;
+  background-color: #3050a8;
+  border: solid #3050a8;
 }
 
-.containertext{
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: black;
-    text-align: center;
-    border: solid black 3px;
-    border-radius: 10px;
-    background-color: #f5f5f5;
+.containertext {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  text-align: center;
+  border: solid black 3px;
+  border-radius: 10px;
+  background-color: #f5f5f5;
 }
 
 .popup-bar {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: green;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    z-index: 9999;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: green;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  z-index: 9999;
 }
 
 table {
-    border-collapse: collapse;
-    width: 100%;
+  border-collapse: collapse;
+  width: 100%;
 }
-th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
 }
 th {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 tr:hover {
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
 .btn {
-    padding: 5px 10px;
-    text-decoration: none;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    margin-left: 10px;
-     margin-top: 10%;
+  padding: 5px 10px;
+  text-decoration: none;
+  background-color: red;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 10px;
+  margin-top: 10%;
 }
 
 .btn.edit {
-    background-color: #28a745;
+  background-color: #28a745;
 }
 .btn.delete {
-    background-color: #dc3545;
+  background-color: #dc3545;
 }
 
 .containeradmin {
-    position: absolute;
-    top: 35%;
-    display: flex;
-    left:27%;
+  position: absolute;
+  top: 35%;
+  display: flex;
+  left: 27%;
 }
 
 .containeradmin input[type="button"] {
-    margin-right: 20px; /* Adjust the space between buttons by changing this value */
-    height: 200px; /* Set the height of the buttons */
-    width: 80%; 
-    font-size: 30px;
-    border: solid #3050A8;
-    background-color: #3050A8;
-    color: white;
-    border-radius: 10px; 
-    padding: 10%;
+  margin-right: 20px; /* Adjust the space between buttons by changing this value */
+  height: 200px; /* Set the height of the buttons */
+  width: 80%;
+  font-size: 30px;
+  border: solid #3050a8;
+  background-color: #3050a8;
+  color: white;
+  border-radius: 10px;
+  padding: 10%;
 }
 
 .containeradmin input[type="button"]:hover {
-    background-color: #103E7E;
-    border: solid #103E7E;
-
+  background-color: #103e7e;
+  border: solid #103e7e;
 }
 
-.title{
-    position: absolute;
-    top:20%;
-    left:45%;
+.title {
+  position: absolute;
+  top: 20%;
+  left: 45%;
 }
 
-.tabel{
-    position: absolute;
-    top: 40%;
-    left: 10%;
-    height: 30%;
-    width: 80%;
+.tabel {
+  position: absolute;
+  top: 10%;
+  left: 32%;
+  height: 30%;
+  width: 80%;
 }
 
-.invoervelden{
-    position: absolute;
-    left:40%;
-    top:20%;
+.invoervelden {
+  position: absolute;
+  left: 40%;
+  top: 20%;
 }
 
-
-.edituser{
-    position: absolute;
-    left: 37%;
-    top: 10%;
+.edituser {
+  position: absolute;
+  left: 37%;
+  top: 10%;
 }
 
-.buttonsubmit{
-    position: absolute ;
-    top: 110%;
-    left: 27%;
-    align-items: center;
-    border: solid #3050A8;
-    background-color: #3050A8;
-    color: white;
-    border-radius: 10px; 
-    width: 50%;
-    height: 20%;
+.buttonsubmit {
+  position: absolute;
+  top: 110%;
+  left: 27%;
+  align-items: center;
+  border: solid #3050a8;
+  background-color: #3050a8;
+  color: white;
+  border-radius: 10px;
+  width: 50%;
+  height: 20%;
 }
 
 .buttonback {
-    position: absolute;
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    margin: 0;
-    font-size: inherit;
-    color: black; /* Change color as needed */
-    cursor: pointer;
-    text-decoration: underline; /* Optional: Add underline effect */
-    left: 1.5%;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  color: black; /* Change color as needed */
+  cursor: pointer;
+  text-decoration: underline; /* Optional: Add underline effect */
+  left: 1.5%;
 }
 
-.tabel2{
-    position: absolute;
-    top: 25%;
-    left: 10%;
-    height: 30%;
-    width: 80%;     
+.tabel2 {
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  height: 30%;
+  width: 80%;
 }
 
-
-.editproduct{
-    position: absolute;
-    left: 40%;
-    top: 17%;
+.editproduct {
+  position: absolute;
+  left: 40%;
+  top: 17%;
 }
 
-.knopedit{
-    background-color: #198754;
-    border: #198754 solid 3px;
-    border-radius: 10px;
-    margin-right: 10px;
-    text-decoration: none;
-    color: #fff;
-    padding: 5px 10px;
-
+.knopedit {
+  background-color: #198754;
+  border: #198754 solid 3px;
+  border-radius: 10px;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 10px;
+  
 }
 
-.knopdelete{
-    background-color: red;
-    border: red solid 3px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: #fff;
-    padding: 5px 10px;
+.knopdelete {
+  background-color: red;
+  border: red solid 3px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 10px;
 }
 
-.knopdelete:hover{
-    color: #fff;
-    text-decoration: none;
+.knopdelete:hover {
+  color: #fff;
+  text-decoration: none;
 }
 
-.knopedit:hover{
-    color: #fff;
-    text-decoration: none;
+.knopedit:hover {
+  color: #fff;
+  text-decoration: none;
 }
 
 .past-date td {
-    background-color:  #777; /* Gray color */
+  background-color: #777; /* Gray color */
 }
 
 #popupBar {
-    position: absolute;
-    z-index: 9999;
-    top: 0%;
-    left: 50%; 
-    transform: translateX(-50%);
-    width: 100%; 
+  position: absolute;
+  z-index: 9999;
+  top: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
 }
 
 .containerafspraak {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: black;
-    text-align: center;
-    border-radius: 10px;
-    background-color: #f5f5f5;
-    height: 80%;
-    width: 50%;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  height: 80%;
+  width: 50%;
 }
 
 .form-group {
-    width: 25%;
-    margin-left: auto;
-    margin-right: auto;
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-
 .naam {
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-    top:50%;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  top: 50%;
 }
 
 .buttonsubmitafspraak {
-    position: absolute;
-    top: 85%;
-    left: 40%;
-    align-items: center;
-    border: solid #3050A8;
-    background-color: #3050A8;
-    color: white;
-    border-radius: 10px;
-    width: 20%;
-    height: 10%;
+  position: absolute;
+  top: 85%;
+  left: 40%;
+  align-items: center;
+  border: solid #3050a8;
+  background-color: #3050a8;
+  color: white;
+  border-radius: 10px;
+  width: 20%;
+  height: 10%;
 }
 
 .buttonsubmitafspraak:hover {
-    background-color: #3050A8;
+  background-color: #3050a8;
 }
 
-.beschrijvingafspraak{
-    position:absolute;
-    left:30%;
-    bottom:20%;
-    font-size:20px;
-    border-radius: 10px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    resize: none;
-    height: 40%;
-    width: 350px;
+.beschrijvingafspraak {
+  position: absolute;
+  left: 30%;
+  bottom: 20%;
+  font-size: 20px;
+  border-radius: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  resize: none;
+  height: 40%;
+  width: 350px;
 }
 
-.beschrijvingtextafspraak{
-    position:absolute;
-    left:17%;
-    top:35%;
-    font-size:20px;
-    width: 40%;
-}  
-
-.dateafspraak{
-    position: absolute;
-    left: 31%;
-    top:31%;
-    width: 38%;
-    border-radius: 10px;
-    border: solid black 1px;
+.beschrijvingtextafspraak {
+  position: absolute;
+  left: 17%;
+  top: 35%;
+  font-size: 20px;
+  width: 40%;
 }
 
-.datetextafspraak{
-    position:absolute;
-    left:31%;
-    top:27%;
-    font-size:20px; 
-    
+.dateafspraak {
+  position: absolute;
+  left: 31%;
+  top: 31%;
+  width: 38%;
+  border-radius: 10px;
+  border: solid black 1px;
 }
 
-.naamafspraak{
-    position: absolute;
-    left: 31%;
-    top:16%;
-    width: 38%;
-    border-radius: 10px;
-    border: solid black 1px;   
+.datetextafspraak {
+  position: absolute;
+  left: 31%;
+  top: 27%;
+  font-size: 20px;
 }
 
-.naamtextafspraak{
-    position:absolute;
-    left:31%;
-    top:12%;
-    font-size:20px; 
+.naamafspraak {
+  position: absolute;
+  left: 31%;
+  top: 16%;
+  width: 38%;
+  border-radius: 10px;
+  border: solid black 1px;
 }
 
-.titleafspraak{
-    position:absolute;
-    left:30%;
-    top:5%; 
+.naamtextafspraak {
+  position: absolute;
+  left: 31%;
+  top: 12%;
+  font-size: 20px;
 }
 
-.addresstextafspraak{
-    position:absolute;
-    left:31%;
-    top:20%;
-    font-size:20px;
+.titleafspraak {
+  position: absolute;
+  left: 30%;
+  top: 5%;
 }
 
-.addressafspraak{
-    position: absolute;
-    left: 31%;
-    top:24%;
-    width: 38%;
-    border-radius: 10px;
-    border: solid black 1px;   
+.addresstextafspraak {
+  position: absolute;
+  left: 31%;
+  top: 20%;
+  font-size: 20px;
 }
 
-.titledashboard{
-    position: absolute;
-    margin-top: 10px;
-    text-align: center;
-    top:0%;
-    left:40%;
+.addressafspraak {
+  position: absolute;
+  left: 31%;
+  top: 24%;
+  width: 38%;
+  border-radius: 10px;
+  border: solid black 1px;
 }
 
-.tussenlijn{
-    position:absolute; 
-    top:52%; 
-    width:95%; 
-    border-top: 2px solid black; 
-    left:2.5%;
+.titledashboard {
+  position: absolute;
+  margin-top: 10px;
+  text-align: center;
+  top: 0%;
+  left: 40%;
 }
 
-.onderbalkdashboard{
-    position:absolute; 
-    bottom: -15%; 
-    left:0%; 
-    width: 100%;
+.tussenlijn {
+  position: absolute;
+  top: 52%;
+  width: 95%;
+  border-top: 2px solid black;
+  left: 2.5%;
 }
 
-.containerdashboard{
-    position: absolute;
-    background-color: #f5f5f5;
-    height: 80%;
-    width: 70%;
-    left: 15%;
-    top: 20%;
-    border-radius: 10px;
+.onderbalkdashboard {
+  position: absolute;
+  bottom: -15%;
+  left: 0%;
+  width: 100%;
 }
 
-.titeldashboard{
-    position: absolute;
-    left:40%;
+.containerdashboard {
+  position: absolute;
+  background-color: #f5f5f5;
+  height: 80%;
+  width: 70%;
+  left: 15%;
+  top: 20%;
+  border-radius: 10px;
+}
+
+.titeldashboard {
+  position: absolute;
+  left: 40%;
 }
 
 #datepicker {
-    position: absolute;
-    top: 31%;
-    left: 30.5%;
-    width: 38%;
-    border-radius: 10px;
+  position: absolute;
+  top: 31%;
+  left: 30.5%;
+  width: 38%;
+  border-radius: 10px;
 }
 
 .d-flex {
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    height: 75vh;
-    left:30%;
-    background-color: #f5f5f5;
-    border-radius: 10px;
-  }
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  left: 30%;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
 
-  .fw-normal{
-    position: relative;
-    color: black;
-    text-align: center;
-    font-size: 40px;
+.fw-normal {
+  position: relative;
+  color: black;
+  text-align: center;
+  font-size: 40px;
 }
 
 .btnfp {
-    position: absolute;
-    background-color: #103E7E;
-    left: 35%;
-    color: white;
-    border: none;
-    transition: 0.2s;
-    height: 8%;
-    width: 20%;
-    border-radius: 10px;
+  position: absolute;
+  background-color: #103e7e;
+  left: 35%;
+  color: white;
+  border: none;
+  transition: 0.2s;
+  height: 8%;
+  width: 20%;
+  border-radius: 10px;
 }
 
-
 .form-label {
-    margin-top: -0.5rem;
-    margin-left: 0.25rem;
-    padding: 0 0.5rem;
-    background-color: white;
-    color: gray;
-  }
+  margin-top: -0.5rem;
+  margin-left: 0.25rem;
+  padding: 0 0.5rem;
+  background-color: white;
+  color: gray;
+}
 
-  .btn1 {
-    background-color: #103E7E;
-    border: none;
-    bottom: 10%;
-  }
+.btn1 {
+  background-color: #103e7e;
+  border: none;
+  bottom: 10%;
+}
 
-  .btn:hover{
-    color: white;
-    background-color: #3050A8; 
-  }
+.btn:hover {
+  color: white;
+  background-color: #3050a8;
+}
 
-  #popupBarfp {
-    position: absolute;
-    z-index: 9999; /* Ensure popup appears above other content */
-    top: 0%; /* Adjust as needed */
-    left: 50%; /* Adjust as needed */
-    transform: translateX(-50%);
-    width: 100%; /* Adjust as needed */
-  }
+#popupBarfp {
+  position: absolute;
+  z-index: 9999; /* Ensure popup appears above other content */
+  top: 0%; /* Adjust as needed */
+  left: 50%; /* Adjust as needed */
+  transform: translateX(-50%);
+  width: 100%; /* Adjust as needed */
+}
 
-   .knop1 {
-    color: white;
-    background-color: #103E7E;
-    border: solid #103E7E;
-    border-radius: 10px;
-    height: 5vh;
-    width: 10%;
-    transition: 0.2s;
+.knop1 {
+  color: white;
+  background-color: #103e7e;
+  border: solid #103e7e;
+  border-radius: 10px;
+  height: 5vh;
+  width: 10%;
+  transition: 0.2s;
 }
 
 .knop1:hover {
-    color: white;
-    background-color: #3050A8;
-    border: solid #3050A8;
+  color: white;
+  background-color: #3050a8;
+  border: solid #3050a8;
 }
 
-.onderbalk{
-    position:absolute; 
-    bottom: -70%; 
-    left:0%; 
-    width: 100%;
+.onderbalk {
+  position: absolute;
+  bottom: -70%;
+  left: 0%;
+  width: 100%;
 }
-
 
 .d-flexlogin {
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    height: 75vh;
-    background-color: #f5f5f5;
-    left: 35%;
-    top:5%;
-    border-radius: 10px;
-  }
-  
-  .d-flex1 {
-    position: relative;
-    left: 50%;
-  }
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  background-color: #f5f5f5;
+  left: 35%;
+  top: 5%;
+  border-radius: 10px;
+}
 
-  
+.d-flex1 {
+  position: relative;
+  left: 50%;
+}
+
 .pt-12 {
-    position: absolute;
-    left: 40%;
-    bottom: 10%;
+  position: absolute;
+  left: 40%;
+  bottom: 10%;
 }
 
 .password-input {
-    border-radius: 0.375rem;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-right: none;
-  }
-  
-  .password-toggle-btn {
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-left: none;
-    border-radius: 0.375rem;
-    margin-left: -1px;
-  }
+  border-radius: 0.375rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-right: none;
+}
 
-  .form-labellogin {
-    margin-top: -0.5rem;
-    margin-left: 0.25rem;
-    padding: 0 0.5rem;
-    background-color: white;
-    color: gray;
-  }
+.password-toggle-btn {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-left: none;
+  border-radius: 0.375rem;
+  margin-left: -1px;
+}
 
-  
+.form-labellogin {
+  margin-top: -0.5rem;
+  margin-left: 0.25rem;
+  padding: 0 0.5rem;
+  background-color: white;
+  color: gray;
+}
+
 .btnlogin {
-    background-color: #103E7E;
-    color: white;
-    border: #103E7E;
-    border-radius: 10px;
-    transition: 0.2s;
-  }
+  background-color: #103e7e;
+  color: white;
+  border: #103e7e;
+  border-radius: 10px;
+  transition: 0.2s;
+}
 
-  .btnlogin:hover{
-    color: white;
-    background-color: #3050A8; 
-  }
+.btnlogin:hover {
+  color: white;
+  background-color: #3050a8;
+}
 
-  
 .link {
-    color: #103E7E;
-  }
-  
-  .link:hover {
-    color: #3050A8;
-  }
-
-  #popupBarlogin {
-    position: absolute;
-    z-index: 9999; /* Ensure popup appears above other content */
-    top: 0%; /* Adjust as needed */
-    left: 50%; /* Adjust as needed */
-    transform: translateX(-50%);
-    width: 100%; /* Adjust as needed */
-  } 
-  
-  .fw-normallogin{
-    position: relative;
-    color: black;
-    text-align: center;
-    font-size: 40px;
-    margin-top:20%;
+  color: #103e7e;
 }
 
-
-
-.tekst1{
-    position: absolute;
-    top: 5%;
-    left: 42%;
-    font-size: 50px;
-    color: black;
-
+.link:hover {
+  color: #3050a8;
 }
 
-.tekst2{
-    position: absolute;
-    top: 15%;
-    left: 20%;
-    color: black;
-    text-align: center;    
+#popupBarlogin {
+  position: absolute;
+  z-index: 9999; /* Ensure popup appears above other content */
+  top: 0%; /* Adjust as needed */
+  left: 50%; /* Adjust as needed */
+  transform: translateX(-50%);
+  width: 100%; /* Adjust as needed */
 }
 
-.tekst3{
-    position: absolute;
-    top: 45%;
-    left: 42%;
-    color: black;
-    text-align: center;
-    font-size: 50px;
-    color: black;
+.fw-normallogin {
+  position: relative;
+  color: black;
+  text-align: center;
+  font-size: 40px;
+  margin-top: 20%;
 }
 
-.tekst4{
-    position: absolute;
-    top: 55%;
-    left: 20%;
-    color: black;
-    text-align: center;    
+.tekst1 {
+  position: absolute;
+  top: 5%;
+  left: 42%;
+  font-size: 50px;
+  color: black;
 }
 
-.tekst5{
-    position: absolute;
-    top: 73%;
-    left: 43%;
-    font-size: 50px;
-    color: black;
+.tekst2 {
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  color: black;
+  text-align: center;
 }
 
-.gegevens{
-    position: absolute;
-    top: 85%;
-    left: 40%;
-    color: black;
-    text-align: center;    
+.tekst3 {
+  position: absolute;
+  top: 45%;
+  left: 42%;
+  color: black;
+  text-align: center;
+  font-size: 50px;
+  color: black;
 }
 
-.containeroverons{
-    position: absolute;
-    top: 17%;
-    left: 10%;
-    width: 80%;
-    color: black;
-    border-radius: 10px;
-    background-color: #f5f5f5;
-    height: 70%;
+.tekst4 {
+  position: absolute;
+  top: 55%;
+  left: 20%;
+  color: black;
+  text-align: center;
+}
+
+.tekst5 {
+  position: absolute;
+  top: 73%;
+  left: 43%;
+  font-size: 50px;
+  color: black;
+}
+
+.gegevens {
+  position: absolute;
+  top: 85%;
+  left: 40%;
+  color: black;
+  text-align: center;
+}
+
+.containeroverons {
+  position: absolute;
+  top: 17%;
+  left: 10%;
+  width: 80%;
+  color: black;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  height: 70%;
 }
 
 .overlayproduct {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-    display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
 }
 
 .overlay-contentproduct {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #f5f5f5;
-    padding: 10px;
-    /* Adjust the padding to make the overlay smaller */
-    border-radius: 5px;
-    text-align: center;
-    /* Center align content */
-    width: 50%;
-    /* Set the width of the overlay */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f5f5f5;
+  padding: 10px;
+  /* Adjust the padding to make the overlay smaller */
+  border-radius: 5px;
+  text-align: center;
+  /* Center align content */
+  width: 50%;
+  /* Set the width of the overlay */
 }
 
 .overlay-contentproduct img {
-    max-width: 40%;
-    /* Limit image width */
-    max-height: 40%;
-    /* Limit image height */
-    height: auto;
-    width: auto;
-    margin-bottom: 20px;
-    /* Add some space below the image */
-    background-color: transparent;
-    border: none;
-    /* Remove border */
+  max-width: 40%;
+  /* Limit image width */
+  max-height: 40%;
+  /* Limit image height */
+  height: auto;
+  width: auto;
+  margin-bottom: 20px;
+  /* Add some space below the image */
+  background-color: transparent;
+  border: none;
+  /* Remove border */
 }
 
 .knopproduct {
-    color: white;
-    background-color: #103E7E;
-    border: solid #103E7E;
-    border-radius: 10px;
-    height: 5vh;
-    width: 50%;
-    transition: 0.2s;
+  color: white;
+  background-color: #103e7e;
+  border: solid #103e7e;
+  border-radius: 10px;
+  height: 5vh;
+  width: 50%;
+  transition: 0.2s;
 }
 
 .knopproduct:hover {
-    color: white;
-    background-color: #3050A8;
-    border: solid #3050A8;
+  color: white;
+  background-color: #3050a8;
+  border: solid #3050a8;
 }
 
 .d-flexproduct {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
 }
 
-.fw-normalregister{
-    position: relative;
-    color: black;
-    text-align: center;
-    font-size: 40px;
+.fw-normalregister {
+  position: relative;
+  color: black;
+  text-align: center;
+  font-size: 40px;
 }
 
 .d-flexregister {
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    height: 75vh;
-    left:35%;
-    background-color: #f5f5f5;
-    width: 30%;
-    height: 100%;
-    top:-3%;
-    border-radius: 10px;
-  }
-
-  .btnregister {
-    position: absolute;
-    background-color: #103E7E;
-    top:100%;
-    left: 40%;
-    color: white;
-    border: none;
-    transition: 0.2s;
-    border-radius: 10px;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  left: 35%;
+  background-color: #f5f5f5;
+  width: 30%;
+  height: 95%;
+  top: -3%;
+  border-radius: 10px;
 }
 
-.btnregister:hover{
-    color: white;
-    background-color: #3050A8; 
-  }
+.btnregister {
+  position: absolute;
+  background-color: #103e7e;
+  top: 96%;
+  left: 40%;
+  color: white;
+  border: none;
+  transition: 0.2s;
+  border-radius: 10px;
+}
 
-  .form-labelregister {
-    margin-top: -0.5rem;
-    margin-left: 0.25rem;
-    padding: 0 0.5rem;
-    background-color: white;
-    color: gray;
-  }
+.btnregister:hover {
+  color: white;
+  background-color: #3050a8;
+}
 
-  
-  #popupBarregister {
-    position: absolute;
-    z-index: 9999; /* Ensure popup appears above other content */
-    top: 0%; /* Adjust as needed */
-    left: 50%; /* Adjust as needed */
-    transform: translateX(-50%);
-    width: 100%; /* Adjust as needed */
+.form-labelregister {
+  margin-top: -0.5rem;
+  margin-left: 0.25rem;
+  padding: 0 0.5rem;
+  background-color: white;
+  color: gray;
+}
+
+#popupBarregister {
+  position: absolute;
+  z-index: 9999; /* Ensure popup appears above other content */
+  top: 0%; /* Adjust as needed */
+  left: 50%; /* Adjust as needed */
+  transform: translateX(-50%);
+  width: 100%; /* Adjust as needed */
 }
 
 .btnregister2 {
-    position: absolute;
-    background-color: #103E7E;
-    margin-top:90px;
-    margin-left: -30px;
-    color: white;
-    border: none;
-    transition: 0.2s;
-    border-radius: 10px;
+  position: absolute;
+  background-color: #103e7e;
+  margin-top: 70px;
+  margin-left: -30px;
+  color: white;
+  border: none;
+  transition: 0.2s;
+  border-radius: 10px;
 }
 
-.titleuser{
-    position: absolute;
-    left: 40%;
+.titleuser {
+  position: absolute;
+  left: 40%;
 }
 
-.invoerveldenuser{
-    position: absolute;
-    left: 5%;
-    top: 20%;
+.invoerveldenuser {
+  position: absolute;
+  left: 5%;
+  top: 20%;
 }
 
-.buttonsubmituser{
-    position: absolute ;
-    top: 110%;
-    left: 19%;
-    align-items: center;
-    border: solid #3050A8;
-    background-color: #3050A8;
-    color: white;
-    border-radius: 10px; 
-    width: 50%;
-    height: 20%;
+.buttonsubmituser {
+  position: absolute;
+  top: 110%;
+  left: 19%;
+  align-items: center;
+  border: solid #3050a8;
+  background-color: #3050a8;
+  color: white;
+  border-radius: 10px;
+  width: 50%;
+  height: 20%;
 }
 
-.tableuser{
-    position: absolute;
-    top: 150%;
-    left: 5%;
-    width: 90%;
-    border-collapse: collapse;
+.tableuser {
+  position: absolute;
+  top: 150%;
+  left: 5%;
+  width: 90%;
+  border-collapse: collapse;
 }
 
 table {
-    position: absolute;
-    border-collapse: collapse;
-    width:40%;
-    top:80%;
-    left:3%;
+  position: absolute;
+  border-collapse: collapse;
+  width: 40%;
+  top: 80%;
+  left: 3%;
 }
-th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
 }
 th {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 tr:hover {
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
-.editproductuser{
-    position: absolute;
-    left: 18%;
-    top: 73%;
+.editproductuser {
+  position: absolute;
+  left: 18%;
+  top: 73%;
 }
 
-.titelcheckout{
-    position: absolute;
-    left: 5%;
-    top: 80%;
+.titelcheckout {
+  position: absolute;
+  left: 5%;
+  top: 95%;
 }
 
-.formcheckout{
-    position: absolute;
-    left: 5%;
-    top: 90%;
+.formcheckout {
+  position: absolute;
+  left: 5%;
+  top: 100%;
 }
 
-.btndelete{
-    background-color: red;
-    border: red solid 3px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: #fff;
-    padding: 5px;
+.btndelete {
+  background-color: red;
+  border: red solid 3px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  padding: 5px;
 }
 
-.btnempty{
-    position: absolute;
-    background-color: red;
-    border: red solid 3px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: #fff;
-    top: 75%;
-    left:50%;
-    padding: 5px;
+.btnempty {
+  background-color: red;
+  border: red solid 3px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  padding: 5px;
 }
 
 .btnempty:hover {
-    color: white;
-    background-color: #3050A8;
-    border: solid #3050A8;
+  color: white;
+  background-color: #3050a8;
+  border: solid #3050a8;
 }
 
-.btncheckout{
-    position: absolute;
-    background-color: #198754;
-    border: #198754 solid 3px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: #fff;
-    top: 75%;
-    left:20%;
-    padding: 5px;
+.btncheckout {
+  background-color: #198754;
+  border: #198754 solid 3px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+  padding: 5px;
 }
 
-.btncheckout:hover{
-    color: white;
-    background-color: #3050A8;
-    border: solid #3050A8;
+.btncheckout:hover {
+  color: white;
+  background-color: #3050a8;
+  border: solid #3050a8;
 }
 
-.d-flexindex{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    top:15%;
+.d-flexindex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  top: 15%;
 }
 
-
-
-
-
-
-
-
-
-
+.tabeluser {
+  position: absolute;
+  top: 10%;
+  left: 23%;
+  height: 30%;
+  width: 80%;
+}
 

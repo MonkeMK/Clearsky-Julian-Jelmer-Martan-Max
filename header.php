@@ -1,20 +1,16 @@
 <!DOCTYPE html>
-
-
-
-
-<head>
 <html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel=stylesheet href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-+0V4cXq+QRoi6iKzK2KRP3zZlNQrj5819m1GfOJwXwXcA+toUOD2KhTjhp5jcqv5"
         crossorigin="anonymous" defer></script>
     <title>Clearsky</title>
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/Images/favicon.ico">
 </head>
 <?php
     include_once('database.php');
@@ -25,7 +21,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary bg-light" data-bs-theme="dark">
             <div class="container-fluid">
-                <a href="index.php"><img src="assets/Logo.png" width="100" height="100"></a>
+                <a href="index.php"><img src="assets/Images/Logo.png" width="100" height="100"></a>
                 <ul class="navbar-nav d-flexindex justify-content-around align-items- w-100">
                     <li class="nav-item">
                         <a class="nav-link" href="product.php">Producten</a>
@@ -116,13 +112,12 @@
                         <?php
                     }
                 }
-                ?>
-                <a href="checkout.php" class="btncheckout btn-primary">Betalen</a>
-                <a href="empty.php" class="btnempty btn-danger">Winkelwagen legen</a>
+            ?>
+            <a href="checkout.php" class="btncheckout btn-primary">Betalen</a>
+            <a href="empty.php" class="btnempty btn-danger">Winkelwagen legen</a>
             <?php } ?>
         </div>
     </div>
 
 </body>
-
 </html>

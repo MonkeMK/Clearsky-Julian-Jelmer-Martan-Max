@@ -36,7 +36,7 @@ $conn = null;
 <body style="background:#fff;">
     <input type="button" class="buttonback" value="<- Terug" onclick="window.location.href='admin.php'" />
     <h1 class="title">Admin</h1>
-    <div class="tabel">
+    <div class="tabeluser">
         <table>
             <thead>
                 <tr>

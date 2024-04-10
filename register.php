@@ -31,7 +31,7 @@
                 <div class="col-sm-6 text-black">
                     <div class="d-flexregister align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
-                        <form id="registerForm" style=" position:absolute; width: 23rem; top: 9%;" method="POST">
+                        <form id="registerForm" style="position:absolute; width: 23rem; top: 9%;" method="POST">
 
                             <h3 class="fw-normalregister mb-3 pb-3" style="letter-spacing: 1px;">Registeren</h3>
 
@@ -63,6 +63,10 @@
                             </div>
 
                             <div class="form-outline mb-4">
+                                <input type="text" id="place" class="form-control form-control-lg" name="place">
+                                <label class="form-labelregister" for="place">Plaats</label>
+
+                            <div class="form-outline mb-4">
                                 <input type="text" id="zipcode" class="form-control form-control-lg" name="zipcode">
                                 <label class="form-labelregister" for="zipcode">Postcode</label>
                             </div>
@@ -73,13 +77,13 @@
                             </div>
 
                             <div class="pt-1 mb-4">
-                                <button style="left:60%;" class="btnregister btn-info btn-lg btn-block" type="button"
-                                    onclick="validateForm()">Registeer</button>
+                                <button style="left:60%;" class="btnregister btn-info btn-lg btn-block"
+                                    type="submit">Registeer</button>
                             </div>
 
                             <a href="login.php">
                                 <div class="pt-12 mb-4">
-                                    <button class="btnregister2 btn-info btn-lg btn-block" type="submit">Terug naar login</button>
+                                    <button class="btnregister2 btn-info btn-lg btn-block">Terug</button>
                                 </div>
                             </a>
                         </form>
@@ -90,24 +94,24 @@
     </section>
 
     <script>
-    function validateForm() {
-        var name = document.getElementById("name").value;
-        var email = document.getElementById("email").value;
-        var password = document.getElementById("password").value;
-        var address = document.getElementById("address").value;
-        var zipcode = document.getElementById("zipcode").value;
-        var phone = document.getElementById("phone").value;
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var address = document.getElementById("address").value;
+            var zipcode = document.getElementById("zipcode").value;
+            var phone = document.getElementById("phone").value;
 
-        if (name.trim() === "" || email.trim() === "" || password.trim() === "" || address.trim() === "" || zipcode.trim() === "" || phone.trim() === "") {
-            displayPopup("Vul alle velden in alstublieft.");
-            return false;
+            if (name.trim() === "" || email.trim() === "" || password.trim() === "" || address.trim() === "" || zipcode.trim() === "" || phone.trim() === "") {
+                displayPopup("Vul alle velden in alstublieft.");
+                return false;
+            }
+
+            return true;
         }
 
-        return true;
-    }
-
-    function displayPopup(message) {
-            var popupBar = document.getElementById("popupBarregister");
+        function displayPopup(message) {
+            var popupBar = document.getElementById("popupBar");
             popupBar.innerHTML = '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>' + message;
             popupBar.classList.add("alert-warning");
             popupBar.style.display = "block";

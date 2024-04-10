@@ -1,6 +1,10 @@
 <?php
 include_once ("database.php");
 
+$PASS_ENC = CRYPT_SHA256;
+$PASS_SALT = "zI0nL2jH5pS8oF9qX6eO9fD6rF8kJ0nY";
+$PASS_PEPPER = "hZ4lZ4uA0sC9cO6fE1jF6pY4gK8tY4sY";
+
 // Maak de databaseverbinding
 $conn = connection();
 $error = ""; // De variabele $error wordt gedeclareerd
@@ -17,10 +21,11 @@ function recaptcha($POST)
     return $responseKeys["success"];
 }
 
-// Functie voor inloggen
+// Functie inloggen
 function login()
 {
     global $conn, $error;
+    global $PASS_PEPPER, $PASS_SALT, $PASS_ENC;
 
     // Stop de uitvoering van de code als er geen verbinding is
     if (!$conn) {
@@ -35,38 +40,42 @@ function login()
             header("Location: login.php");
             die();
         }
-        
+
         // Formuliergegevens
         $email = $_POST['email'];
         $password = $_POST['password'];
 
         // Bereid de query voor om te controleren of de gebruiker bestaat en kan inloggen
-        $query = "SELECT * FROM user WHERE email = :email AND password = :password AND can_login = 1";
+        $query = "SELECT * FROM user WHERE email = :email AND can_login = 1";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password', $password);
         $stmt->execute();
 
         // Haal het resultaat op
         $result = $stmt->fetch();
 
         if ($result) {
-            // Gebruiker bestaat en kan inloggen, stel sessievariabelen in en leid door naar het dashboard
-            $_SESSION['user_id'] = $result["id"];
-            $_SESSION["logged_in"] = 1;
-            header("Location: index.php");
-            exit();
+            // Gebruiker bestaat, controleer het wachtwoord
+            if (password_verify($PASS_PEPPER . $password . $PASS_SALT, $result['password'])) {
+                // Wachtwoord is correct, stel sessievariabelen in en leid door naar het dashboard
+                $_SESSION['user_id'] = $result["id"];
+                $_SESSION["logged_in"] = 1;
+                header("Location: index.php");
+                exit();
+            } else {
+                // Ongeldig wachtwoord
+                $error = "Ongeldige e-mail of wachtwoord. Probeer het opnieuw.";
+            }
         } else {
-            // Ongeldige referenties of gebruiker kan niet inloggen, update het foutbericht
+            // Gebruiker bestaat niet of kan niet inloggen
             $error = "Ongeldige e-mail of wachtwoord. Probeer het opnieuw.";
         }
     }
 }
 
 // Functie voor registreren
-function register()
-{
-    global $conn, $error;
+function register() {
+    global $conn, $error, $PASS_PEPPER, $PASS_SALT, $PASS_ENC;
 
     // Stop de code als er geen verbinding is
     if (!$conn) {
@@ -80,23 +89,27 @@ function register()
         $email = $_POST['email'];
         $password = $_POST['password'];
         $address = $_POST['address'];
+        $place = $_POST['place'];  
         $zipcode = $_POST['zipcode'];
         $phone = $_POST['phone'];
 
+        $hashed_passwd = password_hash($PASS_PEPPER . $password . $PASS_SALT, $PASS_ENC);
+
         // Bereid de query voor om de gebruiker in de database in te voegen
-        $query = "INSERT INTO user (name, email, password, adress, zipcode, phonenumber, can_login) VALUES (:name, :email, :password, :address, :zipcode, :phone, 1)";
+        $query = "INSERT INTO user (name, email, password, adress, place, zipcode, phonenumber, can_login, admin) VALUES (:name, :email, :password, :address, :place, :zipcode, :phone, 1, 0)";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':password', $hashed_passwd);
         $stmt->bindParam(':address', $address);
+        $stmt->bindParam(':place', $place);
         $stmt->bindParam(':zipcode', $zipcode);
         $stmt->bindParam(':phone', $phone);
 
         if ($stmt->execute()) {
             // Registratie succesvol, stel sessievariabelen in en leid door naar het dashboard
             $_SESSION['email'] = $email;
-            header("Location: login.php");
+            header("Location: login.php"); // Redirect to login.php
             exit();
         } else {
             // Registratie mislukt, update het foutbericht
@@ -309,22 +322,59 @@ function displayAppointmentsForCurrentUser($conn) {
     $stmt->execute();
     if ($stmt->rowCount() > 0) {
         echo "<table>";
-        echo "<tr>
-                <th>Naam</th>
-                <th>Datum</th>
-                <th>Beschrijving</th>
-                <th>Adres</th>
-              </tr>";
+		echo <<<EOT
+		<tr>
+			<th>Naam</th>
+			<th>Datum</th>
+			<th>Beschrijving</th>
+			<th>Adres</th>
+			<th>Calander</th>
+		</tr>
+		EOT;
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             // Controleer of de datum in het verleden ligt
             $date = strtotime($row["date"]);
             $today = strtotime(date("Y-m-d"));
+			$name = $row["name"];
             $date_class = ($date < $today) ? 'past-date' : '';
-            echo "<tr class='$date_class'><td>" . $row["name"] . "</td><td>" . $row["date"] . "</td><td>" . $row["description"] . "</td><td>" . $row["address"] . "</td></tr>";
+            echo "<tr class='$date_class'><td>" . $row["name"] . "</td><td>" . $row["date"] . "</td><td>" . $row["description"] . "</td><td>" . $row["address"] . "</td>";
+			echo <<<EOT
+				<add-to-calendar-button
+					name="$name"
+					options="'Apple','Google'"
+					location="YEs"
+					startDate="$date"
+					endDate="$date"
+					startTime="10:00"
+					endTime="23:59"
+					timeZone="America/Los_Angeles"
+				></add-to-calendar-button></tr>
+			EOT;
         }
         echo "</table>";
+		echo <<<EOT
+			<add-to-calendar-button
+				name="Title"
+				options="'Apple','Google'"
+				location="World Wide Web"
+				startDate="2024-03-30"
+				endDate="2024-03-30"
+				startTime="10:15"
+				endTime="23:30"
+				timeZone="America/Los_Angeles"
+			></add-to-calendar-button>
+		EOT;
     } else {
        
     }
+}
+
+function getCurrentUserData($conn) {
+    $user_id = $_SESSION["user_id"];
+    $sql = "SELECT name, adress, email, phonenumber, zipcode, place FROM user WHERE id = :user_id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
