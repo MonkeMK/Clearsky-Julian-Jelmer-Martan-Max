@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
+
 <body>
     <?php
     include_once ("header.php");
@@ -36,57 +37,58 @@
 
         foreach ($result as $r) {
             $productId = $r['id'];
-        ?>
-        <div class="card mx-5 mb-5 overlay-container" style="max-width: 15%; position: relative;">
-            <div class="card-img-top-container">
-                <img class="card-img-top p-2" src="assets/Images/<?php echo $r['image']; ?>" alt="Card image cap">
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">
-                    <?php echo $r['name']; ?>
-                </h5>
-                <p class="card-text">
-                    <?php 
-                    // Get the description from the PHP variable
-                    $description = $r['description'];
+            ?>
+            <div class="card mx-5 mb-5 overlay-container" style="max-width: 15%; position: relative;">
+                <div class="card-img-top-container">
+                    <img class="card-img-top p-2" src="assets/Images/<?php echo $r['image']; ?>" alt="Card image cap">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <?php echo $r['name']; ?>
+                    </h5>
+                    <p class="card-text">
+                        <?php
+                        // Get the description from the PHP variable
+                        $description = $r['description'];
 
-                    // Count the words in the description
-                    $wordCount = str_word_count($description);
+                        // Count the words in the description
+                        $wordCount = str_word_count($description);
 
-                    // Check if the word count exceeds 50
-                    if ($wordCount > 50) {
-                        // If more than 50 words, limit the description to 50 words and append "..."
-                        $limitedDescription = implode(' ', array_slice(str_word_count($description, 1), 0, 50)) . '...';
-                        echo $limitedDescription;
-                    } else {
-                        // If less than or equal to 50 words, display the original description
-                        echo $description;
-                    }
-                    ?>
-                </p>
-                <p class="card-text"><small class="text-muted">
-                        €
-                        <?php echo $r['price']; ?>
-                    </small></p>
-            </div>
-            <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === 1) { ?>   
-            <form action="addToCart.php" method="POST"
-                style="position: absolute; padding:5px; bottom: 0%; left: 80%; transform: translateX(-50%);">
-                <input type="hidden" name="id" value="<?php echo $r['id']; ?>">
-                <button type="submit" class="knopindex btn-primary" style="width: 100%;">Toevoegen</button>
-            </form>
-            <?php } ?>
-            <div class="overlay">
-                <div class="overlay-content">
+                        // Check if the word count exceeds 50
+                        if ($wordCount > 50) {
+                            // If more than 50 words, limit the description to 50 words and append "..."
+                            $limitedDescription = implode(' ', array_slice(str_word_count($description, 1), 0, 50)) . '...';
+                            echo $limitedDescription;
+                        } else {
+                            // If less than or equal to 50 words, display the original description
+                            echo $description;
+                        }
+                        ?>
+                    </p>
+                    <p class="card-text"><small class="text-muted">
+                            €
+                            <?php echo $r['price']; ?>
+                        </small></p>
+                </div>
+                <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === 1) { ?>
+                    <form action="addToCart.php" method="POST"
+                        style="position: absolute; padding:5px; bottom: 0%; left: 80%; transform: translateX(-50%);">
+                        <input type="hidden" name="id" value="<?php echo $r['id']; ?>">
+                        <button type="submit" class="knopindex btn-primary" style="width: 100%;">Toevoegen</button>
+                    </form>
+                <?php } ?>
+                <div class="overlay">
+                    <div class="overlay-content">
+                    </div>
                 </div>
             </div>
-        </div>
-        <?php
+            <?php
         }
         ?>
     </div>
 
-    <footer class="onderbalk text-center text-lg-start bg-light text-muted" style="position:absolute; left:0%; width: 100%; bottom: 400%;">
+    <footer class="onderbalk text-center text-lg-start bg-light text-muted"
+        style="position:absolute; left:0%; width: 100%; bottom: 400%;">
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
             <b>&copy Copyright by Clearsky</b>
         </div>
@@ -123,14 +125,13 @@
                     const overlayContent = overlay.querySelector('.overlay-content');
 
                     overlayContent.innerHTML = `
-                        <div>
-                            <img src="${imageSrc}" alt="Product Image">
-                            <h5>${name}</h5>
-                            <p>${description}</p>
-                            <p>${price}</p>
-                            <button class="btn btn-primary addToCart" style="background-color:green;">Toevoegen</button>
-                            <a href="index.php" class="btn btn-secondary">Terug</a>
-                        </div>
+                            <div>
+                                <img src="${imageSrc}" alt="Product Image">
+                                <h5>${name}</h5>
+                                <p>${description}</p>
+                                <p>${price}</p>
+                                <a href="index.php" class="btn btn-secondary">Terug</a>
+                            </div>
                     `;
 
                     overlay.style.display = 'block';
@@ -151,11 +152,12 @@
         window.onload = function () {
             const urlParams = new URLSearchParams(window.location.search);
             const submitted = urlParams.get('submitted');
-            
+
             if (submitted === 'true') {
                 displayPopup("Uw afspraak is bevestigd");
             }
         };
     </script>
 </body>
+
 </html>

@@ -34,7 +34,7 @@ $conn = null;
 ?>
 
 <body style="background:#fff;">
-    <input type="button" class="buttonback" value="<- Terug" onclick="window.location.href='admin.php'" />
+    <input type="button" class="buttonbackproduct" value="<- Terug" onclick="window.location.href='admin.php'" />
     <h2 class="editproduct">Producten</h2>
     <div class="tabel2">
         <table>

@@ -37,7 +37,7 @@ $userData = getCurrentUserData($conn);
                         ?>
 
                         <div class="card">
-                            <img src="assets/<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>"
+                            <img src="assets/Images/<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>"
                                 class="img-fluid m-4" style="max-width: 200px; max-height: 200px;">
                             <div class="card-body">
                                 <h5 class="card-title">

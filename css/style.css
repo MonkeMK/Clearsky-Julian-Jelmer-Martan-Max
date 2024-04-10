@@ -246,9 +246,9 @@ tr:hover {
 .tabel {
   position: absolute;
   top: 10%;
-  left: 32%;
+  left: 37%;
   height: 30%;
-  width: 80%;
+  width: 60%;
 }
 
 .invoervelden {
@@ -279,22 +279,25 @@ tr:hover {
 .buttonback {
   position: absolute;
   background-color: transparent;
-  border: none;
-  padding: 0;
+  border: solid #3050a8 3px;
+  padding: 10px;
   margin: 0;
   font-size: inherit;
-  color: black; /* Change color as needed */
+  color: white; /* Change color as needed */
   cursor: pointer;
-  text-decoration: underline; /* Optional: Add underline effect */
-  left: 1.5%;
+  left: 45%;
+  top: 60%;
+  background-color: #3050a8;
+  border-radius: 10px;
+  
 }
 
 .tabel2 {
   position: absolute;
   top: 10%;
-  left: 25%;
+  left: 21%;
   height: 30%;
-  width: 80%;
+  width: 75%;
 }
 
 .editproduct {
@@ -885,7 +888,7 @@ tr:hover {
 .tableuser {
   position: absolute;
   top: 150%;
-  left: 5%;
+  left: -5%;
   width: 90%;
   border-collapse: collapse;
 }
@@ -977,8 +980,24 @@ tr:hover {
 .tabeluser {
   position: absolute;
   top: 10%;
-  left: 23%;
+  left: 12%;
   height: 30%;
   width: 80%;
+}
+
+.buttonbackproduct {
+  position: absolute;
+  background-color: transparent;
+  border: solid #3050a8 3px;
+  padding: 10px;
+  margin: 0;
+  font-size: inherit;
+  color: white; /* Change color as needed */
+  cursor: pointer;
+  left: 3%;
+  top: 20%;
+  background-color: #3050a8;
+  border-radius: 10px;
+  
 }
 
