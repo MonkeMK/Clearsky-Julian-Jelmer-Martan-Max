@@ -12,7 +12,7 @@ $error = ""; // De variabele $error wordt gedeclareerd
 // Functie voor reCAPTCHA
 function recaptcha($POST)
 {
-    $secretKey = '6LdY5YIpAAAAALfCIfLdbxtNxSeZFpqzVlhSrbQs';
+    $secretKey = '6LeMnrYpAAAAAJyhc1H4DnItCeTpbT83-yBzYJcO';
     $captcha = $POST['g-recaptcha-response'];
 
     $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captcha");
@@ -378,3 +378,4 @@ function getCurrentUserData($conn) {
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
 
+?>

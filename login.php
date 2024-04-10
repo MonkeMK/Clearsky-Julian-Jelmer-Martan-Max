@@ -66,7 +66,7 @@
                                 <label class="form-labellogin" for="form2Example28">Wachtwoord</label>
                             </div>
 
-                            <div class="g-recaptcha" data-sitekey="6LdY5YIpAAAAAHdMKJbm3A_QQCN6w_9Qn3oveQnv"></div>
+                            <div class="g-recaptcha" data-sitekey="6LeMnrYpAAAAAHOw_1TMLs5roXViJNvnJkdwJmDQ"></div>
                             <div class="pt-1 mb-4">
                                 <button class="btnlogin btn-info btn-lg btn-block" type="submit"
                                     onclick="return validateForm(event)">Inloggen</button>
