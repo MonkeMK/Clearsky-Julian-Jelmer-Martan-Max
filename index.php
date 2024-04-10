@@ -69,11 +69,13 @@
                         <?php echo $r['price']; ?>
                     </small></p>
             </div>
+            <?php if (isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === 1) { ?>   
             <form action="addToCart.php" method="POST"
                 style="position: absolute; padding:5px; bottom: 0%; left: 80%; transform: translateX(-50%);">
                 <input type="hidden" name="id" value="<?php echo $r['id']; ?>">
                 <button type="submit" class="knopindex btn-primary" style="width: 100%;">Toevoegen</button>
             </form>
+            <?php } ?>
             <div class="overlay">
                 <div class="overlay-content">
                 </div>
